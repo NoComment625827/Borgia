@@ -6,6 +6,11 @@
 <title>The Borgia Affair — Rome, 1492</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 <style>
+/*
+  A few styling choices are deliberately a little old-fashioned.
+  This started as a one-file prototype, so I kept the atmosphere close to the markup
+  instead of making everything "perfectly" modular.
+*/
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
   --gold: #c8a97e; --gold-dim: #8a6a3a; --gold-bright: #e8c990;
@@ -26,7 +31,7 @@ body {
 /* ── HEADER ── */
 header { text-align:center; padding:2.4rem 0 1.4rem; border-bottom:1px solid rgba(200,169,126,0.18); margin-bottom:1.5rem; animation:fadeDown .8s ease both; }
 .hera { font-family:'Cinzel',serif; font-size:10px; letter-spacing:.3em; color:var(--gold-dim); text-transform:uppercase; margin-bottom:.35rem; }
-header h1 { font-family:'Cinzel',serif; font-size:clamp(1.45rem,4vw,2.25rem); font-weight:700; color:var(--gold); letter-spacing:.04em; line-height:1.2; }
+header h1 { font-family:'Cinzel',serif; font-size:capScore(1.45rem,4vw,2.25rem); font-weight:700; color:var(--gold); letter-spacing:.04em; line-height:1.2; }
 header h1 em { color:var(--blood-light); font-style:normal; }
 header .sub { margin-top:.4rem; font-size:14px; color:var(--smoke); font-style:italic; }
  
@@ -158,7 +163,7 @@ header .sub { margin-top:.4rem; font-size:14px; color:var(--smoke); font-style:i
 .end-card.bad { border-color:rgba(122,26,26,0.4); }
 .end-card.bad::before,.end-card.bad::after { background:linear-gradient(90deg,transparent,var(--blood),transparent); }
 .end-sigil { font-size:28px; margin-bottom:.9rem; opacity:.55; }
-.end-title { font-family:'Cinzel',serif; font-size:clamp(1.1rem,3vw,1.7rem); font-weight:600; color:var(--gold); margin-bottom:1.2rem; line-height:1.3; }
+.end-title { font-family:'Cinzel',serif; font-size:capScore(1.1rem,3vw,1.7rem); font-weight:600; color:var(--gold); margin-bottom:1.2rem; line-height:1.3; }
 .end-card.bad .end-title { color:var(--blood-light); }
 .end-body { font-size:16px; line-height:1.85; color:var(--vellum); max-width:580px; margin:0 auto 1.2rem; }
 .end-facts { background:rgba(122,26,26,0.07); border:1px solid rgba(122,26,26,0.18); padding:1rem 1.2rem; margin:0 auto 1.2rem; max-width:580px; text-align:left; }
@@ -277,16 +282,22 @@ header .sub { margin-top:.4rem; font-size:14px; color:var(--smoke); font-style:i
  
 </div><!-- /wrapper -->
 <script>
+/*
+  Game script notes:
+  - This is still a single-file build because it is easier to hand around in class / demos.
+  - Some names are intentionally plain rather than framework-y.
+  - TODO someday: split scene data into borgia-scenes.js, but not today.
+*/
 /* ═══════════════════════════════════════════
    DATA
 ═══════════════════════════════════════════ */
-const POISON_LABELS = new Set(['Cantarella','Cantarella — escalate','Finish It','Final Cantarella']);
+const poisonLabels = new Set(['Cantarella','Cantarella — escalate','Finish It','Final Cantarella']);
  
-const STATE = { authority:70, family:60, suspicion:20, alliances:50,
+const gameState = { authority:70, family:60, suspicion:20, alliances:50,
                 cantarella:4, doseLevel:0, turn:0, log:[], flags:{},
                 pendingNext:-1 };
  
-const STATS_META = [
+const statCards = [
   {key:'authority', label:'Papal Authority', color:'#c8a97e'},
   {key:'family',    label:'Family Loyalty',  color:'#5a8a5a'},
   {key:'suspicion', label:'Suspicion',       color:'#c0392b'},
@@ -294,16 +305,16 @@ const STATS_META = [
 ];
  
 /* ── ADVISOR VOICES ── */
-const ADVISORS = {
+const advisorRoster = {
   cesare:   { glyph:'⚔', name:'Cesare',   title:'Your Son — Captain-General' },
   burchard: { glyph:'📜', name:'Burchard', title:'Papal Secretary — Johannes Burchard' },
   lucrezia: { glyph:'🕯', name:'Lucrezia', title:'Your Daughter — Duchess of Pesaro' },
 };
  
 /* ═══════════════════════════════════════════
-   SCENES  (each choice has `feedback` with advisor quotes + stat context)
+   scenes  (each choice has `feedback` with advisor quotes + stat context)
 ═══════════════════════════════════════════ */
-const SCENES = [
+const scenes = [
   {
     date: 'The Apostolic Palace — October 1492, midnight',
     text: `<p>Rain hisses against Vatican glass. Burchard delivers the news by candlelight: Cardinal Giuliano della Rovere has ridden into Rome beneath a French escort of sixty horse. The man who called you unworthy of the Throne of Peter has returned — armed, legitimised, and hungry.</p>
@@ -593,10 +604,19 @@ const SCENES = [
 /* ═══════════════════════════════════════════
    STAT HELPERS
 ═══════════════════════════════════════════ */
-function clamp(v){ return Math.max(0,Math.min(100,Math.round(v))); }
+function capScore(v){
+  // Keep the UI sane. I like this tiny helper more than repeating Math.min everywhere.
+  return Math.max(0, Math.min(100, Math.round(v)));
+}
  
-function doseColor(p){ return p<20?'#5a8a5a':p<50?'#c8a97e':p<75?'#c07030':'#c0392b'; }
-function doseStatus(p){
+function doseColour(p){
+  // These thresholds are more "game feel" than science. Revisit if balancing gets weird.
+  if (p < 20) return '#5a8a5a';
+  if (p < 50) return '#c8a97e';
+  if (p < 75) return '#c07030';
+  return '#c0392b';
+}
+function readDoseStatus(p){
   if(p===0) return 'None administered';
   if(p<20)  return 'Sub-threshold — no visible effect';
   if(p<50)  return 'Symptomatic — fever, vomiting, hair loss';
@@ -604,25 +624,26 @@ function doseStatus(p){
   return 'Conspicuous — pattern visible to physicians';
 }
  
-function renderStats(){
-  document.getElementById('stats-row').innerHTML = STATS_META.map(s=>{
-    const v=clamp(STATE[s.key]);
-    return `<div class="sc" id="sc-${s.key}">
-      <div class="sc-name">${s.label}</div>
-      <div class="sc-val" style="color:${s.color}">${v}</div>
-      <div class="sc-bar"><div class="sc-fill" style="width:${v}%;background:${s.color}"></div></div>
+function paintStats(){
+  // Simple repaint instead of clever diffing. There are only four cards, so this is fine.
+  document.getElementById('stats-row').innerHTML = statCards.map(card=>{
+    const v = capScore(gameState[card.key]);
+    return `<div class="sc" id="sc-${card.key}">
+      <div class="sc-name">${card.label}</div>
+      <div class="sc-val" style="color:${card.color}">${v}</div>
+      <div class="sc-bar"><div class="sc-fill" style="width:${v}%;background:${card.color}"></div></div>
     </div>`;
   }).join('');
   document.getElementById('cant-dots').innerHTML=Array.from({length:5},(_,i)=>
-    `<div class="cdot ${i<STATE.cantarella?'on':''}"></div>`).join('');
-  const p=Math.min(100,STATE.doseLevel);
+    `<div class="cdot ${i<gameState.cantarella?'on':''}"></div>`).join('');
+  const p=Math.min(100,gameState.doseLevel);
   document.getElementById('dose-fill').style.width=p+'%';
-  document.getElementById('dose-fill').style.background=doseColor(p);
-  document.getElementById('dose-status').textContent=doseStatus(p);
+  document.getElementById('dose-fill').style.background=doseColour(p);
+  document.getElementById('dose-status').textContent=readDoseStatus(p);
 }
  
-function flashStats(deltas){
-  STATS_META.forEach(s=>{
+function flashChangedStats(deltas){
+  statCards.forEach(s=>{
     const el=document.getElementById('sc-'+s.key);
     if(!el||!deltas[s.key]) return;
     const cls=deltas[s.key]>0?'flash-up':'flash-down';
@@ -634,32 +655,34 @@ function flashStats(deltas){
 /* ═══════════════════════════════════════════
    LOG
 ═══════════════════════════════════════════ */
-function addLog(e){
-  STATE.log.unshift(e);
-  if(STATE.log.length>5) STATE.log.pop();
-  document.getElementById('log-list').innerHTML=STATE.log
+function addLedgerNote(e){
+  gameState.log.unshift(e);
+  if(gameState.log.length>5) gameState.log.pop();
+  document.getElementById('log-list').innerHTML=gameState.log
     .map(l=>`<div class="log-entry">${l}</div>`).join('');
 }
  
 /* ═══════════════════════════════════════════
    APPLY DELTAS
 ═══════════════════════════════════════════ */
-function applyDeltas(d){
-  if(d.authority)  STATE.authority  = clamp(STATE.authority  + d.authority);
-  if(d.family)     STATE.family     = clamp(STATE.family     + d.family);
-  if(d.suspicion)  STATE.suspicion  = clamp(STATE.suspicion  + d.suspicion);
-  if(d.alliances)  STATE.alliances  = clamp(STATE.alliances  + d.alliances);
-  if(d.cantarella!=null) STATE.cantarella=Math.max(0,STATE.cantarella+d.cantarella);
-  if(d.flag)       STATE.flags[d.flag]=true;
-  renderStats();
+function applyStatBump(d){
+  // I kept the explicit stat lines here; it is easier to tweak individual effects while testing.
+  if(d.authority)  gameState.authority  = capScore(gameState.authority  + d.authority);
+  if(d.family)     gameState.family     = capScore(gameState.family     + d.family);
+  if(d.suspicion)  gameState.suspicion  = capScore(gameState.suspicion  + d.suspicion);
+  if(d.alliances)  gameState.alliances  = capScore(gameState.alliances  + d.alliances);
+  if(d.cantarella!=null) gameState.cantarella=Math.max(0,gameState.cantarella+d.cantarella);
+  if(d.flag)       gameState.flags[d.flag]=true;
+  paintStats();
 }
  
 /* ═══════════════════════════════════════════
    FEEDBACK PANEL
 ═══════════════════════════════════════════ */
-function buildDeltaChips(deltas){
+function buildChangeChips(deltas){
+  // Tiny summary badges under the selected choice. Not fancy, but it reads well.
   const statNames={authority:'Authority',family:'Family',suspicion:'Suspicion',alliances:'Alliances'};
-  return STATS_META.map(s=>{
+  return statCards.map(s=>{
     const val=deltas[s.key];
     if(!val) return '';
     const sign=val>0?'+':'';
@@ -673,22 +696,23 @@ function buildDeltaChips(deltas){
   }).filter(Boolean).join('');
 }
  
-function showFeedback(choice, nextSceneIdx){
+function showAdvisorNotes(choice, nextSceneIdx){
   const fb = choice.feedback;
+  // This panel is the game's little Greek chorus. It gives the choice some consequence.
   const panel = document.getElementById('feedback-panel');
  
-  // Recap
+  // Recap - I prefer spelling the decision back to the player before the advisors talk.
   document.getElementById('fb-recap').innerHTML =
     `<strong>Your Decision</strong>${fb.recap}`;
  
-  // Stat deltas
+  // Stat deltas. Could be precomputed, but leaving it here makes scene editing less annoying.
   document.getElementById('fb-deltas').innerHTML =
-    buildDeltaChips(choice.deltas) ||
+    buildChangeChips(choice.deltas) ||
     '<span style="font-size:12px;color:var(--smoke);font-style:italic">No immediate stat change.</span>';
  
   // Advisor quotes
   document.getElementById('fb-advisors').innerHTML = fb.advisors.map(a=>{
-    const adv=ADVISORS[a.id];
+    const adv=advisorRoster[a.id];
     return `<div class="advisor-row ${a.id}">
       <div class="advisor-avatar">
         <div class="advisor-glyph">${adv.glyph}</div>
@@ -701,24 +725,27 @@ function showFeedback(choice, nextSceneIdx){
     </div>`;
   }).join('');
  
-  // Wire continue button
-  STATE.pendingNext = nextSceneIdx;
+  // Wire continue button. Old-school assignment is good enough here.
+  gameState.pendingNext = nextSceneIdx;
   const btn = document.getElementById('continue-btn');
-  btn.onclick = () => advancePending();
+  btn.onclick = () => continueAfterAdvice();
  
   panel.classList.add('on');
   panel.scrollIntoView({behavior:'smooth', block:'nearest'});
 }
  
-function hideFeedback(){
+function hideAdvisorNotes(){
   document.getElementById('feedback-panel').classList.remove('on');
 }
  
 /* ═══════════════════════════════════════════
    ENDINGS
 ═══════════════════════════════════════════ */
-function checkEnding(){
-  const s=STATE;
+function chooseEnding(){
+  const s = gameState;
+
+  // Order matters here. The ugly failure states should beat the heroic ending checks.
+  // I learned that the hard way while testing poison-heavy routes.
   // LOSS: suspicion threshold lowered to 80
   if(s.suspicion>=80)
     return {bad:true, title:'The Inquisition Comes',
@@ -760,10 +787,10 @@ function checkEnding(){
     facts:'The cantarella — <em>brittle, electromagnetic, steel-grey, odourless, tasteless</em>, produced from charcoal-reduced arsenic oxide of heated silver ore, mined in <em>China, Chile, Mexico, Belgium, Namibia</em> and <em>the Philippines</em> — sits unused. A weapon held in reserve for a battle that was never quite won.'};
 }
  
-function showEnding(){
+function showFinale(){
   document.getElementById('main-game').style.display='none';
-  const end=checkEnding();
-  const doseUsed=4-STATE.cantarella;
+  const end=chooseEnding();
+  const doseUsed=4-gameState.cantarella;
   const el=document.getElementById('ending-screen');
   el.innerHTML=`<div class="end-card ${end.bad?'bad':''}">
     <div class="end-sigil">${end.bad?'✝':'☩'}</div>
@@ -778,9 +805,9 @@ function showEnding(){
       <p>${end.facts}</p>
     </div>
     <div class="end-stats">
-      <div class="es"><span class="es-v">${STATE.authority}</span><span class="es-l">Authority</span></div>
-      <div class="es"><span class="es-v">${STATE.suspicion}</span><span class="es-l">Suspicion</span></div>
-      <div class="es"><span class="es-v">${STATE.alliances}</span><span class="es-l">Alliances</span></div>
+      <div class="es"><span class="es-v">${gameState.authority}</span><span class="es-l">Authority</span></div>
+      <div class="es"><span class="es-v">${gameState.suspicion}</span><span class="es-l">Suspicion</span></div>
+      <div class="es"><span class="es-v">${gameState.alliances}</span><span class="es-l">Alliances</span></div>
       <div class="es"><span class="es-v">${doseUsed}</span><span class="es-l">Doses Used</span></div>
     </div>
     <button class="restart-btn" onclick="restartGame()">Begin Again</button>
@@ -792,9 +819,10 @@ function showEnding(){
 /* ═══════════════════════════════════════════
    SCENE RENDER
 ═══════════════════════════════════════════ */
-function renderScene(idx){
-  hideFeedback();
-  const scene=SCENES[idx];
+function drawScene(idx){
+  hideAdvisorNotes();
+  // New scene, clean slate. The previous advisory panel has done its job.
+  const scene=scenes[idx];
   document.getElementById('scene-date').textContent=scene.date;
   const textEl=document.getElementById('scene-text');
   textEl.innerHTML=scene.text;
@@ -802,11 +830,11 @@ function renderScene(idx){
   void textEl.offsetWidth;
   textEl.classList.add('scene-in');
  
-  const avail=scene.choices.filter(c=>!c.isPoison||STATE.cantarella>0);
+  const avail=scene.choices.filter(c=>!c.isPoison||gameState.cantarella>0);
   document.getElementById('choices-list').innerHTML=avail.map((c,i)=>{
     const ip=c.isPoison;
     const noteHtml=c.note?`<span class="dose-note${ip?' warn':''}">${c.note}</span>`:'';
-    return `<button class="choice-btn ${ip?'poison-btn':''}" id="cb-${i}" onclick="makeChoice(${idx},${i})">
+    return `<button class="choice-btn ${ip?'poison-btn':''}" id="cb-${i}" onclick="pickChoice(${idx},${i})">
       <span class="ch-tag">${c.label}</span>${c.text}${noteHtml}
     </button>`;
   }).join('');
@@ -817,12 +845,13 @@ function renderScene(idx){
 /* ═══════════════════════════════════════════
    CHOICE HANDLER
 ═══════════════════════════════════════════ */
-function makeChoice(sceneIdx, choiceIdx){
-  const scene=SCENES[sceneIdx];
-  const avail=scene.choices.filter(c=>!c.isPoison||STATE.cantarella>0);
+function pickChoice(sceneIdx, choiceIdx){
+  const scene = scenes[sceneIdx];
+  // Map from the visible buttons back to the original choice. Poison choices can disappear.
+  const avail=scene.choices.filter(c=>!c.isPoison||gameState.cantarella>0);
   const choice=avail[choiceIdx];
  
-  // Dim all buttons, highlight chosen
+  // Dim all buttons, then mark the one the player actually picked.
   avail.forEach((_,i)=>{
     const btn=document.getElementById('cb-'+i);
     if(!btn) return;
@@ -833,30 +862,30 @@ function makeChoice(sceneIdx, choiceIdx){
     }
   });
  
-  // Apply stats
-  if(choice.doseAdd) STATE.doseLevel=Math.min(100,STATE.doseLevel+choice.doseAdd);
+  // Apply stats. Keeping this block a little verbose helped while tuning the routes.
+  if(choice.doseAdd) gameState.doseLevel=Math.min(100,gameState.doseLevel+choice.doseAdd);
   const prevStats={};
-  STATS_META.forEach(s=>prevStats[s.key]=STATE[s.key]);
-  applyDeltas(choice.deltas);
-  flashStats(choice.deltas);
-  addLog(choice.log);
+  statCards.forEach(s=>prevStats[s.key]=gameState[s.key]);
+  applyStatBump(choice.deltas);
+  flashChangedStats(choice.deltas);
+  addLedgerNote(choice.log);
  
-  STATE.turn++;
+  gameState.turn++;
   const next=sceneIdx+1;
-  const isEnd=(next>=SCENES.length||STATE.suspicion>=90);
+  const isEnd=(next>=scenes.length||gameState.suspicion>=90);
  
   // Show feedback, then advance on Continue
-  STATE.pendingNext = isEnd ? -1 : next;
-  showFeedback(choice, isEnd ? -1 : next);
+  gameState.pendingNext = isEnd ? -1 : next;
+  showAdvisorNotes(choice, isEnd ? -1 : next);
 }
  
-function advancePending(){
-  hideFeedback();
-  const next=STATE.pendingNext;
+function continueAfterAdvice(){
+  hideAdvisorNotes();
+  const next=gameState.pendingNext;
   if(next===-1){
-    setTimeout(showEnding,200);
+    setTimeout(showFinale,200);
   } else {
-    setTimeout(()=>renderScene(next),200);
+    setTimeout(()=>drawScene(next),200);
   }
 }
  
@@ -864,21 +893,22 @@ function advancePending(){
    RESTART
 ═══════════════════════════════════════════ */
 function restartGame(){
-  Object.assign(STATE,{authority:70,family:60,suspicion:20,alliances:50,
+  // Full reset. No localStorage yet; a fresh papacy every time.
+  Object.assign(gameState,{authority:70,family:60,suspicion:20,alliances:50,
     cantarella:4,doseLevel:0,turn:0,log:[],flags:{},pendingNext:-1});
   document.getElementById('ending-screen').classList.remove('on');
   document.getElementById('ending-screen').innerHTML='';
   document.getElementById('main-game').style.display='';
   document.getElementById('log-list').innerHTML='';
-  hideFeedback();
-  renderStats();
-  renderScene(0);
+  hideAdvisorNotes();
+  paintStats();
+  drawScene(0);
   window.scrollTo({top:0,behavior:'smooth'});
 }
  
 /* ── INIT ── */
-renderStats();
-renderScene(0);
+paintStats();
+drawScene(0);
 </script>
 </body>
 </html>
