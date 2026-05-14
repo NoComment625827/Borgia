@@ -3,1735 +3,882 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DebateForge — Master the Art of Persuasion</title>
-<meta name="description" content="Learn debate, practice against AI, and dissect any topic with DebateForge.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>The Borgia Affair — Rome, 1492</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#0d0d0f;--bg2:#141417;--bg3:#1c1c21;--bg4:#242429;--bg5:#2c2c32;
-  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);--border3:rgba(255,255,255,0.22);
-  --text:#f0ede8;--text2:#9a9791;--text3:#5c5a58;--text4:#3a3836;
-  --gold:#c8a96e;--gold2:#e8c98a;--gold3:#a8893e;--gold-dim:rgba(200,169,110,0.13);--gold-dim2:rgba(200,169,110,0.22);
-  --red:#d64e3b;--red2:#e8705f;--red-dim:rgba(214,78,59,0.11);
-  --blue:#4a8fd4;--blue2:#6aaaf0;--blue-dim:rgba(74,143,212,0.11);
-  --green:#4aab6d;--green2:#6acb8d;--green-dim:rgba(74,171,109,0.11);
-  --purple:#9b72d4;--purple-dim:rgba(155,114,212,0.11);
-  --amber:#d4943a;--amber-dim:rgba(212,148,58,0.11);
-  --r:8px;--r2:14px;--r3:20px;
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --gold: #c8a97e; --gold-dim: #8a6a3a; --gold-bright: #e8c990;
+  --blood: #7a1a1a; --blood-light: #c0392b;
+  --ink: #0d0a06; --vellum: #e8dab8; --smoke: #6b6045;
+  --grey-as: #8aacb0;
+  --up: #5a9a6a; --down: #b03030; --neutral: #7a7055;
 }
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6;font-size:15px}
-.screen{display:none;min-height:100vh}
-.screen.active{display:flex;flex-direction:column}
-::-webkit-scrollbar{width:4px;height:4px}
-::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:var(--bg5);border-radius:2px}
+html, body { min-height: 100%; background: var(--ink); color: var(--vellum); font-family: 'Crimson Text', Georgia, serif; overflow-x: hidden; }
+body {
+  background-image:
+    radial-gradient(ellipse at 15% 8%,  rgba(80,40,10,0.45) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 92%, rgba(60,10,10,0.38) 0%, transparent 55%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+}
+#wrapper { max-width: 820px; margin: 0 auto; padding: 0 1rem 5rem; }
  
-/* ══════════ HOME ══════════ */
-#home{align-items:center;justify-content:center;padding:2rem;position:relative;overflow:hidden;min-height:100vh}
-#home::before{content:'';position:absolute;top:-20%;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(200,169,110,0.055) 0%,transparent 65%);pointer-events:none}
-#home::after{content:'';position:absolute;bottom:-10%;right:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(74,143,212,0.04) 0%,transparent 70%);pointer-events:none}
-.home-inner{max-width:820px;width:100%;text-align:center;position:relative;z-index:1}
-.logo-mark{display:inline-flex;align-items:center;gap:12px;margin-bottom:2.5rem}
-.logo-icon{width:46px;height:46px;border:1.5px solid var(--gold);border-radius:11px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:24px;color:var(--gold)}
-.logo-text{font-family:'Playfair Display',serif;font-size:24px;color:var(--text);letter-spacing:-0.02em}
-.logo-text span{color:var(--gold)}
-.home-eyebrow{font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold3);margin-bottom:1rem;display:flex;align-items:center;justify-content:center;gap:10px}
-.home-eyebrow::before,.home-eyebrow::after{content:'';flex:1;max-width:60px;height:1px;background:var(--border2)}
-.home-headline{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,5.5vw,4.4rem);font-weight:900;line-height:1.08;letter-spacing:-0.035em;margin-bottom:1.4rem}
-.home-headline em{font-style:italic;color:var(--gold)}
-.home-sub{font-size:1.05rem;color:var(--text2);max-width:500px;margin:0 auto 3rem;font-weight:300;line-height:1.7}
-.mode-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:2.5rem}
-@media(max-width:660px){.mode-grid{grid-template-columns:1fr}}
-.mode-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:1.8rem 1.5rem;cursor:pointer;transition:all 0.22s ease;text-align:left;position:relative;overflow:hidden}
-.mode-card::after{content:'';position:absolute;inset:0;opacity:0;transition:opacity 0.22s;border-radius:inherit}
-.mode-card.gold::after{background:var(--gold-dim)}
-.mode-card.red::after{background:var(--red-dim)}
-.mode-card.blue::after{background:var(--blue-dim)}
-.mode-card:hover{border-color:var(--border2);transform:translateY(-3px)}
-.mode-card:hover::after{opacity:1}
-.mode-number{font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--text3);margin-bottom:1rem;letter-spacing:0.06em}
-.mode-icon{font-size:1.9rem;margin-bottom:0.9rem;display:block}
-.mode-tag{font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:0.5rem}
-.mode-card.gold .mode-tag{color:var(--gold)}
-.mode-card.red .mode-tag{color:var(--red)}
-.mode-card.blue .mode-tag{color:var(--blue)}
-.mode-title{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;margin-bottom:0.6rem;line-height:1.2}
-.mode-desc{font-size:0.83rem;color:var(--text2);line-height:1.55}
-.mode-arrow{position:absolute;bottom:1.4rem;right:1.4rem;color:var(--text3);font-size:1.1rem;transition:all 0.2s}
-.mode-card:hover .mode-arrow{color:var(--text2);transform:translate(2px,-2px)}
-.home-footer{font-size:0.75rem;color:var(--text3);display:flex;align-items:center;justify-content:center;gap:8px}
-.home-footer::before{content:'✦';color:var(--text4)}
-.home-footer::after{content:'✦';color:var(--text4)}
+/* ── HEADER ── */
+header { text-align:center; padding:2.4rem 0 1.4rem; border-bottom:1px solid rgba(200,169,126,0.18); margin-bottom:1.5rem; animation:fadeDown .8s ease both; }
+.hera { font-family:'Cinzel',serif; font-size:10px; letter-spacing:.3em; color:var(--gold-dim); text-transform:uppercase; margin-bottom:.35rem; }
+header h1 { font-family:'Cinzel',serif; font-size:clamp(1.45rem,4vw,2.25rem); font-weight:700; color:var(--gold); letter-spacing:.04em; line-height:1.2; }
+header h1 em { color:var(--blood-light); font-style:normal; }
+header .sub { margin-top:.4rem; font-size:14px; color:var(--smoke); font-style:italic; }
  
-/* ══════════ APP BAR ══════════ */
-.app-bar{display:flex;align-items:center;gap:12px;padding:0.9rem 1.5rem;border-bottom:1px solid var(--border);background:rgba(13,13,15,0.95);backdrop-filter:blur(12px);flex-shrink:0;position:sticky;top:0;z-index:50}
-.app-bar-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700}
-.app-bar-badge{font-size:0.7rem;background:var(--gold-dim);color:var(--gold);border:1px solid rgba(200,169,110,0.25);padding:2px 10px;border-radius:20px;letter-spacing:0.06em}
-.app-bar-right{margin-left:auto;display:flex;align-items:center;gap:10px}
-.btn-back{background:var(--bg3);border:1px solid var(--border);color:var(--text2);padding:6px 14px;border-radius:var(--r);font-size:0.8rem;cursor:pointer;transition:all 0.18s;font-family:'DM Sans',sans-serif}
-.btn-back:hover{border-color:var(--border2);color:var(--text)}
+/* ── STATS ── */
+#stats-row { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-bottom:10px; }
+.sc { background:rgba(255,255,255,0.03); border:1px solid rgba(200,169,126,0.13); border-top:2px solid var(--gold-dim); padding:9px 11px; transition:border-top-color .4s; }
+.sc.flash-up   { border-top-color:var(--up); }
+.sc.flash-down { border-top-color:var(--down); }
+.sc-name { font-family:'Cinzel',serif; font-size:8px; letter-spacing:.14em; color:var(--gold-dim); text-transform:uppercase; margin-bottom:5px; }
+.sc-val  { font-family:'Cinzel',serif; font-size:21px; font-weight:600; line-height:1; margin-bottom:6px; }
+.sc-bar  { height:2px; background:rgba(255,255,255,0.05); border-radius:1px; overflow:hidden; }
+.sc-fill { height:100%; border-radius:1px; transition:width .6s cubic-bezier(.4,0,.2,1); }
  
-/* ══════════ BUTTONS ══════════ */
-.btn{padding:10px 22px;border-radius:var(--r);font-size:0.88rem;font-weight:500;cursor:pointer;transition:all 0.18s;border:none;font-family:'DM Sans',sans-serif;display:inline-flex;align-items:center;gap:6px}
-.btn-primary{background:var(--gold);color:#0d0d0f}
-.btn-primary:hover{background:var(--gold2)}
-.btn-ghost{background:transparent;border:1px solid var(--border2);color:var(--text)}
-.btn-ghost:hover{background:var(--bg3)}
-.btn-sm{padding:7px 14px;font-size:0.8rem}
-.btn:disabled{opacity:0.35;cursor:not-allowed}
-input,textarea,select{background:var(--bg3);border:1px solid var(--border);color:var(--text);border-radius:var(--r);padding:10px 14px;font-family:'DM Sans',sans-serif;font-size:0.88rem;transition:border 0.18s;width:100%}
-input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold)}
-textarea{resize:vertical}
-label{display:block;font-size:0.74rem;color:var(--text2);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.09em}
-.form-row{margin-bottom:1.2rem}
-.chip{display:inline-flex;align-items:center;gap:5px;background:var(--bg3);border:1px solid var(--border);border-radius:20px;padding:4px 12px;font-size:0.78rem;color:var(--text2);cursor:pointer;transition:all 0.15s}
-.chip:hover{border-color:var(--border2);color:var(--text)}
-.chip.active{background:var(--gold-dim);border-color:rgba(200,169,110,0.35);color:var(--gold)}
+/* ── CANTARELLA PANEL ── */
+#cant-panel { background:rgba(100,20,20,0.10); border:1px solid rgba(122,26,26,0.28); border-left:3px solid var(--blood); padding:13px 16px; margin-bottom:10px; }
+.cant-top { display:flex; align-items:baseline; gap:12px; margin-bottom:9px; flex-wrap:wrap; }
+.cant-name { font-family:'Cinzel',serif; font-size:11px; letter-spacing:.18em; color:var(--blood-light); text-transform:uppercase; }
+.cant-aka  { font-size:13px; color:var(--smoke); font-style:italic; }
+.cant-dots { display:flex; gap:5px; margin-left:auto; align-items:center; }
+.cdot { width:11px; height:11px; border-radius:50%; border:1px solid rgba(192,57,43,0.5); transition:background .3s,box-shadow .3s; }
+.cdot.on { background:var(--blood-light); box-shadow:0 0 7px rgba(192,57,43,0.55); }
+.cant-facts { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; }
+.cf { background:rgba(255,255,255,0.03); border:1px solid rgba(122,26,26,0.16); padding:7px 9px; }
+.cf-label { font-family:'Cinzel',serif; font-size:8px; letter-spacing:.12em; color:var(--blood-light); text-transform:uppercase; margin-bottom:3px; opacity:.85; }
+.cf-val { font-size:12.5px; color:var(--vellum); line-height:1.5; }
+.cf-val em { color:var(--grey-as); font-style:normal; font-weight:600; }
  
-/* ══════════ LEARNING SCREEN ══════════ */
-#learn{}
-.learn-layout{display:grid;grid-template-columns:300px 1fr;flex:1;height:calc(100vh - 57px);overflow:hidden}
-@media(max-width:760px){.learn-layout{grid-template-columns:1fr;height:auto}}
-.learn-sidebar{border-right:1px solid var(--border);overflow-y:auto;background:var(--bg2);display:flex;flex-direction:column}
-.sidebar-search{padding:1rem;border-bottom:1px solid var(--border)}
-.sidebar-search input{background:var(--bg3);border-color:var(--border);font-size:0.82rem}
-.sidebar-progress-banner{padding:1rem 1.2rem;border-bottom:1px solid var(--border);background:var(--gold-dim)}
-.spb-label{font-size:0.7rem;color:var(--gold3);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
-.spb-bar{height:5px;background:rgba(200,169,110,0.2);border-radius:3px;overflow:hidden;margin-bottom:5px}
-.spb-fill{height:100%;background:var(--gold);border-radius:3px;transition:width 0.5s ease}
-.spb-count{font-size:0.75rem;color:var(--gold);font-family:'DM Mono',monospace}
-.sidebar-unit{padding-bottom:0.5rem}
-.unit-header{padding:0.7rem 1.2rem;display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none}
-.unit-header:hover{background:var(--bg3)}
-.unit-number{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--text3)}
-.unit-name{font-size:0.82rem;font-weight:500;flex:1}
-.unit-chevron{font-size:0.65rem;color:var(--text3);transition:transform 0.2s}
-.unit-chevron.open{transform:rotate(90deg)}
-.unit-lessons{padding:0 0.5rem 0.5rem}
-.lesson-item{display:flex;align-items:center;gap:9px;padding:7px 10px;border-radius:var(--r);cursor:pointer;transition:background 0.15s;font-size:0.83rem;border:1px solid transparent;margin-bottom:1px}
-.lesson-item:hover{background:var(--bg3)}
-.lesson-item.active{background:var(--gold-dim);border-color:rgba(200,169,110,0.2);color:var(--gold2)}
-.lesson-item.locked{opacity:0.4;cursor:not-allowed}
-.lesson-status{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--border2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.65rem}
-.lesson-status.done{background:var(--green);border-color:var(--green);color:white}
-.lesson-status.active{background:var(--gold-dim);border-color:var(--gold);color:var(--gold)}
-.lesson-type-tag{margin-left:auto;font-size:0.6rem;padding:1px 6px;border-radius:4px;font-family:'DM Mono',monospace}
-.tag-lesson{background:var(--blue-dim);color:var(--blue)}
-.tag-exercise{background:var(--purple-dim);color:var(--purple)}
-.tag-quiz{background:var(--amber-dim);color:var(--amber)}
-.tag-practice{background:var(--red-dim);color:var(--red2)}
+/* ── DOSE METER ── */
+#dose-meter { background:rgba(60,40,0,0.15); border:1px solid rgba(200,169,126,0.15); border-left:3px solid var(--gold-dim); padding:10px 14px; margin-bottom:10px; }
+.dm-top { display:flex; align-items:center; gap:10px; margin-bottom:6px; flex-wrap:wrap; }
+.dm-label  { font-family:'Cinzel',serif; font-size:8px; letter-spacing:.14em; color:var(--gold-dim); text-transform:uppercase; }
+.dm-status { font-size:12px; color:var(--gold); font-style:italic; margin-left:auto; }
+.dm-track  { height:7px; background:rgba(255,255,255,0.06); border-radius:3px; overflow:hidden; }
+.dm-fill   { height:100%; border-radius:3px; transition:width .7s cubic-bezier(.4,0,.2,1),background .7s; }
+.dm-ticks  { display:flex; justify-content:space-between; margin-top:4px; }
+.dm-tick   { font-size:9px; color:var(--smoke); font-family:'Cinzel',serif; font-style:italic; }
  
-/* LEARN MAIN */
-.learn-main-wrap{display:flex;flex-direction:column;flex:1;overflow:hidden}
-.learn-main{flex:1;overflow-y:auto;padding:2rem 2.5rem}
-@media(max-width:900px){.learn-main{padding:1.5rem}}
+/* ── SCENE ── */
+#scene-card { background:rgba(255,255,255,0.025); border:1px solid rgba(200,169,126,0.17); border-bottom:none; padding:1.6rem 1.9rem; position:relative; }
+#scene-card::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,var(--gold-dim),transparent); }
+.scene-date { font-family:'Cinzel',serif; font-size:9.5px; letter-spacing:.2em; color:var(--gold-dim); text-transform:uppercase; margin-bottom:1.1rem; display:flex; align-items:center; gap:10px; }
+.scene-date::after { content:''; flex:1; height:1px; background:linear-gradient(90deg,rgba(200,169,126,.22),transparent); }
+#scene-text { font-size:16.5px; line-height:1.82; color:var(--vellum); }
+#scene-text p { margin-bottom:1em; }
+#scene-text p:last-child { margin-bottom:0; }
+#scene-text em     { color:var(--gold); font-style:italic; }
+#scene-text strong { color:var(--grey-as); font-weight:600; }
  
-/* Content types */
-.lesson-hero{margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
-.lesson-eyebrow{font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold3);margin-bottom:0.7rem;display:flex;align-items:center;gap:8px}
-.lesson-title-big{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;line-height:1.15;margin-bottom:0.8rem}
-.lesson-lead{font-size:1rem;color:var(--text2);line-height:1.75;max-width:640px}
-.meta-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:1rem}
-.meta-pill{background:var(--bg3);border:1px solid var(--border);border-radius:20px;padding:3px 12px;font-size:0.74rem;color:var(--text2);display:inline-flex;align-items:center;gap:5px}
+/* ── CHOICES ── */
+#choices-section { border:1px solid rgba(200,169,126,0.17); border-top:none; background:rgba(0,0,0,0.22); padding:1rem 1.3rem; display:flex; flex-direction:column; gap:8px; }
+.ch-header { font-family:'Cinzel',serif; font-size:8px; letter-spacing:.2em; color:var(--smoke); text-transform:uppercase; margin-bottom:2px; }
+.choice-btn { background:rgba(255,255,255,0.02); border:1px solid rgba(200,169,126,0.13); border-left:3px solid rgba(200,169,126,0.18); padding:11px 14px; text-align:left; cursor:pointer; color:var(--vellum); font-family:'Crimson Text',Georgia,serif; font-size:15px; line-height:1.6; transition:background .17s,border-color .17s,transform .1s; width:100%; }
+.choice-btn:hover { background:rgba(200,169,126,0.07); border-left-color:var(--gold); border-color:rgba(200,169,126,0.3); transform:translateX(2px); }
+.choice-btn:active { transform:translateX(1px) scale(.997); }
+.choice-btn.poison-btn { border-left-color:rgba(122,26,26,0.45); }
+.choice-btn.poison-btn:hover { background:rgba(122,26,26,0.09); border-left-color:var(--blood-light); }
+.choice-btn:disabled { opacity:.38; cursor:default; transform:none; }
+.choice-btn.chosen { border-left-color:var(--gold-bright); background:rgba(200,169,126,0.1); }
+.choice-btn.chosen.poison-chosen { border-left-color:var(--blood-light); background:rgba(122,26,26,0.13); }
+.ch-tag { font-family:'Cinzel',serif; font-size:8.5px; letter-spacing:.14em; text-transform:uppercase; display:block; margin-bottom:3px; color:var(--gold-dim); }
+.poison-btn .ch-tag { color:var(--blood-light); }
+.dose-note { font-size:12px; font-style:italic; color:var(--smoke); margin-top:5px; display:block; padding-top:5px; border-top:1px solid rgba(122,26,26,0.14); }
+.dose-note.warn { color:#c08030; }
  
-/* Lesson body */
-.lesson-body h2{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;margin:2rem 0 0.8rem;line-height:1.2}
-.lesson-body h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin:1.5rem 0 0.6rem;color:var(--text)}
-.lesson-body p{color:var(--text2);margin-bottom:1rem;line-height:1.75;font-size:0.93rem}
-.lesson-body ul,.lesson-body ol{padding-left:1.4rem;color:var(--text2);font-size:0.9rem;margin-bottom:1rem}
-.lesson-body li{margin-bottom:0.5rem;line-height:1.65}
-.lesson-body strong{color:var(--text);font-weight:500}
+/* ── ADVISOR FEEDBACK PANEL ── */
+#feedback-panel { display:none; border:1px solid rgba(200,169,126,0.22); border-top:none; background:rgba(8,6,2,0.55); animation:fadeIn .35s ease both; }
+#feedback-panel.on { display:block; }
  
-.callout{border-radius:var(--r2);padding:1.1rem 1.3rem;margin:1.2rem 0;font-size:0.88rem;line-height:1.65}
-.callout-example{background:var(--bg3);border-left:3px solid var(--gold);border-radius:0 var(--r) var(--r) 0}
-.callout-example .callout-label{color:var(--gold);font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;font-family:'DM Mono',monospace}
-.callout-example p{color:var(--text2);margin:0;font-style:italic}
-.callout-warning{background:var(--red-dim);border:1px solid rgba(214,78,59,0.2)}
-.callout-warning .callout-label{color:var(--red2)}
-.callout-tip{background:var(--blue-dim);border:1px solid rgba(74,143,212,0.2)}
-.callout-tip .callout-label{color:var(--blue2)}
-.callout-insight{background:var(--purple-dim);border:1px solid rgba(155,114,212,0.2)}
-.callout-insight .callout-label{color:var(--purple)}
+.fb-chosen-recap { padding:10px 1.3rem; background:rgba(200,169,126,0.04); border-bottom:1px solid rgba(200,169,126,0.1); font-size:13px; color:var(--smoke); font-style:italic; }
+.fb-chosen-recap strong { color:var(--gold); font-style:normal; font-family:'Cinzel',serif; font-size:11px; letter-spacing:.1em; text-transform:uppercase; display:block; margin-bottom:3px; }
  
-/* Framework cards */
-.framework-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:1.2rem 0}
-.framework-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r2);padding:1rem 1.1rem}
-.fc-letter{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--gold);line-height:1;margin-bottom:0.4rem}
-.fc-name{font-size:0.85rem;font-weight:500;margin-bottom:0.3rem}
-.fc-desc{font-size:0.78rem;color:var(--text2);line-height:1.5}
+/* Stat deltas */
+.fb-deltas { display:flex; flex-wrap:wrap; gap:6px; padding:10px 1.3rem; border-bottom:1px solid rgba(200,169,126,0.08); }
+.delta-chip { display:flex; align-items:center; gap:5px; background:rgba(255,255,255,0.03); border:1px solid rgba(200,169,126,0.1); padding:5px 10px; font-family:'Cinzel',serif; font-size:11px; letter-spacing:.06em; }
+.delta-chip .stat-name-d { color:var(--smoke); }
+.delta-chip .delta-val { font-weight:600; font-size:13px; }
+.delta-chip .delta-val.up   { color:var(--up); }
+.delta-chip .delta-val.down { color:var(--down); }
+.delta-chip .delta-arr { font-size:14px; }
+.delta-chip .delta-arr.up   { color:var(--up); }
+.delta-chip .delta-arr.down { color:var(--down); }
  
-/* Comparison table */
-.compare-table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:0.85rem}
-.compare-table th{background:var(--bg3);padding:10px 14px;text-align:left;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--text2);border-bottom:1px solid var(--border)}
-.compare-table td{padding:9px 14px;border-bottom:1px solid var(--border);color:var(--text2);vertical-align:top;line-height:1.5}
-.compare-table tr:hover td{background:var(--bg3)}
-.compare-table .highlight{color:var(--gold);font-weight:500}
+/* Advisors */
+.fb-advisors { display:flex; flex-direction:column; gap:0; }
+.advisor-row { display:flex; gap:0; border-bottom:1px solid rgba(200,169,126,0.07); }
+.advisor-row:last-child { border-bottom:none; }
+.advisor-avatar { width:44px; min-width:44px; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:12px 0; border-right:1px solid rgba(200,169,126,0.08); background:rgba(0,0,0,0.2); gap:4px; }
+.advisor-glyph { font-size:18px; line-height:1; }
+.advisor-name-short { font-family:'Cinzel',serif; font-size:7px; letter-spacing:.12em; color:var(--gold-dim); text-transform:uppercase; text-align:center; }
+.advisor-bubble { padding:12px 16px; flex:1; }
+.advisor-title { font-family:'Cinzel',serif; font-size:9px; letter-spacing:.14em; color:var(--gold-dim); text-transform:uppercase; margin-bottom:5px; }
+.advisor-quote { font-size:15px; line-height:1.7; color:var(--vellum); font-style:italic; }
+.advisor-quote em  { color:var(--gold); font-style:normal; }
+.advisor-quote strong { color:var(--blood-light); font-weight:600; font-style:normal; }
  
-/* Interactive exercises */
-.exercise-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:1.4rem;margin:1.5rem 0}
-.exercise-header{display:flex;align-items:center;gap:10px;margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px solid var(--border)}
-.exercise-icon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
-.exercise-title{font-size:0.92rem;font-weight:500}
-.exercise-subtitle{font-size:0.78rem;color:var(--text2)}
+/* Mood tint per advisor */
+.advisor-row.cesare   .advisor-avatar { background:rgba(40,0,0,0.35); border-right-color:rgba(122,26,26,0.2); }
+.advisor-row.burchard .advisor-avatar { background:rgba(10,20,40,0.35); border-right-color:rgba(80,100,160,0.15); }
+.advisor-row.lucrezia .advisor-avatar { background:rgba(20,30,10,0.35); border-right-color:rgba(80,140,80,0.15); }
  
-/* Fallacy cards */
-.fallacy-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin:1.2rem 0}
-.fallacy-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r2);padding:1.1rem;position:relative;overflow:hidden}
-.fallacy-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
-.fallacy-card.red::before{background:var(--red)}
-.fallacy-card.amber::before{background:var(--amber)}
-.fallacy-card.purple::before{background:var(--purple)}
-.fallacy-card.blue::before{background:var(--blue)}
-.fallacy-name{font-size:0.9rem;font-weight:500;margin-bottom:0.3rem}
-.fallacy-latin{font-size:0.7rem;color:var(--text3);font-style:italic;margin-bottom:0.5rem;font-family:'DM Mono',monospace}
-.fallacy-def{font-size:0.8rem;color:var(--text2);line-height:1.55;margin-bottom:0.6rem}
-.fallacy-example{font-size:0.78rem;color:var(--text3);font-style:italic;border-top:1px solid var(--border);padding-top:0.5rem}
+/* Continue button */
+.fb-continue { padding:10px 1.3rem 14px; display:flex; justify-content:flex-end; }
+.continue-btn { font-family:'Cinzel',serif; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); background:transparent; border:1px solid rgba(200,169,126,0.3); padding:9px 22px; cursor:pointer; transition:background .17s,border-color .17s; display:flex; align-items:center; gap:8px; }
+.continue-btn:hover { background:rgba(200,169,126,0.1); border-color:var(--gold); }
+.continue-btn .arr { font-size:14px; transition:transform .15s; }
+.continue-btn:hover .arr { transform:translateX(3px); }
  
-/* Quiz */
-.quiz-section{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r2);padding:1.4rem;margin-top:2rem}
-.quiz-header{display:flex;align-items:center;gap:10px;margin-bottom:1rem}
-.quiz-badge{background:var(--amber-dim);color:var(--amber);border:1px solid rgba(212,148,58,0.25);font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border-radius:4px;font-family:'DM Mono',monospace}
-.quiz-q{font-size:0.95rem;font-weight:500;margin-bottom:1rem;line-height:1.5}
-.quiz-opts{display:flex;flex-direction:column;gap:7px}
-.quiz-opt{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:10px 14px;cursor:pointer;transition:all 0.18s;font-size:0.86rem;text-align:left;font-family:'DM Sans',sans-serif;color:var(--text2);line-height:1.5}
-.quiz-opt:hover:not(:disabled){border-color:var(--border2);color:var(--text);background:var(--bg4)}
-.quiz-opt.correct{border-color:var(--green);background:var(--green-dim);color:var(--green2)}
-.quiz-opt.wrong{border-color:var(--red);background:var(--red-dim);color:var(--red2)}
-.quiz-opt:disabled{cursor:default}
-.quiz-feedback{margin-top:0.8rem;padding:0.8rem 1rem;border-radius:var(--r);font-size:0.85rem;line-height:1.5}
-.quiz-feedback.success{background:var(--green-dim);color:var(--green2)}
-.quiz-feedback.fail{background:var(--red-dim);color:var(--red2)}
+/* ── LOG ── */
+#log-section { border:1px solid rgba(200,169,126,0.08); border-top:none; background:rgba(0,0,0,0.28); padding:.6rem 1.3rem; }
+.log-entry { font-size:12.5px; color:var(--smoke); padding:3px 0; border-bottom:1px solid rgba(200,169,126,0.06); font-style:italic; line-height:1.5; animation:fadeIn .4s ease; }
+.log-entry:last-child { border-bottom:none; }
+.log-entry::before { content:'▸ '; color:var(--gold-dim); font-style:normal; }
  
-/* AI Exercise */
-.ai-exercise{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:1.4rem;margin:1.5rem 0}
-.ai-prompt-box{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:1rem;margin-bottom:1rem;font-size:0.88rem;color:var(--text2);line-height:1.6;font-style:italic}
-.ai-response-box{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:1rem;margin-top:0.8rem;font-size:0.85rem;color:var(--text2);line-height:1.65;min-height:60px}
-.ai-response-box.loading{display:flex;align-items:center;gap:8px;color:var(--text3)}
-.ai-label{font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);margin-bottom:6px;font-family:'DM Mono',monospace}
-.typing-dots{display:inline-flex;gap:3px}
-.typing-dot{width:5px;height:5px;border-radius:50%;background:var(--text3);animation:blink 1.2s ease-in-out infinite}
-.typing-dot:nth-child(2){animation-delay:0.2s}
-.typing-dot:nth-child(3){animation-delay:0.4s}
-@keyframes blink{0%,80%,100%{opacity:0.2}40%{opacity:1}}
+/* ── CODEX ── */
+#codex { background:rgba(255,255,255,0.02); border:1px solid rgba(200,169,126,0.11); border-top:3px solid var(--gold-dim); padding:1.1rem 1.5rem; margin-top:12px; }
+.codex-title { font-family:'Cinzel',serif; font-size:9px; letter-spacing:.2em; color:var(--gold-dim); text-transform:uppercase; margin-bottom:10px; }
+.codex-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.codex-entry { border-left:2px solid rgba(200,169,126,0.18); padding:6px 10px; }
+.codex-key { font-family:'Cinzel',serif; font-size:9px; letter-spacing:.1em; color:var(--gold-dim); text-transform:uppercase; margin-bottom:3px; }
+.codex-val { font-size:13px; color:var(--smoke); line-height:1.5; font-style:italic; }
+.codex-val em { color:var(--vellum); font-style:normal; }
  
-/* Lesson nav */
-.lesson-nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.5rem;border-top:1px solid var(--border);flex-shrink:0;background:var(--bg)}
-.lesson-nav-center{display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;margin:0 1rem}
-.nav-label{font-size:0.7rem;color:var(--text3)}
+/* ── ENDING ── */
+#ending-screen { display:none; }
+#ending-screen.on { display:block; animation:fadeUp .8s ease both; }
+.end-card { background:rgba(255,255,255,0.025); border:1px solid rgba(200,169,126,0.2); padding:2.5rem 2rem; text-align:center; position:relative; margin-top:1rem; }
+.end-card::before,.end-card::after { content:''; position:absolute; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,var(--gold-dim),transparent); }
+.end-card::before { top:0; } .end-card::after { bottom:0; }
+.end-card.bad { border-color:rgba(122,26,26,0.4); }
+.end-card.bad::before,.end-card.bad::after { background:linear-gradient(90deg,transparent,var(--blood),transparent); }
+.end-sigil { font-size:28px; margin-bottom:.9rem; opacity:.55; }
+.end-title { font-family:'Cinzel',serif; font-size:clamp(1.1rem,3vw,1.7rem); font-weight:600; color:var(--gold); margin-bottom:1.2rem; line-height:1.3; }
+.end-card.bad .end-title { color:var(--blood-light); }
+.end-body { font-size:16px; line-height:1.85; color:var(--vellum); max-width:580px; margin:0 auto 1.2rem; }
+.end-facts { background:rgba(122,26,26,0.07); border:1px solid rgba(122,26,26,0.18); padding:1rem 1.2rem; margin:0 auto 1.2rem; max-width:580px; text-align:left; }
+.end-facts-title { font-family:'Cinzel',serif; font-size:8px; letter-spacing:.18em; color:var(--blood-light); text-transform:uppercase; margin-bottom:7px; }
+.end-facts p { font-size:13.5px; color:var(--smoke); line-height:1.65; font-style:italic; margin-bottom:5px; }
+.end-facts p:last-child { margin-bottom:0; }
+.end-facts em { color:var(--grey-as); font-style:normal; font-weight:600; }
+.end-stats { display:flex; justify-content:center; gap:2rem; flex-wrap:wrap; padding:1rem 0; border-top:1px solid rgba(200,169,126,0.13); border-bottom:1px solid rgba(200,169,126,0.13); margin-bottom:1.4rem; }
+.es { text-align:center; }
+.es-v { font-family:'Cinzel',serif; font-size:24px; color:var(--gold); display:block; }
+.es-l { font-size:10px; color:var(--smoke); letter-spacing:.1em; text-transform:uppercase; font-family:'Cinzel',serif; }
+.restart-btn { font-family:'Cinzel',serif; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--gold); background:transparent; border:1px solid rgba(200,169,126,0.3); padding:10px 26px; cursor:pointer; transition:background .17s; }
+.restart-btn:hover { background:rgba(200,169,126,0.1); border-color:var(--gold); }
  
-/* ══════════ ARENA ══════════ */
-.arena-setup{max-width:620px;margin:0 auto;padding:2rem 1.5rem;flex:1;overflow-y:auto}
-.arena-setup-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;margin-bottom:0.4rem}
-.arena-setup-sub{color:var(--text2);font-size:0.88rem;margin-bottom:2rem}
-.vs-toggle{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1.4rem}
-.vs-btn{padding:12px;border-radius:var(--r);border:1px solid var(--border);background:var(--bg3);color:var(--text2);cursor:pointer;font-size:0.86rem;font-family:'DM Sans',sans-serif;transition:all 0.18s;text-align:center}
-.vs-btn:hover{border-color:var(--border2);color:var(--text)}
-.vs-btn.active{border-color:rgba(200,169,110,0.45);background:var(--gold-dim);color:var(--gold2)}
-.difficulty-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
-.diff-btn{padding:10px 8px;border-radius:var(--r);border:1px solid var(--border);background:var(--bg3);color:var(--text2);cursor:pointer;font-size:0.8rem;font-family:'DM Sans',sans-serif;transition:all 0.18s;text-align:center}
-.diff-btn:hover{border-color:var(--border2);color:var(--text)}
-.diff-btn.active{border-color:rgba(200,169,110,0.45);background:var(--gold-dim);color:var(--gold2)}
-.battle-screen{display:none;flex-direction:column;flex:1;height:calc(100vh - 57px)}
-.battle-screen.active{display:flex}
-.battle-header{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0.9rem 1.5rem;border-bottom:1px solid var(--border);gap:1rem;flex-shrink:0}
-.combatant{display:flex;align-items:center;gap:10px}
-.combatant.right{flex-direction:row-reverse;text-align:right}
-.combatant-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
-.combatant-name{font-size:0.88rem;font-weight:500}
-.combatant-stance{font-size:0.72rem;color:var(--text2)}
-.motion-display{text-align:center}
-.motion-label{font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text3);margin-bottom:3px}
-.motion-text{font-family:'Playfair Display',serif;font-size:0.88rem;font-style:italic;color:var(--text2);max-width:280px}
-.turn-indicator{display:flex;align-items:center;gap:8px;padding:0.55rem 1.5rem;border-bottom:1px solid var(--border);font-size:0.78rem;flex-shrink:0;color:var(--text2)}
-.turn-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse 2s ease-in-out infinite;flex-shrink:0}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.25}}
-.chat-area{flex:1;overflow-y:auto;padding:1.2rem 1.5rem;display:flex;flex-direction:column;gap:10px}
-.msg{max-width:75%}
-.msg.user{align-self:flex-end}
-.msg.ai{align-self:flex-start}
-.msg-bubble{padding:11px 16px;border-radius:var(--r2);font-size:0.88rem;line-height:1.65}
-.msg.user .msg-bubble{background:var(--gold-dim);border:1px solid rgba(200,169,110,0.2);border-bottom-right-radius:4px}
-.msg.ai .msg-bubble{background:var(--bg3);border:1px solid var(--border);border-bottom-left-radius:4px}
-.msg-meta{font-size:0.7rem;color:var(--text3);margin-top:3px;padding:0 4px}
-.msg.user .msg-meta{text-align:right}
-.system-msg{text-align:center;font-size:0.72rem;color:var(--text3);padding:3px 0}
-.compose-area{padding:0.9rem 1.5rem;border-top:1px solid var(--border);display:flex;gap:10px;flex-shrink:0;align-items:flex-end}
-.compose-area textarea{flex:1;min-height:50px;max-height:130px;font-size:0.88rem}
-.compose-actions{display:flex;flex-direction:column;gap:6px}
+/* WIN / LOSS BANNER */
+.end-verdict { display:inline-flex; align-items:center; gap:10px; padding:8px 24px; margin-bottom:1.4rem; font-family:'Cinzel',serif; font-size:13px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; border:2px solid; }
+.end-verdict.win  { color:#5a9a6a; border-color:#5a9a6a; background:rgba(90,154,106,0.1); }
+.end-verdict.loss { color:var(--blood-light); border-color:var(--blood-light); background:rgba(192,57,43,0.1); }
+.end-verdict .verd-icon { font-size:18px; }
  
-/* ══════════ BREAKDOWN ══════════ */
-.breakdown-layout{display:grid;grid-template-columns:360px 1fr;flex:1;height:calc(100vh - 57px);overflow:hidden}
-@media(max-width:800px){.breakdown-layout{grid-template-columns:1fr;height:auto}}
-.breakdown-left{border-right:1px solid var(--border);padding:1.5rem;overflow-y:auto;background:var(--bg2);display:flex;flex-direction:column;gap:1rem}
-.breakdown-right{padding:1.5rem 2rem;overflow-y:auto}
-.bd-intro-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;line-height:1.2;margin-bottom:0.4rem}
-.bd-intro-sub{font-size:0.85rem;color:var(--text2)}
-.angle-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r2);padding:1.1rem}
-.angle-header{display:flex;align-items:center;gap:9px;margin-bottom:0.7rem}
-.angle-icon{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:0.95rem;flex-shrink:0}
-.angle-label{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:2px}
-.angle-title{font-size:0.9rem;font-weight:500}
-.angle-points{list-style:none;display:flex;flex-direction:column;gap:4px}
-.angle-points li{font-size:0.8rem;color:var(--text2);padding-left:12px;position:relative;line-height:1.5}
-.angle-points li::before{content:'—';position:absolute;left:0;color:var(--text4)}
-.bd-section-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;margin-bottom:0.9rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
-.bd-section{margin-bottom:2rem}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.pro-con-card{background:var(--bg3);border-radius:var(--r2);padding:1.1rem;border:1px solid var(--border)}
-.pro-con-card.pro{border-top:3px solid var(--green)}
-.pro-con-card.con{border-top:3px solid var(--red)}
-.pro-con-label{font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.7rem}
-.pro-con-card.pro .pro-con-label{color:var(--green)}
-.pro-con-card.con .pro-con-label{color:var(--red)}
-.pro-con-list{list-style:none;display:flex;flex-direction:column;gap:5px}
-.pro-con-list li{font-size:0.82rem;color:var(--text2);line-height:1.5}
-.stat-row{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border);font-size:0.83rem}
-.stat-row:last-child{border-bottom:none}
-.stat-label{color:var(--text2)}
-.stat-val{font-family:'DM Mono',monospace;color:var(--gold)}
-.strength-bar-wrap{margin-top:1rem}
-.strength-row{margin-bottom:9px}
-.strength-label-row{display:flex;justify-content:space-between;font-size:0.78rem;color:var(--text2);margin-bottom:4px}
-.strength-bar{height:5px;background:var(--bg4);border-radius:3px;overflow:hidden}
-.strength-fill{height:100%;border-radius:3px;background:var(--gold)}
-.loading-state{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3rem;color:var(--text2);gap:1rem}
-.spinner{width:28px;height:28px;border:2px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin 0.75s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.sidebar-section-title{font-size:0.66rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text3);margin:1.2rem 1.2rem 0.4rem;display:flex;align-items:center;gap:6px}
-.sidebar-section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+/* ── ANIMS ── */
+@keyframes fadeDown { from{opacity:0;transform:translateY(-10px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeUp   { from{opacity:0;transform:translateY(8px)}  to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn   { from{opacity:0} to{opacity:1} }
+.scene-in { animation:fadeIn .45s ease both; }
+ 
+@media(max-width:520px){
+  #stats-row{grid-template-columns:repeat(2,1fr);}
+  .cant-facts{grid-template-columns:1fr 1fr;}
+  .codex-grid{grid-template-columns:1fr;}
+  #scene-card,#choices-section{padding:1.1rem 1rem;}
+  .advisor-avatar{width:36px;min-width:36px;}
+}
 </style>
 </head>
 <body>
+<div id="wrapper">
  
-<!-- ════════════════════════════ HOME ════════════════════════════ -->
-<div id="home" class="screen active">
-  <div class="home-inner">
-    <div class="logo-mark">
-      <div class="logo-icon">D</div>
-      <span class="logo-text">Debate<span>Forge</span></span>
-    </div>
-    <div class="home-eyebrow">The Complete Debate Training Platform</div>
-    <h1 class="home-headline">Master the art of<br><em>persuasion.</em></h1>
-    <p class="home-sub">Three powerful tools to build your argumentation, sharpen your rhetoric, and deconstruct any debate topic — all in one place.</p>
-    <div class="mode-grid">
-      <div class="mode-card gold" onclick="goto('learn')">
-        <div class="mode-number">01</div>
-        <span class="mode-icon">🎓</span>
-        <div class="mode-tag">Curriculum</div>
-        <div class="mode-title">Learning Debate</div>
-        <div class="mode-desc">Six structured units. Interactive exercises, AI coaching, quizzes, and drills covering every core skill from Aristotle to cross-examination.</div>
-        <div class="mode-arrow">↗</div>
-      </div>
-      <div class="mode-card red" onclick="goto('arena')">
-        <div class="mode-number">02</div>
-        <span class="mode-icon">⚔️</span>
-        <div class="mode-tag">Practice</div>
-        <div class="mode-title">Debate Arena</div>
-        <div class="mode-desc">Debate an AI at Novice, Intermediate, or Expert level — or go head-to-head with another person. Get scored feedback at the end.</div>
-        <div class="mode-arrow">↗</div>
-      </div>
-      <div class="mode-card blue" onclick="goto('breakdown')">
-        <div class="mode-number">03</div>
-        <span class="mode-icon">🔬</span>
-        <div class="mode-tag">Intelligence</div>
-        <div class="mode-title">Topic Breakdown</div>
-        <div class="mode-desc">Enter any motion. Get angles of attack, steelman arguments, key statistics, fallacies to watch, and a full strategic dossier — instantly.</div>
-        <div class="mode-arrow">↗</div>
-      </div>
-    </div>
-    <div class="home-footer">Improve Your Debating Skills &nbsp;·&nbsp; Free to Use &nbsp;·&nbsp; No Account Required</div>
+<header>
+  <div class="hera">Anno Domini MCDXCII · Roma Æterna</div>
+  <h1>The <em>Borgia</em> Affair</h1>
+  <p class="sub">You are Rodrigo Borgia — Pope Alexander VI. Cunning. Ruthless. Human.</p>
+</header>
+ 
+<div id="stats-row"></div>
+ 
+<!-- CANTARELLA -->
+<div id="cant-panel">
+  <div class="cant-top">
+    <span class="cant-name">Cantarella</span>
+    <span class="cant-aka">— the Borgia name for arsenic, "la polvere"</span>
+    <div class="cant-dots" id="cant-dots"></div>
+  </div>
+  <div class="cant-facts">
+    <div class="cf"><div class="cf-label">Appearance</div><div class="cf-val"><em>Steel-grey</em>, brittle crystals. An <em>electromagnetic</em> metal. Shatters like chalk.</div></div>
+    <div class="cf"><div class="cf-label">Odour &amp; Taste</div><div class="cf-val"><em>Completely absent.</em> Dissolves into wine or broth without a ripple.</div></div>
+    <div class="cf"><div class="cf-label">Where Mined</div><div class="cf-val">Via silver ore in <em>China, Chile, Mexico, Belgium, Namibia,</em> and <em>the Philippines.</em></div></div>
+    <div class="cf"><div class="cf-label">How Produced</div><div class="cf-val">Ore heated → sulfide becomes <em>oxide</em>. Add <em>charcoal</em>: carbon seizes oxygen, leaving pure arsenic.</div></div>
+    <div class="cf"><div class="cf-label">Legitimate Uses</div><div class="cf-val">Green <em>pigments</em>, <em>pesticide</em>, <em>fattening livestock</em>, and — God's irony — treating <em>leukaemia.</em></div></div>
+    <div class="cf"><div class="cf-label">Famous Victims</div><div class="cf-val">Scholars will suspect it killed <em>Napoleon</em> and President <em>Zachary Taylor.</em></div></div>
   </div>
 </div>
  
-<!-- ════════════════════════════ LEARN ════════════════════════════ -->
-<div id="learn" class="screen">
-  <div class="app-bar">
-    <button class="btn-back" onclick="goto('home')">← Home</button>
-    <span class="app-bar-title">Learning Debate</span>
-    <span class="app-bar-badge" id="learn-badge">Curriculum</span>
-    <div class="app-bar-right">
-      <span style="font-size:0.78rem;color:var(--text2)" id="learn-progress-label">0 / 30 complete</span>
-    </div>
+<!-- DOSE METER -->
+<div id="dose-meter">
+  <div class="dm-top">
+    <span class="dm-label">Cumulative Dose — Della Rovere</span>
+    <span class="dm-status" id="dose-status">None administered</span>
   </div>
-  <div class="learn-layout">
-    <!-- Sidebar -->
-    <div class="learn-sidebar">
-      <div class="sidebar-search">
-        <input type="text" placeholder="Search lessons…" id="sidebar-search" oninput="filterLessons(this.value)">
-      </div>
-      <div class="sidebar-progress-banner">
-        <div class="spb-label">Your Progress</div>
-        <div class="spb-bar"><div class="spb-fill" id="spb-fill" style="width:0%"></div></div>
-        <div class="spb-count" id="spb-count">0 / 30 lessons done</div>
-      </div>
-      <div id="sidebar-units"></div>
-    </div>
-    <!-- Main area -->
-    <div class="learn-main-wrap">
-      <div class="learn-main" id="learn-content"></div>
-      <div class="lesson-nav">
-        <button class="btn btn-ghost btn-sm" onclick="prevLesson()" id="btn-prev">← Prev</button>
-        <div class="lesson-nav-center">
-          <span class="nav-label" id="nav-label">Lesson 1 of 30</span>
-        </div>
-        <button class="btn btn-primary btn-sm" onclick="nextLesson()" id="btn-next">Next →</button>
-      </div>
-    </div>
+  <div class="dm-track"><div class="dm-fill" id="dose-fill" style="width:0%;background:#5a8a5a"></div></div>
+  <div class="dm-ticks">
+    <span class="dm-tick">Sub-threshold</span>
+    <span class="dm-tick">Symptomatic</span>
+    <span class="dm-tick">Lethal</span>
+    <span class="dm-tick">Conspicuous</span>
   </div>
 </div>
  
-<!-- ════════════════════════════ ARENA ════════════════════════════ -->
-<div id="arena" class="screen">
-  <div class="app-bar">
-    <button class="btn-back" onclick="leaveArena()">← Home</button>
-    <span class="app-bar-title">Debate Arena</span>
-    <div class="app-bar-right"><span style="font-size:0.78rem;color:var(--text2)" id="arena-bar-sub">Configure your debate</span></div>
+<!-- MAIN GAME -->
+<div id="main-game">
+  <div id="scene-card">
+    <div class="scene-date" id="scene-date">—</div>
+    <div id="scene-text"></div>
   </div>
-  <div class="arena-setup scroll" id="arena-setup-panel">
-    <h2 class="arena-setup-title">Set up your debate</h2>
-    <p class="arena-setup-sub">Choose your opponent, enter a motion, pick your stance, and begin.</p>
-    <div class="form-row">
-      <label>Opponent type</label>
-      <div class="vs-toggle">
-        <button class="vs-btn active" onclick="setOpponent('ai',this)">🤖 Debate AI</button>
-        <button class="vs-btn" onclick="setOpponent('human',this)">👥 Two Players</button>
-      </div>
-    </div>
-    <div class="form-row" id="difficulty-row">
-      <label>AI Difficulty</label>
-      <div class="difficulty-grid">
-        <button class="diff-btn active" onclick="setDiff('Novice',this)">🌱 Novice</button>
-        <button class="diff-btn" onclick="setDiff('Intermediate',this)">🔥 Intermediate</button>
-        <button class="diff-btn" onclick="setDiff('Expert',this)">⚡ Expert</button>
-      </div>
-    </div>
-    <div class="form-row">
-      <label>Debate Motion</label>
-      <input type="text" id="motion-input" placeholder='"This house believes AI is a net benefit to society"'>
-    </div>
-    <div class="form-row">
-      <label>Suggested Motions</label>
-      <div style="display:flex;flex-wrap:wrap;gap:6px">
-        <span class="chip" onclick="setMotion(this)">AI will eliminate more jobs than it creates</span>
-        <span class="chip" onclick="setMotion(this)">Social media harms democracy</span>
-        <span class="chip" onclick="setMotion(this)">Nuclear energy is essential for climate goals</span>
-        <span class="chip" onclick="setMotion(this)">Capitalism cannot solve inequality</span>
-        <span class="chip" onclick="setMotion(this)">Free speech should have limits online</span>
-      </div>
-    </div>
-    <div class="form-row">
-      <label>Your Stance</label>
-      <div class="vs-toggle">
-        <button class="vs-btn active" onclick="setStance('FOR',this)">✅ For the Motion</button>
-        <button class="vs-btn" onclick="setStance('AGAINST',this)">❌ Against the Motion</button>
-      </div>
-    </div>
-    <div class="form-row" id="player2-row" style="display:none">
-      <label>Player 2 Name</label>
-      <input type="text" id="p2-name" placeholder="Enter player 2 name…">
-    </div>
-    <button class="btn btn-primary" style="width:100%;padding:14px;justify-content:center" onclick="startDebate()">Begin Debate →</button>
+ 
+  <div id="choices-section">
+    <div class="ch-header">Your Holiness must choose</div>
+    <div id="choices-list"></div>
   </div>
-  <div class="battle-screen" id="battle-screen">
-    <div class="battle-header">
-      <div class="combatant" id="combatant-left">
-        <div class="combatant-avatar" style="background:var(--gold-dim);color:var(--gold)">👤</div>
-        <div>
-          <div class="combatant-name">You</div>
-          <div class="combatant-stance" id="user-stance-label">FOR</div>
-        </div>
-      </div>
-      <div class="motion-display">
-        <div class="motion-label">Motion</div>
-        <div class="motion-text" id="battle-motion-text">—</div>
-      </div>
-      <div class="combatant right">
-        <div class="combatant-avatar" style="background:var(--red-dim);color:var(--red)" id="opp-avatar">🤖</div>
-        <div>
-          <div class="combatant-name" id="opp-name">AI Opponent</div>
-          <div class="combatant-stance" id="opp-stance-label">AGAINST</div>
-        </div>
-      </div>
+ 
+  <!-- ADVISOR FEEDBACK — appears after each choice -->
+  <div id="feedback-panel">
+    <div class="fb-chosen-recap" id="fb-recap"></div>
+    <div class="fb-deltas" id="fb-deltas"></div>
+    <div class="fb-advisors" id="fb-advisors"></div>
+    <div class="fb-continue">
+      <button class="continue-btn" id="continue-btn">Continue <span class="arr">→</span></button>
     </div>
-    <div class="turn-indicator" id="turn-indicator">
-      <div class="turn-dot"></div>
-      <span id="turn-text">Your turn to speak</span>
-    </div>
-    <div class="chat-area" id="chat-area"></div>
-    <div class="compose-area">
-      <textarea id="compose-input" placeholder="Make your argument…" rows="2" onkeydown="handleKey(event)"></textarea>
-      <div class="compose-actions">
-        <button class="btn btn-primary btn-sm" onclick="sendArg()" id="send-btn">Send</button>
-        <button class="btn btn-ghost btn-sm" onclick="endDebate()">End</button>
-      </div>
+  </div>
+ 
+  <div id="log-section"><div id="log-list"></div></div>
+ 
+  <!-- CODEX -->
+  <div id="codex">
+    <div class="codex-title">Codex Rerum — How This World Works</div>
+    <div class="codex-grid">
+      <div class="codex-entry"><div class="codex-key">Dose Calibration</div><div class="codex-val"><em>Too little</em> — no effect. <em>Too much</em> — death too violent to pass as natural. Precision is survival.</div></div>
+      <div class="codex-entry"><div class="codex-key">Symptom Mimicry</div><div class="codex-val">Arsenic mirrors <em>summer fever</em> and gastric ailment exactly. In 1492, no physician can tell the difference.</div></div>
+      <div class="codex-entry"><div class="codex-key">Simony</div><div class="codex-val">The buying and selling of <em>Church offices.</em> Every cardinal has his price. Every purchase leaves a stain.</div></div>
+      <div class="codex-entry"><div class="codex-key">Curial Rivalries</div><div class="codex-val">The <em>Cardinal alliances</em> shift constantly. Move one loyalty and three others react. Nothing is permanent.</div></div>
     </div>
   </div>
 </div>
  
-<!-- ════════════════════════════ BREAKDOWN ════════════════════════════ -->
-<div id="breakdown" class="screen">
-  <div class="app-bar">
-    <button class="btn-back" onclick="goto('home')">← Home</button>
-    <span class="app-bar-title">Topic Breakdown</span>
-  </div>
-  <div class="breakdown-layout">
-    <div class="breakdown-left">
-      <div>
-        <div class="bd-intro-title">Dissect any motion</div>
-        <div class="bd-intro-sub">Get a full strategic intelligence report — angles, arguments, evidence, and fallacies to watch.</div>
-      </div>
-      <div class="form-row" style="margin:0">
-        <label>Debate Motion</label>
-        <textarea id="bd-motion" rows="3" placeholder='"Universal Basic Income should be implemented globally"'></textarea>
-      </div>
-      <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="analyzeBreakdown()">Analyze Topic →</button>
-      <div id="bd-angles-area" style="display:none">
-        <div class="sidebar-section-title">Angles of Attack</div>
-        <div class="angle-card" style="margin-bottom:8px">
-          <div class="angle-header"><div class="angle-icon" style="background:var(--gold-dim);color:var(--gold)">⚖️</div><div><div class="angle-label" style="color:var(--gold)">Ethical</div><div class="angle-title">Moral Imperative</div></div></div>
-          <ul class="angle-points" id="angle-ethical"></ul>
-        </div>
-        <div class="angle-card" style="margin-bottom:8px">
-          <div class="angle-header"><div class="angle-icon" style="background:var(--blue-dim);color:var(--blue)">📊</div><div><div class="angle-label" style="color:var(--blue)">Economic</div><div class="angle-title">Practical Impact</div></div></div>
-          <ul class="angle-points" id="angle-economic"></ul>
-        </div>
-        <div class="angle-card">
-          <div class="angle-header"><div class="angle-icon" style="background:var(--red-dim);color:var(--red)">🏛️</div><div><div class="angle-label" style="color:var(--red)">Political</div><div class="angle-title">Power & Systems</div></div></div>
-          <ul class="angle-points" id="angle-political"></ul>
-        </div>
-      </div>
-    </div>
-    <div class="breakdown-right" id="bd-right">
-      <div class="loading-state" id="bd-placeholder">
-        <div style="font-size:2.5rem">🔬</div>
-        <p style="color:var(--text2);font-size:0.88rem;text-align:center;max-width:240px">Enter a debate motion to get a full strategic breakdown.</p>
-      </div>
-      <div id="bd-results" style="display:none"></div>
-    </div>
-  </div>
-</div>
+<div id="ending-screen"></div>
  
+</div><!-- /wrapper -->
 <script>
-// ══════════════════════════════════════════════════════════
-//  CURRICULUM DATA — 6 Units, 30 lessons
-// ══════════════════════════════════════════════════════════
-const CURRICULUM = [
+/* ═══════════════════════════════════════════
+   DATA
+═══════════════════════════════════════════ */
+const POISON_LABELS = new Set(['Cantarella','Cantarella — escalate','Finish It','Final Cantarella']);
+ 
+const STATE = { authority:70, family:60, suspicion:20, alliances:50,
+                cantarella:4, doseLevel:0, turn:0, log:[], flags:{},
+                pendingNext:-1 };
+ 
+const STATS_META = [
+  {key:'authority', label:'Papal Authority', color:'#c8a97e'},
+  {key:'family',    label:'Family Loyalty',  color:'#5a8a5a'},
+  {key:'suspicion', label:'Suspicion',       color:'#c0392b'},
+  {key:'alliances', label:'Alliances',       color:'#4a7aaa'},
+];
+ 
+/* ── ADVISOR VOICES ── */
+const ADVISORS = {
+  cesare:   { glyph:'⚔', name:'Cesare',   title:'Your Son — Captain-General' },
+  burchard: { glyph:'📜', name:'Burchard', title:'Papal Secretary — Johannes Burchard' },
+  lucrezia: { glyph:'🕯', name:'Lucrezia', title:'Your Daughter — Duchess of Pesaro' },
+};
+ 
+/* ═══════════════════════════════════════════
+   SCENES  (each choice has `feedback` with advisor quotes + stat context)
+═══════════════════════════════════════════ */
+const SCENES = [
   {
-    unit: "Unit I",
-    name: "Foundations of Argument",
-    lessons: [
+    date: 'The Apostolic Palace — October 1492, midnight',
+    text: `<p>Rain hisses against Vatican glass. Burchard delivers the news by candlelight: Cardinal Giuliano della Rovere has ridden into Rome beneath a French escort of sixty horse. The man who called you unworthy of the Throne of Peter has returned — armed, legitimised, and hungry.</p>
+<p>On the table before you sits a small lead-lined box. Inside: cantarella. <strong>A steel-grey powder, brittle as old chalk, electromagnetic in its crystalline structure.</strong> Your supply was sourced via Valencian merchants whose ore flows from <strong>silver-mining operations in Chile and the Philippines.</strong> It has <strong>no odour. No taste.</strong> It would dissolve into this goblet of wine without disturbing the surface.</p>
+<p>Della Rovere has French backing and <strong>Curial allies</strong> built through years of rivalry. He will call for a reform council. What does the Holy Father do?</p>`,
+    choices: [
       {
-        id: "1-1", type: "lesson", title: "What Is Debate?", time: "6 min", level: "Beginner",
-        lead: "Debate is the structured clash of ideas — a discipline as old as democracy itself. Understanding what debate is (and isn't) sets the foundation for everything else.",
-        body: `
-<h2>The Purpose of Debate</h2>
-<p>Debate is not about winning arguments at dinner parties. At its core, it is a method for <strong>truth-seeking</strong> through adversarial discourse. Two or more parties present competing positions, challenge each other's reasoning, and allow an audience — or themselves — to arrive at a better understanding of a complex question.</p>
-<p>From Athenian democracy to the Oxford Union, from the Lincoln-Douglas debates to the United Nations floor, structured debate has shaped the course of human history. The ability to argue clearly and persuasively is not a gift — it is a learnable skill.</p>
-<div class="callout callout-insight">
-  <div class="callout-label">💡 Key Insight</div>
-  <p>The best debaters are not necessarily the ones who "win." They are the ones who elevate the quality of discourse and force all parties to think more rigorously.</p>
-</div>
-<h2>Types of Debate</h2>
-<p>Debate takes many forms, each with its own rules and conventions:</p>
-<table class="compare-table">
-  <tr><th>Format</th><th>Description</th><th>Best For</th></tr>
-  <tr><td class="highlight">Parliamentary</td><td>Government vs. Opposition; motions debated in real time with limited prep</td><td>Speed, adaptability, wit</td></tr>
-  <tr><td class="highlight">Lincoln-Douglas</td><td>One-on-one value debate; emphasis on philosophy and ethics</td><td>Deep logical analysis</td></tr>
-  <tr><td class="highlight">Policy Debate</td><td>Teams research a single resolution all year; evidence-heavy</td><td>Research, evidence, speed</td></tr>
-  <tr><td class="highlight">Moot Court</td><td>Legal argument simulation; strict procedural rules</td><td>Legal reasoning, procedure</td></tr>
-  <tr><td class="highlight">Oxford-Style</td><td>Audience votes before and after; winner judged by vote swing</td><td>Persuasion of undecideds</td></tr>
-</table>
-<h2>The Anatomy of a Debate Round</h2>
-<p>Whatever the format, most debates share a common skeleton:</p>
-<div class="framework-grid">
-  <div class="framework-card"><div class="fc-letter">1</div><div class="fc-name">Opening</div><div class="fc-desc">Define key terms, establish your position, preview your arguments</div></div>
-  <div class="framework-card"><div class="fc-letter">2</div><div class="fc-name">Substantive</div><div class="fc-desc">Develop your main arguments with evidence and logical reasoning</div></div>
-  <div class="framework-card"><div class="fc-letter">3</div><div class="fc-name">Rebuttal</div><div class="fc-desc">Directly attack your opponent's case and defend your own</div></div>
-  <div class="framework-card"><div class="fc-letter">4</div><div class="fc-name">Summary</div><div class="fc-desc">Crystallize the debate — why did your side win the key clashes?</div></div>
-</div>
-<h2>Mindset: Steel-Manning, Not Straw-Manning</h2>
-<p>The hallmark of a great debater is the ability to <strong>steelman</strong> — to understand and articulate the opposing position at its strongest, before refuting it. The opposite — the <strong>straw man</strong> — is attacking a weakened caricature of your opponent's argument. Great debaters engage with the best version of opposing ideas.</p>
-<div class="callout callout-tip">
-  <div class="callout-label">🎯 Practice Tip</div>
-  <p>Before your next debate, write out the three strongest arguments for the <em>opposing</em> side. If you can't, you're not ready to debate your own position effectively.</p>
-</div>`
+        label:'Diplomacy',
+        text:"Send Cesare with a private offer: a cardinal's pension and safe passage to a French monastery. Buy his silence through generosity.",
+        note:'No cantarella. A political settlement, not a physical one.',
+        deltas:{alliances:8, family:-5, suspicion:-5, authority:-3},
+        log:"Cesare rides out by torchlight bearing velvet and gold.",
+        feedback:{
+          recap:"You chose diplomacy — Cesare dispatched to della Rovere with gold and a quiet offer of exile.",
+          advisors:[
+            {id:'cesare',   mood:'skeptical', quote:"A bribe has the virtue of <em>speed</em>, Holiness. But della Rovere is not a man who stays bought. He takes your gold, rests in France, and returns with an army in three years. I would have preferred a more permanent solution."},
+            {id:'burchard', mood:'relieved',  quote:"The secretariat is relieved. No bodies to account for, no whispers in the Curia. Your <strong>authority dips</strong> slightly — magnanimity reads as weakness to some cardinals — but <strong>suspicion falls</strong>, and the French ambassador looks less alarmed. A transaction, not a sin."},
+            {id:'lucrezia', mood:'warm',      quote:"You chose the living road, Father. <em>Alliances grow</em> when men believe you are merciful. Whether you are or not is your private business."},
+          ]
+        }
       },
       {
-        id: "1-2", type: "lesson", title: "Ethos, Pathos, Logos", time: "9 min", level: "Beginner",
-        lead: "Aristotle's three modes of persuasion — established over 2,000 years ago — remain the most powerful framework for understanding how arguments work.",
-        body: `
-<h2>The Three Pillars of Persuasion</h2>
-<p>In his <em>Rhetoric</em>, Aristotle identified that all persuasion rests on three appeals. Every effective argument uses all three in balance — lean too heavily on one and your case becomes lopsided.</p>
-<div class="framework-grid">
-  <div class="framework-card"><div class="fc-letter" style="color:var(--blue)">E</div><div class="fc-name">Ethos — Credibility</div><div class="fc-desc">Why should the audience trust <em>you</em>? Establish authority, expertise, and good character before you make your case.</div></div>
-  <div class="framework-card"><div class="fc-letter" style="color:var(--red)">P</div><div class="fc-name">Pathos — Emotion</div><div class="fc-desc">Connect emotionally with your audience. Stories, vivid imagery, and appeals to shared values all activate pathos.</div></div>
-  <div class="framework-card"><div class="fc-letter" style="color:var(--green)">L</div><div class="fc-name">Logos — Logic</div><div class="fc-desc">The logical structure of your argument: evidence, statistics, analogies, and sound reasoning.</div></div>
-</div>
-<h2>Ethos in Practice</h2>
-<p>Ethos is not just about your credentials — it's about how you carry yourself. A calm, confident debater who acknowledges the complexity of an issue projects more ethos than one who claims to have all the answers. Cite reputable sources. Acknowledge strong counterarguments before dismissing them. Show intellectual honesty.</p>
-<div class="callout callout-example">
-  <div class="callout-label">Example — Weak vs. Strong Ethos</div>
-  <p><strong>Weak:</strong> "Trust me, I know a lot about this topic."<br><strong>Strong:</strong> "The WHO's 2023 report, peer-reviewed in The Lancet, found that..."</p>
-</div>
-<h2>Pathos in Practice</h2>
-<p>Pathos is the engine of persuasion — but it must be fueled by truth. A story that illustrates a real problem is pathos at its finest. Manufactured emotional manipulation that distorts the facts is propaganda. The distinction matters enormously in debate.</p>
-<div class="callout callout-example">
-  <div class="callout-label">Example — Using Pathos Effectively</div>
-  <p>"For every statistic we cite, there is a person behind it. Maria, a nurse in a rural hospital, waited 14 months for basic supplies that this policy would have guaranteed within weeks."</p>
-</div>
-<div class="callout callout-warning">
-  <div class="callout-label">⚠️ Warning</div>
-  <p>Pathos without logos is manipulation. In competitive debate, judges will penalize emotional appeals that substitute for, rather than supplement, logical argument.</p>
-</div>
-<h2>Logos in Practice</h2>
-<p>Logos is the architecture of your argument. It includes: deductive reasoning (from general principles to specific conclusions), inductive reasoning (from specific cases to general conclusions), and analogical reasoning (comparing to parallel cases). Each has strengths and vulnerabilities that opponents can exploit.</p>
-<div class="callout callout-example">
-  <div class="callout-label">Example — Logos Under Attack</div>
-  <p><strong>Claim:</strong> "Countries with stricter gun laws have lower homicide rates."<br><strong>Logos attack:</strong> "Correlation is not causation — homicide rates are also explained by poverty, urbanization, and policing strategy. The mechanism is not established."</p>
-</div>
-<h2>The Balance</h2>
-<p>Different audiences and contexts demand different mixes. A scientific conference weights logos heavily. A political rally runs on pathos. A courtroom requires ethos from witnesses and logos from lawyers. Skilled debaters read the room and adjust.</p>`
+        label:'Simony',
+        text:'Exercise the ancient art of simony — buy three wavering cardinals with promised offices and benefices, isolating della Rovere before he can build his coalition.',
+        note:'Simony: the buying and selling of Church offices. It fills coffers and raises suspicion equally.',
+        deltas:{authority:10, alliances:5, suspicion:10, family:3},
+        log:"Three cardinals enriched through the quiet sale of Church benefices.",
+        feedback:{
+          recap:"You chose simony — three wavering cardinals purchased with promised benefices and offices.",
+          advisors:[
+            {id:'cesare',   mood:'approving', quote:"Good. Three votes. The Curia is always an auction — you simply named the price before della Rovere could. <em>Authority rises</em>, the coalition against you fractures. Though I note <strong>suspicion climbs</strong>: gold changes hands loudly, whatever men pretend otherwise."},
+            {id:'burchard', mood:'worried',   quote:"I have recorded the transfers as 'pastoral reorganisation,' Holiness, but the Spanish cardinals are not blind. Three benefices in one evening raises eyebrows. The <strong>suspicion index rises</strong>. I counsel restraint going forward."},
+            {id:'lucrezia', mood:'pragmatic', quote:"Every man in that Curia received his hat through some arrangement or another. You have simply made the arrangement explicit. <em>The family benefits</em> — loyalty purchased is loyalty nonetheless."},
+          ]
+        }
       },
       {
-        id: "1-3", type: "lesson", title: "Argument Structure: SEEC & Toulmin", time: "10 min", level: "Beginner",
-        lead: "An argument is not just a claim — it's a structured chain of reasoning from evidence to conclusion. Two frameworks help you build and evaluate arguments rigorously.",
-        body: `
-<h2>Why Structure Matters</h2>
-<p>An unstructured argument is like a building without a blueprint — it might stand for a while, but it collapses under pressure. Structured arguments are harder to attack because every component is clear and defensible. Your opponent must engage with each piece, not wave away a vague impression.</p>
-<h2>The SEEC Framework</h2>
-<p>SEEC is the most practical framework for rapid argument construction in competitive debate. Master it until it becomes automatic.</p>
-<div class="framework-grid">
-  <div class="framework-card"><div class="fc-letter">S</div><div class="fc-name">Statement</div><div class="fc-desc">Your claim in one clear, falsifiable sentence. Avoid hedging.</div></div>
-  <div class="framework-card"><div class="fc-letter">E</div><div class="fc-name">Explanation</div><div class="fc-desc">The mechanism: <em>why</em> is your claim true? What is the causal chain?</div></div>
-  <div class="framework-card"><div class="fc-letter">E</div><div class="fc-name">Evidence</div><div class="fc-desc">Data, studies, expert opinion, or concrete examples that prove it.</div></div>
-  <div class="framework-card"><div class="fc-letter">C</div><div class="fc-name">Conclusion</div><div class="fc-desc">Tie it back to the motion. Why does this argument win the debate?</div></div>
-</div>
-<div class="callout callout-example">
-  <div class="callout-label">SEEC in Action</div>
-  <p><strong>[S]</strong> Automation will cause structural unemployment in the short to medium term.<br><strong>[E]</strong> As AI replaces routine cognitive and physical tasks, workers in those roles face displacement faster than equivalent new roles can be created in other sectors.<br><strong>[E]</strong> The World Economic Forum projects a net loss of 85 million jobs by 2025, with new job creation lagging displacement by 5–10 years in most economies.<br><strong>[C]</strong> Therefore, a managed transition — not unfettered automation — is what this motion demands.</p>
-</div>
-<h2>The Toulmin Model</h2>
-<p>Philosopher Stephen Toulmin developed a more granular model for analyzing arguments, particularly useful in academic and legal contexts.</p>
-<table class="compare-table">
-  <tr><th>Component</th><th>Function</th><th>Example</th></tr>
-  <tr><td class="highlight">Claim</td><td>Your conclusion or position</td><td>"We should raise the minimum wage"</td></tr>
-  <tr><td class="highlight">Data</td><td>Evidence supporting the claim</td><td>"40% of workers earn below living wage"</td></tr>
-  <tr><td class="highlight">Warrant</td><td>The logical bridge between data and claim</td><td>"Employers can afford wage increases given current profit margins"</td></tr>
-  <tr><td class="highlight">Backing</td><td>Support for the warrant itself</td><td>"Corporate profits hit record highs in 2023 despite inflation"</td></tr>
-  <tr><td class="highlight">Qualifier</td><td>Limitations on the claim</td><td>"In most OECD economies, under normal economic conditions"</td></tr>
-  <tr><td class="highlight">Rebuttal</td><td>Conditions under which the claim fails</td><td>"Except in highly automated sectors where labor costs are already minimal"</td></tr>
-</table>
-<div class="callout callout-tip">
-  <div class="callout-label">💡 Pro Move</div>
-  <p>Attack your opponent's <strong>warrant</strong>, not just their data. Data can be disputed but rarely disproved in a debate. The warrant — the logical connection between evidence and claim — is often far more vulnerable.</p>
-</div>
-<h2>Deductive vs. Inductive Reasoning</h2>
-<p><strong>Deductive</strong> reasoning moves from general premises to specific conclusions. If the premises are true and the logic is valid, the conclusion must be true. This is the gold standard — but the premises must be bulletproof.<br><br><strong>Inductive</strong> reasoning moves from specific observations to general conclusions. It's the basis of all empirical science, but it only establishes probability, not certainty. Your opponent can always find the counter-example.</p>`
+        label:'Intelligence',
+        text:"Order agents to intercept della Rovere's correspondence with Charles VIII. A letter read is a weapon owned.",
+        note:null,
+        deltas:{authority:5, alliances:-3, suspicion:3, family:2},
+        log:"A courier waylaid on the Via Aurelia. Letters copied by lamplight.",
+        feedback:{
+          recap:"You chose intelligence — agents dispatched to intercept della Rovere's French correspondence.",
+          advisors:[
+            {id:'cesare',   mood:'approving', quote:"Information is the first weapon. When we know what Charles VIII has promised him — troops, a council, legitimacy — we can prepare a counter. <em>Authority increases</em> as your options multiply. Patience is its own kind of power."},
+            {id:'burchard', mood:'neutral',   quote:"The courier was waylaid discreetly. One agent has been placed in della Rovere's household. <strong>Minor suspicion accrues</strong> — such things are noticed eventually. But for now, we know more than he knows we know."},
+            {id:'lucrezia', mood:'curious',   quote:"What did the letters say, Father? The <em>knowledge itself</em> is the gain here. I hope it tells us something we can use — and soon. The French move faster than cardinals."},
+          ]
+        }
       },
       {
-        id: "1-4", type: "quiz", title: "Unit I Quiz", time: "5 min", level: "All",
-        lead: "Test your understanding of debate foundations before moving on.",
-        quiz: [
-          { q: "A debater says: 'As a cardiologist who has treated 3,000 patients, I can tell you this drug is dangerous.' This is primarily an appeal to…", opts: ["Pathos","Logos","Ethos","Kairos"], ans: 2, exp: "Citing professional credentials and clinical experience is a classic ethos appeal — establishing credibility before making the substantive claim." },
-          { q: "In the SEEC framework, what does the second 'E' stand for?", opts: ["Ethics","Evidence","Elaboration","Example"], ans: 1, exp: "SEEC = Statement, Explanation, Evidence, Conclusion. The Evidence component is where you bring in data, studies, or concrete examples." },
-          { q: "In the Toulmin Model, what bridges the logical gap between your data and your claim?", opts: ["The Backing","The Qualifier","The Warrant","The Rebuttal"], ans: 2, exp: "The Warrant is the logical bridge — it explains WHY the data supports the claim. Attacking an opponent's warrant is often more effective than attacking their data." },
-          { q: "What does 'steelmanning' an argument mean?", opts: ["Making your own argument as strong as possible","Presenting the opposing position at its strongest","Refusing to concede any points","Using emotional language to strengthen your case"], ans: 1, exp: "Steelmanning means engaging with the best, strongest version of the opposing argument — the opposite of a straw man, which attacks a weakened caricature." }
-        ]
+        label:'Cantarella',
+        isPoison:true,
+        text:"Administer a <strong>sub-lethal dose</strong> dissolved into communion wine at his Vatican audience. The arsenic — produced by heating silver ore until sulfide becomes oxide, then reducing with charcoal — will cause fever and vomiting. A warning, not a death.",
+        note:'Dose calibration: too little = no effect. This amount is calibrated for suffering only. Arsenic perfectly mimics stomach ailment — no 1492 physician can tell the difference.',
+        doseAdd:25,
+        deltas:{authority:3, suspicion:15, cantarella:-1, family:5, flag:'p1'},
+        log:"The steel-grey, brittle, odourless powder weighed and dissolved into the communion wine.",
+        feedback:{
+          recap:"You chose cantarella — a sub-lethal dose dissolved into della Rovere's communion wine. A warning.",
+          advisors:[
+            {id:'cesare',   mood:'cold',     quote:"One dose. <em>Well judged</em> — sub-lethal, mimicking Roman fever perfectly. He will vomit, ache, and wonder. The symptom mimicry holds: his physician will call it marsh air. What concerns me is the <strong>suspicion that accrues</strong>. The French ambassador already watches our kitchens."},
+            {id:'burchard', mood:'alarmed',  quote:"Holiness. I must record this nowhere, and yet I know it. A <strong>dose calibrated below lethal threshold</strong> — the arsenic enters tissue, accumulates slowly. His hair will thin in a fortnight. <strong>Suspicion climbs sharply.</strong> I pray no physician notices the pattern."},
+            {id:'lucrezia', mood:'unsettled',quote:"The cantarella is <em>odourless. Tasteless.</em> He felt nothing in the cup. He will feel everything tomorrow. You have sent a message he cannot read, Father. That is either very clever or very dangerous. The <strong>family stands with you</strong>, whatever comes."},
+          ]
+        }
+      },
+      {
+        label:'French Overture',
+        text:'Write directly to Charles VIII — offer Papal blessing for his Italian campaign in exchange for abandoning della Rovere.',
+        note:'You invite the wolf into Italy to leash the dog.',
+        deltas:{alliances:15, authority:-8, family:0, suspicion:5},
+        log:"A Papal letter rides north toward the French court.",
+        feedback:{
+          recap:"You wrote to Charles VIII — Papal blessing for his Italian campaign, in exchange for cutting off della Rovere.",
+          advisors:[
+            {id:'cesare',   mood:'alarmed',  quote:"Father, you have <em>invited French armies into Italy</em> to deal with one cardinal. The alliances improve now — <strong>strongly</strong> — but when Charles VIII crosses the Alps, he will not stop where you tell him. This is a solution that creates a larger problem."},
+            {id:'burchard', mood:'recording',quote:"The letter has been dispatched under Papal seal. Formally, this is a diplomatic recognition of French ambitions in Naples. Informally — <strong>authority dips</strong> as Rome's independence is compromised. <em>Suspicion rises</em> among the Spanish cardinals, who fear what the French bring."},
+            {id:'lucrezia', mood:'pragmatic',quote:"<em>Alliances are strongest</em> when both parties want the same thing. France wants Italy. You want della Rovere neutralised. For now, that alignment holds. I would not trust it past the season."},
+          ]
+        }
       }
     ]
   },
+ 
   {
-    unit: "Unit II",
-    name: "Logical Fallacies",
-    lessons: [
+    date: 'The Sala dei Pontefici — three days later',
+    text: `<p>Della Rovere kneels, but his eyes do not. The French ambassador stands behind him like a drawn sword. Around the hall: twelve cardinals whose votes you secured through <strong>simony in the 1492 conclave</strong>, their red hats bought with benefices and bishoprics. Several nod at della Rovere's words.</p>
+<p>He speaks of a <em>Council.</em> Reform. The word lands like stone in still water. Cardinal Sforza met with him last night. Milan moves.</p>
+<p>If cantarella has been used, the Cardinal's colour is already poor — he excuses himself twice. <strong>Arsenic at this dose mimics stomach ailment perfectly;</strong> his physician suspects nothing. The cumulative exposure builds unseen.</p>`,
+    choices: [
       {
-        id: "2-1", type: "lesson", title: "Fallacies of Relevance", time: "11 min", level: "Intermediate",
-        lead: "Fallacies of relevance occur when an argument's premises are logically irrelevant to its conclusion — they distract rather than support. Spotting them in real time is a core debate skill.",
-        body: `
-<h2>What Is a Logical Fallacy?</h2>
-<p>A logical fallacy is an error in reasoning that makes an argument invalid — even if the conclusion might accidentally be correct. In debate, fallacies are both <strong>weapons</strong> (pointing them out in your opponent's case) and <strong>vulnerabilities</strong> (avoiding them in your own). The best debaters can name fallacies by type the moment they hear them.</p>
-<div class="fallacy-grid">
-  <div class="fallacy-card red">
-    <div class="fallacy-name">Ad Hominem</div>
-    <div class="fallacy-latin">argumentum ad hominem</div>
-    <div class="fallacy-def">Attacking the person making the argument rather than the argument itself. A classic distraction tactic.</div>
-    <div class="fallacy-example">"We can't trust her economic proposals — she's been bankrupt twice."</div>
-  </div>
-  <div class="fallacy-card amber">
-    <div class="fallacy-name">Straw Man</div>
-    <div class="fallacy-latin">homo stramineus</div>
-    <div class="fallacy-def">Misrepresenting your opponent's position — making it weaker or more extreme — so it's easier to attack.</div>
-    <div class="fallacy-example">"My opponent wants to reduce military spending, so they want to leave us defenceless."</div>
-  </div>
-  <div class="fallacy-card purple">
-    <div class="fallacy-name">Appeal to Authority</div>
-    <div class="fallacy-latin">argumentum ad verecundiam</div>
-    <div class="fallacy-def">Citing an authority as evidence when the authority is not an expert in the relevant domain, or when experts disagree.</div>
-    <div class="fallacy-example">"This Nobel Prize-winning physicist says vaccines cause autism."</div>
-  </div>
-  <div class="fallacy-card blue">
-    <div class="fallout-name">Red Herring</div>
-    <div class="fallacy-latin">ignoratio elenchi</div>
-    <div class="fallacy-def">Introducing an irrelevant point to distract from the real issue under debate.</div>
-    <div class="fallacy-example">Debating tax policy: "But what about the crime rate in that city?"</div>
-  </div>
-  <div class="fallacy-card red">
-    <div class="fallacy-name">Tu Quoque</div>
-    <div class="fallacy-latin">"you too"</div>
-    <div class="fallacy-def">Deflecting criticism by pointing out the opponent's hypocrisy, rather than addressing the argument.</div>
-    <div class="fallacy-example">"How can you argue for climate policy? You flew here on a private jet."</div>
-  </div>
-  <div class="fallacy-card amber">
-    <div class="fallacy-name">Appeal to Popularity</div>
-    <div class="fallacy-latin">argumentum ad populum</div>
-    <div class="fallacy-def">Claiming something is true because many people believe it. Majorities have been wrong throughout history.</div>
-    <div class="fallacy-example">"Seventy percent of people support this policy, so it must be right."</div>
-  </div>
-</div>
-<h2>Calling Out Fallacies in Debate</h2>
-<p>When you identify a fallacy, the most effective response is a three-step move: <strong>Name it → Explain it → Return to substance.</strong></p>
-<div class="callout callout-example">
-  <div class="callout-label">Example — Calling a Straw Man</div>
-  <p>"My opponent has just committed a straw man fallacy. I never argued for open borders — I argued for processing refugees within 90 days, a position with broad international support. Now, back to the actual motion: is our current system failing? The data says yes."</p>
-</div>
-<div class="callout callout-tip">
-  <div class="callout-label">🎯 Tactic</div>
-  <p>Don't overuse fallacy-calling. If you spend the entire debate pointing out fallacies rather than making arguments, judges will see you as evasive. Use it surgically, when the fallacy is egregious and central to your opponent's case.</p>
-</div>`
+        label:'Humiliate',
+        text:"Rebuke della Rovere's reform call as French political interference. Appeal to Curial nationalism to turn his own allies against him in open session.",
+        note:null,
+        deltas:{authority:12, alliances:-10, suspicion:-5, family:3},
+        log:"The Sala erupts. Three French cardinals exit without a word.",
+        feedback:{
+          recap:"You publicly rebuked della Rovere — turning his reform call into a question of Roman sovereignty versus French interference.",
+          advisors:[
+            {id:'cesare',   mood:'satisfied', quote:"Masterfully done. You made his council a French plot in the minds of every Italian cardinal. <em>Authority surges.</em> <strong>Alliances with France fall sharply</strong> — the ambassador looked murderous as he left — but you do not need France if you hold the Curia. Della Rovere leaves today weaker than he entered."},
+            {id:'burchard', mood:'impressed', quote:"The Curia responded as anticipated. Three French-aligned cardinals departed in silence — a significant gesture. <strong>Suspicion of Your Holiness decreases</strong>: a man who poisons quietly does not rebuke so loudly. You appear, today, like a statesman rather than a murderer."},
+            {id:'lucrezia', mood:'amused',    quote:"You called him a French lapdog in front of twelve cardinals and the Papal secretariat. <em>The family applauded.</em> He cannot recover that ground easily. But he will not forget it either, Father."},
+          ]
+        }
       },
       {
-        id: "2-2", type: "lesson", title: "Fallacies of Weak Induction & Presumption", time: "10 min", level: "Intermediate",
-        lead: "A second category of fallacies occurs when evidence exists but is too weak to support the conclusion, or when unfounded assumptions are smuggled in.",
-        body: `
-<h2>Fallacies of Weak Induction</h2>
-<p>These fallacies have premises that are at least relevant to the conclusion — but the evidence is not strong enough to support it. They are often harder to spot than fallacies of relevance because they look like legitimate arguments at first glance.</p>
-<div class="fallacy-grid">
-  <div class="fallacy-card red">
-    <div class="fallacy-name">Hasty Generalisation</div>
-    <div class="fallacy-latin">secundum quid</div>
-    <div class="fallacy-def">Drawing a broad conclusion from too small a sample. One data point does not a trend make.</div>
-    <div class="fallacy-example">"I know three immigrants who committed crimes. Immigration clearly increases crime."</div>
-  </div>
-  <div class="fallacy-card amber">
-    <div class="fallacy-name">False Cause</div>
-    <div class="fallacy-latin">post hoc ergo propter hoc</div>
-    <div class="fallacy-def">Assuming that because B followed A, A caused B. Correlation ≠ causation.</div>
-    <div class="fallacy-example">"Crime fell after we launched this campaign — the campaign caused the drop."</div>
-  </div>
-  <div class="fallacy-card purple">
-    <div class="fallacy-name">Slippery Slope</div>
-    <div class="fallacy-latin">camel's nose</div>
-    <div class="fallacy-def">Claiming a small action will inevitably trigger a chain of extreme consequences — without evidence for the chain.</div>
-    <div class="fallacy-example">"If we ban assault rifles, the government will eventually take away all firearms."</div>
-  </div>
-  <div class="fallacy-card blue">
-    <div class="fallacy-name">Weak Analogy</div>
-    <div class="fallacy-latin">false analogy</div>
-    <div class="fallacy-def">Comparing two things that are more different than alike, drawing conclusions from the comparison.</div>
-    <div class="fallacy-example">"Running a country is like running a business — so a successful CEO will be a great president."</div>
-  </div>
-</div>
-<h2>Fallacies of Presumption</h2>
-<p>These fallacies involve hidden or false assumptions baked into the argument itself.</p>
-<div class="fallacy-grid">
-  <div class="fallacy-card red">
-    <div class="fallacy-name">False Dichotomy</div>
-    <div class="fallacy-latin">bifurcation fallacy</div>
-    <div class="fallacy-def">Presenting only two options when more exist, forcing a false binary choice.</div>
-    <div class="fallacy-example">"You're either with us or against us. Which is it?"</div>
-  </div>
-  <div class="fallacy-card amber">
-    <div class="fallacy-name">Begging the Question</div>
-    <div class="fallacy-latin">petitio principii</div>
-    <div class="fallacy-def">Assuming the conclusion within the premise — circular reasoning disguised as argument.</div>
-    <div class="fallacy-example">"The Bible is true because it is the word of God, and we know it is the word of God because the Bible tells us so."</div>
-  </div>
-  <div class="fallacy-card blue">
-    <div class="fallacy-name">Loaded Question</div>
-    <div class="fallacy-latin">complex question fallacy</div>
-    <div class="fallacy-def">Asking a question that presupposes a contentious assumption, trapping the respondent either way.</div>
-    <div class="fallacy-example">"Have you stopped lying to the committee?" (Yes or no — either implicates you.)</div>
-  </div>
-</div>
-<h2>Defending Against These Fallacies</h2>
-<p>When you face a slippery slope, demand the mechanism: "Where exactly does the chain break down? Can you demonstrate each causal link?" When you face a false dichotomy, simply name the third option that was excluded. When you face a loaded question in cross-examination, refuse the premise: "I reject the assumption embedded in that question."</p>`
+        label:'Concede',
+        text:"Promise a modest reform commission — toothless and years delayed — to appear magnanimous while you consolidate elsewhere.",
+        note:null,
+        deltas:{authority:-5, alliances:8, suspicion:-10, family:-3},
+        log:"The Pope speaks eloquently of renewal. No one quite believes him.",
+        feedback:{
+          recap:"You offered a reform commission — vague, distant, and toothless. A performance of magnanimity.",
+          advisors:[
+            {id:'cesare',   mood:'skeptical', quote:"A delay is not a victory, it is a postponement. <em>Alliances improve</em> — della Rovere's coalition loses urgency — but you have handed him a rhetorical stick: every month the commission does nothing, he will wave it. <strong>Authority dips.</strong>"},
+            {id:'burchard', mood:'neutral',   quote:"The announcement has been well received in the official record. <strong>Suspicion falls considerably</strong> — reformers assume you mean it. <em>The family is less pleased:</em> Cesare believes concession invites further demands. Diplomatically, you have bought perhaps six months."},
+            {id:'lucrezia', mood:'measured',  quote:"Six months of peace has value, Father. Use it. The commission will accomplish nothing — everyone knows this — but the <em>perception of goodwill</em> quiets certain voices. Just do not let it become a habit."},
+          ]
+        }
       },
       {
-        id: "2-3", type: "exercise", title: "Fallacy Identification Drill", time: "8 min", level: "Intermediate",
-        lead: "Put your fallacy knowledge to work. For each statement, identify the fallacy — then get AI feedback on your reasoning.",
-        isAiExercise: true,
-        exerciseType: "fallacy-drill",
-        scenarios: [
-          { statement: "\"We shouldn't listen to the senator's climate proposals — she drives an SUV.\"", hint: "Focus on what the argument attacks rather than the claim itself." },
-          { statement: "\"If we allow physician-assisted dying, soon we'll be euthanising the elderly against their will.\"", hint: "Consider whether the causal chain is established with evidence." },
-          { statement: "\"Everyone I know voted for this candidate — he must be winning.\"", hint: "Think about the size and representativeness of the sample." },
-          { statement: "\"Crime went up after the new policy was implemented. The policy caused the crime increase.\"", hint: "A famous Latin phrase applies here." }
-        ]
+        label:'Divide',
+        text:"Whisper privately to Cardinal Sforza that Milan's interests are better served by Rome than Paris. Split the coalition from within.",
+        note:'Cardinal rivalries in the Curia run older and deeper than French gold.',
+        deltas:{alliances:12, authority:5, suspicion:8, family:0},
+        log:"A quiet word in the corridor. One ally pivots. Three others notice.",
+        feedback:{
+          recap:"You worked the Curial rivalries — a private word to Cardinal Sforza driving a wedge between Milan and France.",
+          advisors:[
+            {id:'cesare',   mood:'approving', quote:"This is how it is done. You did not fight della Rovere — you <em>dissolved his coalition.</em> Milan is now uncertain. The French ambassador stands in an emptier room than he entered. <em>Alliances climb, authority firms.</em> The only cost is <strong>modest suspicion</strong>: whispered conversations are noticed."},
+            {id:'burchard', mood:'observant', quote:"Cardinal Sforza departed the corridor looking thoughtful. Two of della Rovere's other allies were watching. <strong>Suspicion accrues slightly</strong> — the Curia notices private conversations with unusual care. But the manoeuvre was clean, Holiness. No blood. No gold."},
+            {id:'lucrezia', mood:'approving', quote:"You used the <em>natural fractures</em> in their alliance rather than creating new ones. Sforza has his own ambitions — you simply reminded him of them. This is the kind of move I admire, Father. It looks like nothing happened."},
+          ]
+        }
       },
       {
-        id: "2-4", type: "quiz", title: "Unit II Quiz", time: "5 min", level: "All",
-        lead: "Test your fallacy recognition under realistic debate conditions.",
-        quiz: [
-          { q: "\"If we legalise marijuana, young people will move on to harder drugs within years.\" This is best described as…", opts: ["Ad Hominem","Slippery Slope","Hasty Generalisation","Tu Quoque"], ans: 1, exp: "This is a slippery slope — it assumes a chain of consequences (legalisation → harder drug use) without demonstrating each causal link is inevitable." },
-          { q: "A senator says: \"How can you criticise my healthcare plan? Your party's plan failed in 2018.\" This is…", opts: ["Straw Man","Appeal to Popularity","Tu Quoque","False Dichotomy"], ans: 2, exp: "Tu quoque (you too) — deflecting criticism by pointing to the opponent's past failures rather than addressing the argument on its merits." },
-          { q: "\"Three studies show this drug is effective.\" Your opponent counters: \"Those three studies involved fewer than 50 patients total.\" This is challenging your…", opts: ["Warrant","Qualifier","Data (inductive strength)","Backing"], ans: 2, exp: "This is a challenge to your inductive evidence — specifically a hasty generalisation challenge. The opponent is arguing your sample is too small to support your broad claim." },
-          { q: "Which of the following is a false dichotomy?", opts: ["'Either you're a scientist or you believe in climate change'","'Studies show this policy works in Denmark'","'My opponent has never run a business'","'Correlation does not imply causation'"], ans: 0, exp: "The first option presents a false binary — scientists can question specific claims; non-scientists can accept scientific consensus. The options are not mutually exclusive." }
-        ]
+        label:'Cantarella — escalate',
+        isPoison:true,
+        text:"The first dose was a warning. A second — moderate, not yet lethal — through the shared chalice at tomorrow's Mass. Cumulative arsenic exposure will leave him bedridden for weeks. The symptom mimicry holds: physicians will call it Roman fever.",
+        note:'Two doses now. Cumulative arsenic builds in tissue. Hair, nails, fingertips. A careful physician might begin to see a pattern.',
+        doseAdd:30,
+        deltas:{authority:8, suspicion:20, cantarella:-2, family:5, flag:'p2'},
+        log:"The chalice prepared in silence. Steel-grey. Brittle. No odour. No taste.",
+        feedback:{
+          recap:"You escalated — a second, moderate dose of cantarella through the shared chalice at Mass.",
+          advisors:[
+            {id:'cesare',   mood:'calculating', quote:"Two doses. He will be bedridden within days, unable to build his coalition — that is <em>significant authority gain.</em> But I watch the dose meter, Holiness. Arsenic accumulates in tissue, in hair. A physician who examines him carefully may find <strong>suspicious patterns.</strong> We are not yet exposed, but we approach a threshold."},
+            {id:'burchard', mood:'frightened',  quote:"Two administrations. I have watched his physician's reports. The presentation is <em>identical to marsh fever</em> — the symptom mimicry is holding. But <strong>suspicion has risen sharply.</strong> The French ambassador sent a letter to Paris last night. I do not know its contents. This frightens me, Holiness."},
+            {id:'lucrezia', mood:'quiet',       quote:"The cantarella is <em>odourless, tasteless,</em> made from charcoal-reduced arsenic oxide. He will not know. But the <strong>family's position strengthens</strong> with each day he lies abed — Cesare can move in the Romagna while Rome's attention is elsewhere. I say this, and I do not say I am comfortable saying it."},
+          ]
+        }
       }
     ]
   },
+ 
   {
-    unit: "Unit III",
-    name: "Rebuttal & Clash",
-    lessons: [
+    date: 'Your private chambers — one week hence',
+    text: `<p>Della Rovere has taken to his bed. Pale lips, vomiting, <strong>hair thinning at the temples</strong> — textbook presentation. His physician writes: <em>summer fever, possible marsh miasma.</em> Prescribes leeches. The French ambassador writes urgently to Paris.</p>
+<p>Meanwhile Lucrezia weeps. Giovanni Sforza refuses his marital duties and threatens alliance with della Rovere's party. And from Naples: King Ferrante is dead. <em>His son Alfonso has no love for Borgias.</em></p>
+<p>The cantarella sits in its lead-lined box. It is the byproduct of <strong>heating argentiferous ore — the sulfide becomes oxide, then charcoal strips the oxygen</strong> — leaving this brittle, electromagnetic, steel-grey metal used in <strong>green pigments, pesticide, fattening livestock before slaughter</strong>, and — God's darkest jest — <strong>treating blood disease.</strong></p>`,
+    choices: [
       {
-        id: "3-1", type: "lesson", title: "The Art of the Rebuttal", time: "11 min", level: "Intermediate",
-        lead: "A rebuttal is not a disagreement — it is a structured demolition. Learn to identify, isolate, and destroy the weakest link in any argument.",
-        body: `
-<h2>What Makes a Rebuttal Effective?</h2>
-<p>Most debaters confuse disagreement with rebuttal. "That's wrong" is not a rebuttal. An effective rebuttal has three qualities: it is <strong>precise</strong> (it attacks a specific component of the argument), <strong>evidenced</strong> (it doesn't just deny, it disproves), and <strong>consequential</strong> (it explains why winning this point matters to the overall debate).</p>
-<h2>The PEEL Rebuttal Framework</h2>
-<div class="framework-grid">
-  <div class="framework-card"><div class="fc-letter" style="color:var(--purple)">P</div><div class="fc-name">Point</div><div class="fc-desc">Name your opponent's argument precisely. "My opponent claims that…"</div></div>
-  <div class="framework-card"><div class="fc-letter" style="color:var(--red)">E</div><div class="fc-name">Explain</div><div class="fc-desc">Identify the flaw: weak evidence, faulty logic, false premise, or irrelevance.</div></div>
-  <div class="framework-card"><div class="fc-letter" style="color:var(--blue)">E</div><div class="fc-name">Evidence</div><div class="fc-desc">Bring in counter-evidence or expose what evidence they failed to consider.</div></div>
-  <div class="framework-card"><div class="fc-letter" style="color:var(--green)">L</div><div class="fc-name">Link</div><div class="fc-desc">Explain why this rebuttal matters — what does it mean for the overall debate?</div></div>
-</div>
-<h2>Advanced Rebuttal Techniques</h2>
-<h3>The Concede-and-Pivot</h3>
-<p>One of the most disarming techniques: agree with part of your opponent's argument, then show it actually supports <em>your</em> case. This signals intellectual honesty while pulling the rug from under your opponent.</p>
-<div class="callout callout-example">
-  <div class="callout-label">Concede & Pivot in Action</div>
-  <p>"My opponent is absolutely right that this policy is expensive — we've never disputed that. But here is what they haven't told you: every pound spent upfront saves £3.70 in long-term healthcare costs. This is not a drain on the public purse. It <em>is</em> the public purse being used wisely."</p>
-</div>
-<h3>The Turn</h3>
-<p>The most powerful rebuttal move: arguing that your opponent's evidence actually supports <em>your</em> position. When you "turn" an argument, your opponent's work becomes your work. The debate score flips twice — you lose a point when they make the argument, but gain it back when you turn it.</p>
-<div class="callout callout-example">
-  <div class="callout-label">Turning an Argument</div>
-  <p>Opponent: "Economic growth in fossil fuel sectors supports millions of jobs — we can't abandon them."<br>Turn: "My opponent is correct that fossil fuel sectors employ millions — which is exactly why we need a managed green transition <em>now</em>. Every year we delay is another year those workers are not retrained for the inevitable shift. The compassionate position is action, not inaction."</p>
-</div>
-<h3>Exposing the Link Gap</h3>
-<p>Most weak arguments fail at the link — the logical connection between evidence and conclusion. The evidence might be true, but the conclusion doesn't follow. Identify this gap explicitly.</p>
-<div class="callout callout-tip">
-  <div class="callout-label">🎯 Link-Gap Attack Template</div>
-  <p>"My opponent offers [evidence]. But they have not explained how this leads to [their conclusion]. There are at least three alternative explanations: [X], [Y], and [Z]. Their case collapses if even one of these is true."</p>
-</div>
-<h2>What NOT to Do in Rebuttal</h2>
-<ul>
-  <li><strong>Don't over-rebut.</strong> Addressing every single point your opponent makes signals you're playing defence. Pick the two or three that matter most.</li>
-  <li><strong>Don't ignore the strongest argument.</strong> Judges will notice. If you can't beat your opponent's best point, acknowledge its strength while explaining why it doesn't decide the debate.</li>
-  <li><strong>Don't make new arguments in rebuttal.</strong> Most formats prohibit this, and it looks evasive — like you're hiding the argument from scrutiny.</li>
-</ul>`
+        label:'Secure Lucrezia',
+        text:"Annul the Sforza marriage on grounds of non-consummation. The public humiliation destroys Giovanni Sforza's standing. It severs Milan — but unifies the family under your protection.",
+        note:null,
+        deltas:{family:12, alliances:-15, authority:3, suspicion:5},
+        log:"The marriage dissolved by Papal decree. Lucrezia straightens her spine.",
+        feedback:{
+          recap:"You annulled the Sforza marriage publicly, humiliating Giovanni and severing the Milan connection.",
+          advisors:[
+            {id:'cesare',   mood:'blunt',    quote:"Milan will not forgive this. <strong>Alliances fall sharply</strong> — Sforza will spend the next decade nursing this wound. But <em>the family is stronger:</em> Lucrezia is free, and a free Lucrezia can be married southward to Aragon, which is worth more than Milan ever was."},
+            {id:'burchard', mood:'pained',   quote:"The annulment record was filed on grounds of non-consummation, which Giovanni Sforza disputes — loudly, and in writing. <strong>Suspicion rises</strong> slightly as the scandal circulates. <em>Authority holds</em>: Popes annul marriages. It is within your power. It is merely… impolitic."},
+            {id:'lucrezia', mood:'complex',  quote:"I will not weep in public, Father. The <em>family stands together now</em> — that is what matters. Giovanni was weak. Milan's friendship was conditional. I had rather be your daughter than his wife. Now I am only your daughter. That is enough."},
+          ]
+        }
       },
       {
-        id: "3-2", type: "lesson", title: "Crystallisation & the Summary", time: "8 min", level: "Intermediate",
-        lead: "The final speech in any debate is not a review — it's a verdict. Learn to crystallise the debate into the two or three clashes that decided everything.",
-        body: `
-<h2>What Is Crystallisation?</h2>
-<p>Crystallisation is the art of distilling a complex debate into its most important moments — the "voting issues" that a judge or audience should use to decide the winner. A debater who simply recaps their own arguments in the summary has failed to crystallise. A debater who identifies the key clash points and explains why they won each one is controlling the narrative.</p>
-<h2>The Three-Step Summary Formula</h2>
-<div class="framework-grid">
-  <div class="framework-card"><div class="fc-letter">1</div><div class="fc-name">Identify the Clashes</div><div class="fc-desc">What were the two or three core disagreements in this debate? Name them explicitly.</div></div>
-  <div class="framework-card"><div class="fc-letter">2</div><div class="fc-name">Explain Who Won Each</div><div class="fc-desc">For each clash, explain why the weight of argument and evidence fell on your side — even if imperfectly.</div></div>
-  <div class="framework-card"><div class="fc-letter">3</div><div class="fc-name">Give the Meta-Reason</div><div class="fc-desc">Why, taken together, do these clashes decide the debate in your favour? The "big picture" argument.</div></div>
-</div>
-<h2>Weighing Mechanisms</h2>
-<p>When two arguments conflict, judges need a way to weigh them. In your summary, explicitly deploy weighing mechanisms:</p>
-<table class="compare-table">
-  <tr><th>Mechanism</th><th>How to Use It</th></tr>
-  <tr><td class="highlight">Magnitude</td><td>"Even if they win this point, our argument affects 10× more people"</td></tr>
-  <tr><td class="highlight">Probability</td><td>"Their harm is speculative; ours is documented and ongoing"</td></tr>
-  <tr><td class="highlight">Reversibility</td><td>"A mistake on their side is catastrophic and permanent; ours is correctable"</td></tr>
-  <tr><td class="highlight">Timeframe</td><td>"The benefits we describe occur immediately; their harms are decades away"</td></tr>
-  <tr><td class="highlight">Scope</td><td>"Our argument addresses the root cause; theirs addresses a symptom"</td></tr>
-</table>
-<div class="callout callout-example">
-  <div class="callout-label">Example Crystallisation</div>
-  <p>"This debate came down to two clashes: economic impact and individual liberty. On economics — even accepting my opponent's figures — the net benefit is positive by a factor of three. On liberty — they have not demonstrated a single case where this policy actually restricted individual choice. We win both clashes. The motion stands."</p>
-</div>`
+        label:'Naples Gambit',
+        text:"Send Cesare south with gifts and a betrothal offer: Lucrezia to wed Alfonso of Aragon, replacing the crumbling Sforza connection with a new southern alliance.",
+        note:null,
+        deltas:{alliances:18, family:8, authority:5, suspicion:-3},
+        log:"Cesare rides for Naples. The road is long.",
+        feedback:{
+          recap:"You dispatched Cesare to Naples with a betrothal offer — Lucrezia to Alfonso of Aragon.",
+          advisors:[
+            {id:'cesare',   mood:'eager',    quote:"Naples is the correct move. <em>Alliances surge</em> — an Aragonese marriage gives you southern security while the north is uncertain. Alfonso is young, manageable, and wants Papal favour more than he distrusts us. I will secure the terms. Give me three weeks."},
+            {id:'burchard', mood:'positive', quote:"The Neapolitan embassy received Cesare warmly, by all accounts. <strong>Suspicion falls</strong> — a Pope brokering a dynastic marriage looks like a statesman, not a poisoner. <em>Authority climbs, the family is pleased.</em> This is, on the ledger, the cleanest option available."},
+            {id:'lucrezia', mood:'resigned', quote:"Another marriage, then. I accept it, Father. Alfonso of Aragon is at least said to be kind. <em>The family grows stronger</em> with each alliance. I am the instrument of that growth. I have made my peace with it."},
+          ]
+        }
       },
       {
-        id: "3-3", type: "exercise", title: "Rebuttal Builder — AI Sparring", time: "10 min", level: "Intermediate",
-        lead: "Practice building live rebuttals. The AI will make an argument; you respond with a structured rebuttal using PEEL or Concede-and-Pivot. Then get coaching on your technique.",
-        isAiExercise: true,
-        exerciseType: "rebuttal-sparring"
+        label:'Finish It',
+        isPoison:true,
+        text:"A <strong>third, carefully lethal dose</strong> — not too much (excess produces convulsions too obvious to pass as natural illness), enough to kill within four days, presenting as sweating sickness. The arsenic, having no taste, no odour, dissolves into his evening wine without a ripple.",
+        note:'Three doses. The dose meter enters conspicuous territory. Multiple identical fevers near the Vatican table invite scrutiny from a careful observer.',
+        doseAdd:45,
+        deltas:{authority:15, suspicion:25, cantarella:-1, family:5, flag:'p3'},
+        log:"A lethal preparation. Steel-grey. Odourless. He will be dead within the week.",
+        feedback:{
+          recap:"You administered a lethal third dose — calibrated to kill within four days, mimicking the sweating sickness.",
+          advisors:[
+            {id:'cesare',   mood:'cold',      quote:"Done. <em>Authority climbs substantially</em> — a dead della Rovere is a solved problem. The dose calibration appears correct: enough to kill, not so much that the convulsions betray the method. But <strong>suspicion rises sharply.</strong> Three men close to the Vatican have now died of identical fevers. Someone is counting."},
+            {id:'burchard', mood:'ashen',     quote:"Holiness, I must speak plainly. A Spanish cardinal — Carvajal — has begun asking his physician questions about the pattern of illness among those who have recently dined in Vatican halls. <strong>Suspicion has risen dangerously.</strong> The symptom mimicry holds for now, but <em>we are near the threshold of conspicuousness.</em>"},
+            {id:'lucrezia', mood:'frightened', quote:"The arsenic is <em>odourless, tasteless, steel-grey and brittle</em> — but it is not invisible to a determined mind. Father, Carvajal is asking questions. The family's position strengthens as della Rovere falls, but if the source is discovered, we all fall with you."},
+          ]
+        }
+      },
+      {
+        label:'Act of Mercy',
+        text:"Send your own physician — with genuine herbal remedies — to della Rovere's bedside. A conspicuous public act of Christian charity that confounds anyone who suspects you.",
+        note:'Mercy, real or performed, is its own political currency.',
+        deltas:{authority:10, alliances:15, suspicion:-15, family:-3},
+        log:"The Pope sends his personal physician to his enemy. Rome is astonished.",
+        feedback:{
+          recap:"You sent your own physician with genuine remedies to della Rovere's bedside — a public act of mercy.",
+          advisors:[
+            {id:'cesare',   mood:'bemused',  quote:"I confess I did not expect this. <em>Alliances surge</em> — the moderates in the Curia are moved, the French ambassador is disarmed. Della Rovere will recover and he will hate you still, but he cannot say so without looking ungrateful. You have wrong-footed him completely. Grudging respect, Holiness."},
+            {id:'burchard', mood:'relieved', quote:"<strong>Suspicion falls dramatically.</strong> A man who poisons does not send his physician. The Spanish cardinals have gone quiet. Cardinal Carvajal's inquiries appear to have ceased. <em>Authority rises</em> — you appear, to all Rome, like a Christian prince. Whether you are one is between you and God."},
+            {id:'lucrezia', mood:'soft',     quote:"This is the move that surprised me most, Father. <em>It cost us</em> — the family loses some leverage without della Rovere incapacitated — but it bought something rarer: the appearance of virtue. He will recover. He will remember. So will everyone who watched."},
+          ]
+        }
       }
     ]
   },
+ 
   {
-    unit: "Unit IV",
-    name: "Cross-Examination",
-    lessons: [
+    date: 'The Sistine Chapel — the reckoning',
+    text: `<p>A consistory has been called. Beneath Perugino's frescos, in the smell of beeswax and cold stone, everything converges.</p>
+<p>You have perhaps wielded cantarella — arsenic, <strong>the same substance used in green pigments, pressed as a pesticide, fed to livestock to fatten them before slaughter</strong>, and which future physicians will turn to treating leukaemia. A poison and a medicine. The difference is dose and intent.</p>
+<p><strong>Scholars centuries from now will suspect it killed Napoleon Bonaparte on Saint Helena, and Zachary Taylor, twelfth President of the United States.</strong> Today you decide whether to use it once more — or govern through other means entirely.</p>`,
+    isLast:true,
+    choices: [
       {
-        id: "4-1", type: "lesson", title: "The Art of Cross-Examination", time: "12 min", level: "Advanced",
-        lead: "Cross-examination is where debates are won and lost. Done well, it dismantles your opponent's case in two minutes. Done poorly, it hands them the debate.",
-        body: `
-<h2>What Cross-Examination Is For</h2>
-<p>Cross-ex is not a debate — it's an interrogation. Your goal is never to argue with your opponent. Your goal is to extract concessions, expose inconsistencies, and set up arguments you will make in your next speech. The most powerful cross-ex questions are ones to which you already know the answer.</p>
-<p>There are four legitimate goals in cross-examination:</p>
-<ul>
-  <li><strong>Get concessions</strong> that support your own case</li>
-  <li><strong>Clarify positions</strong> to expose their weaknesses or contradictions</li>
-  <li><strong>Expose the link gap</strong> between their evidence and their conclusions</li>
-  <li><strong>Undermine credibility</strong> of their sources or methodology</li>
-</ul>
-<h2>The Funnel Technique</h2>
-<p>The funnel is the most effective cross-ex structure: start with broad questions the opponent must agree with, then progressively narrow until you reach a point that contradicts their case. By the time they see where you're going, it's too late — they've already agreed to the premises.</p>
-<div class="callout callout-example">
-  <div class="callout-label">The Funnel in Action</div>
-  <p><strong>Q:</strong> "You agree that economic growth is generally a good thing?"<br>
-<strong>A:</strong> "Yes."<br>
-<strong>Q:</strong> "And you accept that the IMF projects this policy will reduce GDP by 2%?"<br>
-<strong>A:</strong> "In the short term, yes."<br>
-<strong>Q:</strong> "So you're proposing a policy that you agree reduces something you agree is beneficial. Can you explain how that's a net positive?"</p>
-</div>
-<h2>Question Types</h2>
-<table class="compare-table">
-  <tr><th>Type</th><th>When to Use</th><th>Example</th></tr>
-  <tr><td class="highlight">Closed (Yes/No)</td><td>When forcing a concession</td><td>"Does your evidence come from a peer-reviewed study?"</td></tr>
-  <tr><td class="highlight">Clarifying</td><td>When exposing vagueness</td><td>"When you say 'most experts,' how many sources are you referring to?"</td></tr>
-  <tr><td class="highlight">Hypothetical</td><td>Testing the limits of a position</td><td>"If unemployment doubled as a result, would you still support this?"</td></tr>
-  <tr><td class="highlight">Source challenge</td><td>Undermining evidence</td><td>"Your study was funded by the industry it was evaluating — does that concern you?"</td></tr>
-</table>
-<h2>The Cardinal Rules of Cross-Ex</h2>
-<div class="fallacy-grid">
-  <div class="fallacy-card red"><div class="fallacy-name">Never ask open questions</div><div class="fallacy-def">Open questions give your opponent a podium. You lose control immediately. Every question should have a narrow, answerable scope.</div></div>
-  <div class="fallacy-card amber"><div class="fallacy-name">Never argue</div><div class="fallacy-def">If your opponent says something outrageous, make a note and destroy it in your speech. Don't debate during cross-ex — you'll look flustered.</div></div>
-  <div class="fallacy-card purple"><div class="fallacy-name">Never telegraph your destination</div><div class="fallacy-def">As soon as your opponent knows where the funnel leads, they'll evade. Use indirect paths to your target question.</div></div>
-  <div class="fallacy-card blue"><div class="fallacy-name">Cut off evasion — politely</div><div class="fallacy-def">"With respect, that doesn't answer my question. [Repeat the question.]" Do this twice. If they still evade, move on — judges notice evasion.</div></div>
-</div>
-<h2>Answering Cross-Examination (Defence)</h2>
-<p>When you're on the receiving end, the rules invert. You want to: give minimal answers (don't volunteer information), challenge the framing of leading questions, and never let the questioner put words in your mouth. If a question contains a false premise, attack the premise: "I reject the framing of that question — it assumes X, which we have demonstrated is false."</p>`
+        label:'Consolidate',
+        text:"Lever every purchased alliance and every cardinal enriched through simony to pass a Papal bull naming della Rovere's council schismatic. End the threat by the authority of sacred law.",
+        note:null,
+        deltas:{authority:15, alliances:10, suspicion:-5, family:5},
+        log:"The bull read aloud in full consistory. A long silence answers it.",
+        feedback:{
+          recap:"You called the vote — every cardinal purchased through simony now delivers his return. The bull passed.",
+          advisors:[
+            {id:'cesare',   mood:'satisfied', quote:"This is the machine working as built. Every benefice sold, every office traded — they all voted as instructed tonight. <em>Authority climbs, alliances firm, suspicion eases.</em> The threat is ended by law rather than by poison. Cleaner than I expected from you, Holiness."},
+            {id:'burchard', mood:'satisfied', quote:"The bull has been promulgated. Della Rovere's council proposal is formally schismatic — no cardinal may support it without risking excommunication. The vote was unanimous, or near enough. <em>The family stands strong. Suspicion recedes.</em> A legal victory is the best kind."},
+            {id:'lucrezia', mood:'warm',      quote:"You built something real tonight, Father. Not just a moment's advantage but a <em>structure</em> — law, precedent, the weight of the Church itself against your enemies. I think this is what a papacy is supposed to look like. I am glad to see it."},
+          ]
+        }
       },
       {
-        id: "4-2", type: "exercise", title: "Cross-Ex Challenge — AI Practice", time: "12 min", level: "Advanced",
-        lead: "The AI will take a position on a topic. You cross-examine it using the Funnel Technique. Then the AI evaluates your question quality and execution.",
-        isAiExercise: true,
-        exerciseType: "cross-ex-practice"
+        label:'Sacrifice',
+        text:"Submit to genuine — if partial — reform. Trade short-term papal power for historical legacy and your children's safety. Cesare will carry the Borgia name forward.",
+        note:null,
+        deltas:{authority:-10, family:15, suspicion:-20, alliances:20},
+        log:"History will debate your sincerity for the next five hundred years.",
+        feedback:{
+          recap:"You accepted reform — genuine concessions, a real commission, authority ceded in exchange for peace.",
+          advisors:[
+            {id:'cesare',   mood:'stormy',   quote:"You gave away real power. <em>Authority falls, and falls hard.</em> The reformers will push further now — concession invites concession. I do not like this, Holiness. Though I note <strong>suspicion collapses</strong> entirely. A corrupt Pope does not reform himself. You have surprised everyone, including me."},
+            {id:'burchard', mood:'moved',    quote:"<strong>Suspicion is gone.</strong> <em>Alliances soar</em> — even the Spanish cardinals are reconciled. Della Rovere has no ground left. The reform commission will accomplish little, but it costs him his issue entirely. And <em>the family is stronger than ever:</em> no man strikes at a Pope who is reforming."},
+            {id:'lucrezia', mood:'moved',    quote:"I did not think you would choose this, Father. <em>We gain everything</em> — safety, alliances, the future. You lose authority you have held for a decade. History will debate your sincerity. I think, today, it may have been real. I will remember this."},
+          ]
+        }
       },
       {
-        id: "4-3", type: "quiz", title: "Rebuttal & Cross-Ex Quiz", time: "5 min", level: "All",
-        lead: "Test your mastery of rebuttal and cross-examination techniques.",
-        quiz: [
-          { q: "In the PEEL rebuttal framework, what is the function of the final 'L'?", opts: ["Label the fallacy","Link back to why this matters for the overall debate","Lay out new evidence","List your opponent's weaknesses"], ans: 1, exp: "L = Link. After naming, explaining, and evidencing your rebuttal, you must explain its significance — why winning this specific point matters to the debate overall." },
-          { q: "A debater says: 'You're right that this policy costs more upfront — but that's exactly why we should support it: the long-term savings are 5× the investment.' This is an example of…", opts: ["The Funnel Technique","A Straw Man","Concede and Pivot","Crystallisation"], ans: 2, exp: "Concede and Pivot — agreeing with a point (the higher cost) and then showing it actually supports your case (because of long-term ROI). One of the most effective rhetorical moves." },
-          { q: "In cross-examination, why should you avoid open questions?", opts: ["They take too long to answer","They give your opponent a platform to develop their case further","They are considered rude in formal debate","Judges cannot evaluate them"], ans: 1, exp: "Open questions (e.g., 'What do you think about climate change?') hand your opponent a podium. You lose control of the cross-ex and may help them make their case." },
-          { q: "What does 'crystallisation' mean in the context of a debate summary?", opts: ["Summarising all your own arguments in order","Identifying and explaining the key clash points that decided the debate","Giving new evidence in the final speech","Quoting your opponent's exact words back at them"], ans: 1, exp: "Crystallisation is about identifying the 2-3 central clash points in the debate and explaining why your side won each — not a recap, but a verdict." }
-        ]
-      }
-    ]
-  },
-  {
-    unit: "Unit V",
-    name: "Rhetoric & Delivery",
-    lessons: [
-      {
-        id: "5-1", type: "lesson", title: "Rhetorical Devices That Win Debates", time: "10 min", level: "Advanced",
-        lead: "The greatest debaters in history — Cicero, Churchill, Obama — all mastered the same rhetorical devices. These are not tricks: they are the technology of persuasion.",
-        body: `
-<h2>Why Rhetoric Matters Beyond Logic</h2>
-<p>A perfectly logical argument can lose a debate. A slightly flawed argument delivered brilliantly can win it. This is not a failure of the system — it reflects reality. Humans are not logic machines. We are moved by rhythm, imagery, repetition, and narrative. Understanding this is not cynical; it's simply understanding your audience.</p>
-<h2>The Essential Devices</h2>
-<table class="compare-table">
-  <tr><th>Device</th><th>Definition</th><th>Example</th></tr>
-  <tr><td class="highlight">Anaphora</td><td>Repeating a word/phrase at the start of successive clauses for emphasis and rhythm</td><td>"We will fight on the beaches, we will fight on the landing grounds, we will fight in the fields…"</td></tr>
-  <tr><td class="highlight">Tricolon</td><td>Three parallel elements. The third hits hardest. The rhythm is almost irresistible.</td><td>"Life, liberty, and the pursuit of happiness."</td></tr>
-  <tr><td class="highlight">Antithesis</td><td>Contrasting ideas in parallel grammatical structures</td><td>"Ask not what your country can do for you — ask what you can do for your country."</td></tr>
-  <tr><td class="highlight">Rhetorical Question</td><td>A question posed for effect, not answer — draws the audience in as participants</td><td>"Can we really afford to do nothing?"</td></tr>
-  <tr><td class="highlight">Chiasmus</td><td>Reversing grammatical structure in successive phrases</td><td>"We do not live to eat; we eat to live."</td></tr>
-  <tr><td class="highlight">Metaphor/Analogy</td><td>Explaining a complex idea through a vivid comparison</td><td>"Trying to regulate the internet without understanding it is like trying to write traffic laws without ever having seen a car."</td></tr>
-</table>
-<h2>The Power of Pause</h2>
-<p>Silence is the most underused tool in debate. A two-second pause after a devastating argument gives your audience time to let it land. It signals confidence. It says: "I'm giving you a moment because what I just said matters." Most nervous debaters fill silence with words — great debaters use silence as punctuation.</p>
-<div class="callout callout-tip">
-  <div class="callout-label">🎯 Delivery Drill</div>
-  <p>Record yourself making a one-minute argument. Watch it back with the sound off. What does your body language communicate? Now watch with eyes closed. Does your voice vary in pace and pitch? Most first-time debaters speak too fast and in too narrow a vocal range.</p>
-</div>
-<h2>The Rule of Three in Practice</h2>
-<p>The tricolon is perhaps the single most powerful rhetorical device in spoken persuasion. Three items feel complete. Two feel incomplete. Four feel excessive. When structuring your arguments, organise them in threes wherever possible — three main points, three pieces of evidence, three consequences.</p>
-<div class="callout callout-example">
-  <div class="callout-label">Tricolon Example — Debate Closing</div>
-  <p>"This policy will save lives. It will save money. And it will save this government from the verdict of history. Vote for the motion."</p>
-</div>
-<h2>Kairos — Reading the Moment</h2>
-<p>Kairos is Aristotle's fourth element of rhetoric, often forgotten: the right time and place for an argument. The same argument lands differently depending on when you deploy it, what has just been said, and what the audience is feeling. The most rhetorical sophisticated debaters are constantly reading the room and adapting.</p>`
-      },
-      {
-        id: "5-2", type: "exercise", title: "Rhetoric Workshop — Write & Get Coached", time: "10 min", level: "Advanced",
-        lead: "Write a 2-minute closing argument on a topic of your choice. The AI will analyse your use of rhetorical devices, structure, and delivery notes.",
-        isAiExercise: true,
-        exerciseType: "rhetoric-workshop"
-      }
-    ]
-  },
-  {
-    unit: "Unit VI",
-    name: "Advanced Strategy",
-    lessons: [
-      {
-        id: "6-1", type: "lesson", title: "Framing, Definitions & Ground", time: "11 min", level: "Advanced",
-        lead: "The debater who controls the definitions controls the debate. Before the first argument, the strategic ground war has already begun.",
-        body: `
-<h2>Why Definitions Matter</h2>
-<p>In debate, the definition of key terms determines which arguments are relevant and which are out of scope. Control the definitions, and you control which terrain you're fighting on. "Artificial intelligence," "affordable housing," "harm," "freedom" — every contested term is a strategic opportunity.</p>
-<p>There are three legitimate approaches to definitions:</p>
-<ul>
-  <li><strong>Narrow definition:</strong> Limits the scope to ground you're strong on. Risky — opponent will challenge it.</li>
-  <li><strong>Broad definition:</strong> Expands scope to include your strongest arguments. Also risky — opens you up to more attack.</li>
-  <li><strong>Functional definition:</strong> Define terms by what they <em>do</em>, not what they <em>are</em>. More defensible.</li>
-</ul>
-<div class="callout callout-example">
-  <div class="callout-label">Definition Battle — Example</div>
-  <p>Motion: "This house would ban violent video games."<br>
-<strong>Proposition's narrow definition:</strong> "Violent means games where the primary mechanic is realistic physical violence against humanoid characters with realistic injury depictions."<br>
-<strong>Opposition's challenge:</strong> "This arbitrary narrowing excludes war games, which are the most commercially significant category and the focus of research on desensitisation. We propose: any game where violence against humanoid characters is a core gameplay mechanic."</p>
-</div>
-<h2>The Framing War</h2>
-<p>Framing determines which values and metrics the debate is judged by. Is this debate about <em>economic efficiency</em> or <em>social justice</em>? About <em>individual liberty</em> or <em>collective welfare</em>? About <em>short-term cost</em> or <em>long-term benefit</em>? The side that successfully frames the debate — getting judges and opponents to accept their evaluative lens — has a massive structural advantage.</p>
-<div class="callout callout-tip">
-  <div class="callout-label">🎯 Frame-Setting Template</div>
-  <p>"Before we argue the specifics, we want to be clear about how this debate should be evaluated. The central question is not [their frame] — it is [your frame]. Here's why our framework is the right lens for this motion: [reasoning]."</p>
-</div>
-<h2>Strategic Ground — What to Concede</h2>
-<p>Experienced debaters deliberately <strong>pre-concede</strong> weak ground to strengthen their position on more important ground. If you know your opponent's strongest point, acknowledge it — briefly and neutrally — before they make it. This defuses it and makes you look confident. Then immediately pivot to why it doesn't decide the debate.</p>
-<div class="callout callout-warning">
-  <div class="callout-label">⚠️ The Trap to Avoid</div>
-  <p>Don't define terms so narrowly that you win the definition battle but look evasive to the audience. Judges are watching for bad faith definitional games. Your definitions must be <em>principled</em> — you should be able to explain why they're the right ones, not just advantageous to you.</p>
-</div>
-<h2>The Burden of Proof</h2>
-<p>In most debate formats, the <strong>Proposition</strong> carries the burden of proof — it must demonstrate that the change advocated in the motion is desirable. The <strong>Opposition</strong> only needs to show the case for change has not been made. Understanding this asymmetry is critical to debate strategy on both sides.</p>`
-      },
-      {
-        id: "6-2", type: "lesson", title: "Debate Strategy Under Pressure", time: "9 min", level: "Advanced",
-        lead: "How do you adapt when the debate is going against you? What do you do when your evidence is challenged or your key argument is turned? Elite debaters have strategies for exactly these moments.",
-        body: `
-<h2>When the Debate Is Going Wrong</h2>
-<p>Every debater loses the flow sometimes. A key piece of evidence is challenged. Your main argument gets turned. Your opponent makes a brilliant point you hadn't anticipated. What separates good debaters from great ones is what they do next.</p>
-<h2>The Damage Control Protocol</h2>
-<div class="framework-grid">
-  <div class="framework-card"><div class="fc-letter" style="color:var(--red)">1</div><div class="fc-name">Triage</div><div class="fc-desc">Which arguments have you lost? Which can you still win? Don't fight everywhere — concentrate on winnable ground.</div></div>
-  <div class="framework-card"><div class="fc-letter" style="color:var(--amber)">2</div><div class="fc-name">Acknowledge</div><div class="fc-desc">If an argument has been clearly won by your opponent, acknowledge it briefly — don't ignore it. Judges will notice evasion.</div></div>
-  <div class="framework-card"><div class="fc-letter" style="color:var(--blue)">3</div><div class="fc-name">Reframe</div><div class="fc-desc">Shift the evaluative framework so your remaining arguments carry more weight than your opponent's won arguments.</div></div>
-  <div class="framework-card"><div class="fc-letter" style="color:var(--green)">4</div><div class="fc-name">Double Down</div><div class="fc-desc">Identify your single strongest argument and invest everything in it. Depth beats breadth when you're behind.</div></div>
-</div>
-<div class="callout callout-example">
-  <div class="callout-label">Damage Control — Real Scenario</div>
-  <p>"My opponent has made a compelling economic case — I'll grant them that. But this debate is not, ultimately, about economics. It is about rights. And on rights, they have offered nothing. A policy that generates economic growth while systematically violating civil liberties is not a policy we should celebrate. The economic argument is interesting. The rights argument is decisive."</p>
-</div>
-<h2>Speed vs. Depth Trade-off</h2>
-<p>In fast-paced debate formats, you face a constant choice: go broad (address many points quickly) or go deep (develop fewer arguments thoroughly). The right choice depends on the format, the judge, and the state of the debate. Generally: when you're ahead, go broad to avoid giving your opponent a target. When you're behind, go deep on your best argument — you need a knockout, not a decision.</p>
-<h2>Reading the Judge/Audience</h2>
-<p>Different judges and audiences weight debate differently. An academic judge cares about logical rigour. A general audience responds to narrative and pathos. A policy expert wants evidence. Adapt your emphasis mid-debate when you can read the room. The best debaters don't just perform — they communicate.</p>
-<div class="callout callout-insight">
-  <div class="callout-label">💡 Final Principle</div>
-  <p>Debate is not about proving you're right. It's about making the best possible case in the time available, with the evidence at hand. Perfection is not the standard — persuasion is.</p>
-</div>`
-      },
-      {
-        id: "6-3", type: "exercise", title: "Full Argument Construction — AI Coach", time: "15 min", level: "Advanced",
-        lead: "Choose a motion and build a complete opening statement: definition, framing, three main arguments using SEEC, and a closing crystallisation. The AI will give you detailed feedback.",
-        isAiExercise: true,
-        exerciseType: "full-argument-coaching"
-      },
-      {
-        id: "6-4", type: "quiz", title: "Final Mastery Quiz", time: "8 min", level: "All",
-        lead: "A comprehensive test across all six units. These are the questions that separate good debaters from great ones.",
-        quiz: [
-          { q: "You're losing on economic arguments but your opponent hasn't addressed civil liberties. The best strategy is to…", opts: ["Keep fighting on economics — never concede ground","Acknowledge the economic loss, reframe around rights as the deciding issue","Introduce three new economic counter-arguments","Ask for a time extension"], ans: 1, exp: "This is the reframe strategy — conceding lost ground gracefully and shifting the evaluative framework so your remaining strong arguments (civil liberties) carry more weight." },
-          { q: "The Proposition in a debate 'This house would legalise euthanasia' defines 'euthanasia' very narrowly to exclude assisted suicide. The Opposition should…", opts: ["Accept the definition and debate on those terms","Challenge the definition as unprincipled and propose a broader functional definition","Argue that euthanasia should be illegal regardless of definition","Refuse to engage until a judge rules on definitions"], ans: 1, exp: "Challenging an unduly narrow definition is legitimate and important. The Opposition should propose a broader, principled definition and explain why it better reflects the motion's real intent." },
-          { q: "Which weighing mechanism would you use to argue your opponent's harm is 'merely theoretical'?", opts: ["Magnitude","Reversibility","Probability","Timeframe"], ans: 2, exp: "Probability weighing — arguing that your opponent's harm scenario is speculative or unlikely, while yours is documented and ongoing. 'Their risk is 5%; ours is happening now.'" },
-          { q: "Your opponent opens cross-examination with: 'So you're in favour of unlimited immigration?' You actually argued for 'managed migration reform.' You should…", opts: ["Say yes to avoid conflict","Refuse to answer","Reject the premise: 'That misrepresents my position — I argued for managed reform, not unlimited immigration'","Ask what they mean by unlimited"], ans: 2, exp: "Attack the premise. The question contains a straw man — it misrepresents your stated position. Name it clearly and restate your actual argument before answering anything." },
-          { q: "A debater ends their speech: 'This policy will save lives, save money, and save our moral credibility on the world stage.' This uses which rhetorical device?", opts: ["Anaphora","Chiasmus","Tricolon","Antithesis"], ans: 2, exp: "Tricolon — three parallel items in grammatical sequence. The rule of three creates a natural, satisfying rhythm and makes the conclusion memorable." }
-        ]
+        label:'Final Cantarella',
+        isPoison:true,
+        text:"Ensure della Rovere does not attend. A final, <strong>precisely measured dose</strong> — not excessive (excess produces symptoms too dramatic to pass as natural illness) — dissolved in wine at tonight's eve banquet. The arsenic, <strong>electromagnetic, steel-grey, brittle, odourless, tasteless</strong>, made by charcoal-reducing arsenic oxide from heated silver ore, will do its silent work.",
+        note:'This is the threshold of conspicuousness. A Spanish cardinal has already begun asking about the pattern of fevers near the Vatican table.',
+        doseAdd:40,
+        deltas:{authority:5, suspicion:35, cantarella:-1, family:0, flag:'fp'},
+        log:"The final dose. Pure arsenic. Brittle. Odourless. Irreversible.",
+        feedback:{
+          recap:"You administered the final cantarella dose at the eve banquet. Della Rovere will not attend the consistory.",
+          advisors:[
+            {id:'cesare',   mood:'grave',     quote:"It is done. The dose calibration appears correct — lethal, not convulsive, the symptom mimicry should hold. But <strong>suspicion has spiked to dangerous levels.</strong> I have seen Carvajal speaking with two physicians this evening. We are one careful examination away from ruin. I hope the investment was worth it."},
+            {id:'burchard', mood:'horrified', quote:"Holiness. I must tell you: the <em>pattern is now visible to anyone who looks.</em> Arsenic from heated silver ore — odourless, tasteless, steel-grey and brittle, <strong>the same substance pressed into pesticide and livestock feed</strong> — leaves traces in the hair. A Roman physician who reads his Arabic texts knows this. Cardinal Carvajal reads everything. <strong>Suspicion is severe.</strong>"},
+            {id:'lucrezia', mood:'frightened', quote:"Father. <em>I am frightened.</em> Not for della Rovere — his choices led him here. I am frightened for us. The cantarella may have worked perfectly and we may still fall, because too many people are now asking the same question. The family stands with you. We have no other choice."},
+          ]
+        }
       }
     ]
   }
 ];
  
-// ══════════════════════════════════════════════════════════
-//  FLATTEN LESSONS
-// ══════════════════════════════════════════════════════════
-const ALL_LESSONS = [];
-CURRICULUM.forEach((unit, ui) => {
-  unit.lessons.forEach((lesson, li) => {
-    ALL_LESSONS.push({ ...lesson, unitIndex: ui, lessonIndex: li, globalIndex: ALL_LESSONS.length });
+/* ═══════════════════════════════════════════
+   STAT HELPERS
+═══════════════════════════════════════════ */
+function clamp(v){ return Math.max(0,Math.min(100,Math.round(v))); }
+ 
+function doseColor(p){ return p<20?'#5a8a5a':p<50?'#c8a97e':p<75?'#c07030':'#c0392b'; }
+function doseStatus(p){
+  if(p===0) return 'None administered';
+  if(p<20)  return 'Sub-threshold — no visible effect';
+  if(p<50)  return 'Symptomatic — fever, vomiting, hair loss';
+  if(p<80)  return 'Approaching lethal — death likely';
+  return 'Conspicuous — pattern visible to physicians';
+}
+ 
+function renderStats(){
+  document.getElementById('stats-row').innerHTML = STATS_META.map(s=>{
+    const v=clamp(STATE[s.key]);
+    return `<div class="sc" id="sc-${s.key}">
+      <div class="sc-name">${s.label}</div>
+      <div class="sc-val" style="color:${s.color}">${v}</div>
+      <div class="sc-bar"><div class="sc-fill" style="width:${v}%;background:${s.color}"></div></div>
+    </div>`;
+  }).join('');
+  document.getElementById('cant-dots').innerHTML=Array.from({length:5},(_,i)=>
+    `<div class="cdot ${i<STATE.cantarella?'on':''}"></div>`).join('');
+  const p=Math.min(100,STATE.doseLevel);
+  document.getElementById('dose-fill').style.width=p+'%';
+  document.getElementById('dose-fill').style.background=doseColor(p);
+  document.getElementById('dose-status').textContent=doseStatus(p);
+}
+ 
+function flashStats(deltas){
+  STATS_META.forEach(s=>{
+    const el=document.getElementById('sc-'+s.key);
+    if(!el||!deltas[s.key]) return;
+    const cls=deltas[s.key]>0?'flash-up':'flash-down';
+    el.classList.add(cls);
+    setTimeout(()=>el.classList.remove(cls),1400);
   });
-});
-const TOTAL = ALL_LESSONS.length;
- 
-// ══════════════════════════════════════════════════════════
-//  STATE
-// ══════════════════════════════════════════════════════════
-let currentGlobal = 0;
-let completedLessons = new Set();
-let quizState = {}; // lessonId -> answered
-let unitOpen = {}; // unitIndex -> bool
- 
-// Arena
-let opponentType = 'ai', aiDifficulty = 'Novice', userStance = 'FOR';
-let debateMotion = '', chatHistory = [], debateRound = 0, isTyping = false, p2Turn = false;
- 
-// ══════════════════════════════════════════════════════════
-//  NAVIGATION
-// ══════════════════════════════════════════════════════════
-function goto(screen) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById(screen).classList.add('active');
-  if (screen === 'learn') { buildSidebar(); loadLesson(currentGlobal); }
 }
  
-function leaveArena() {
-  document.getElementById('battle-screen').classList.remove('active');
-  document.getElementById('arena-setup-panel').style.display = '';
-  goto('home');
+/* ═══════════════════════════════════════════
+   LOG
+═══════════════════════════════════════════ */
+function addLog(e){
+  STATE.log.unshift(e);
+  if(STATE.log.length>5) STATE.log.pop();
+  document.getElementById('log-list').innerHTML=STATE.log
+    .map(l=>`<div class="log-entry">${l}</div>`).join('');
 }
  
-// ══════════════════════════════════════════════════════════
-//  SIDEBAR BUILD
-// ══════════════════════════════════════════════════════════
-function buildSidebar(filter) {
-  const container = document.getElementById('sidebar-units');
-  container.innerHTML = '';
-  CURRICULUM.forEach((unit, ui) => {
-    const isOpen = unitOpen[ui] !== false;
-    const matchingLessons = filter
-      ? unit.lessons.filter(l => l.title.toLowerCase().includes(filter.toLowerCase()))
-      : unit.lessons;
-    if (filter && matchingLessons.length === 0) return;
-    const unitDiv = document.createElement('div');
-    unitDiv.className = 'sidebar-unit';
-    const header = document.createElement('div');
-    header.className = 'unit-header';
-    header.innerHTML = `
-      <span class="unit-number">${unit.unit}</span>
-      <span class="unit-name">${unit.name}</span>
-      <span class="unit-chevron ${isOpen ? 'open' : ''}" id="chevron-${ui}">▶</span>`;
-    header.onclick = () => { unitOpen[ui] = !isOpen; buildSidebar(filter); };
-    unitDiv.appendChild(header);
-    if (isOpen || filter) {
-      const lessonsDiv = document.createElement('div');
-      lessonsDiv.className = 'unit-lessons';
-      matchingLessons.forEach(lesson => {
-        const g = ALL_LESSONS.find(l => l.id === lesson.id)?.globalIndex ?? 0;
-        const isDone = completedLessons.has(lesson.id);
-        const isActive = g === currentGlobal;
-        const typeMap = { lesson: 'tag-lesson', quiz: 'tag-quiz', exercise: 'tag-exercise', practice: 'tag-practice' };
-        const li = document.createElement('div');
-        li.className = `lesson-item${isDone ? ' done' : ''}${isActive ? ' active' : ''}`;
-        li.id = `sidebar-${lesson.id}`;
-        li.innerHTML = `
-          <div class="lesson-status${isDone ? ' done' : isActive ? ' active' : ''}">${isDone ? '✓' : isActive ? '►' : ''}</div>
-          <span style="flex:1">${lesson.title}</span>
-          <span class="lesson-type-tag ${typeMap[lesson.type] || 'tag-lesson'}">${lesson.type}</span>`;
-        li.onclick = () => loadLesson(g);
-        lessonsDiv.appendChild(li);
-      });
-      unitDiv.appendChild(lessonsDiv);
-    }
-    container.appendChild(unitDiv);
-  });
-  updateProgress();
+/* ═══════════════════════════════════════════
+   APPLY DELTAS
+═══════════════════════════════════════════ */
+function applyDeltas(d){
+  if(d.authority)  STATE.authority  = clamp(STATE.authority  + d.authority);
+  if(d.family)     STATE.family     = clamp(STATE.family     + d.family);
+  if(d.suspicion)  STATE.suspicion  = clamp(STATE.suspicion  + d.suspicion);
+  if(d.alliances)  STATE.alliances  = clamp(STATE.alliances  + d.alliances);
+  if(d.cantarella!=null) STATE.cantarella=Math.max(0,STATE.cantarella+d.cantarella);
+  if(d.flag)       STATE.flags[d.flag]=true;
+  renderStats();
 }
  
-function filterLessons(val) { buildSidebar(val); }
- 
-function updateProgress() {
-  const pct = Math.round((completedLessons.size / TOTAL) * 100);
-  const fill = document.getElementById('spb-fill');
-  const count = document.getElementById('spb-count');
-  const label = document.getElementById('learn-progress-label');
-  if (fill) fill.style.width = pct + '%';
-  if (count) count.textContent = `${completedLessons.size} / ${TOTAL} lessons done`;
-  if (label) label.textContent = `${completedLessons.size} / ${TOTAL} complete`;
+/* ═══════════════════════════════════════════
+   FEEDBACK PANEL
+═══════════════════════════════════════════ */
+function buildDeltaChips(deltas){
+  const statNames={authority:'Authority',family:'Family',suspicion:'Suspicion',alliances:'Alliances'};
+  return STATS_META.map(s=>{
+    const val=deltas[s.key];
+    if(!val) return '';
+    const sign=val>0?'+':'';
+    const dir=val>0?'up':'down';
+    const arr=val>0?'↑':'↓';
+    return `<div class="delta-chip">
+      <span class="stat-name-d">${statNames[s.key]}</span>
+      <span class="delta-val ${dir}">${sign}${val}</span>
+      <span class="delta-arr ${dir}">${arr}</span>
+    </div>`;
+  }).filter(Boolean).join('');
 }
  
-// ══════════════════════════════════════════════════════════
-//  LESSON RENDERER
-// ══════════════════════════════════════════════════════════
-function loadLesson(globalIdx) {
-  currentGlobal = Math.max(0, Math.min(TOTAL - 1, globalIdx));
-  const lesson = ALL_LESSONS[currentGlobal];
-  const content = document.getElementById('learn-content');
+function showFeedback(choice, nextSceneIdx){
+  const fb = choice.feedback;
+  const panel = document.getElementById('feedback-panel');
  
-  // Update sidebar
-  buildSidebar(document.getElementById('sidebar-search')?.value || '');
+  // Recap
+  document.getElementById('fb-recap').innerHTML =
+    `<strong>Your Decision</strong>${fb.recap}`;
  
-  // Nav labels
-  document.getElementById('nav-label').textContent = `Lesson ${currentGlobal + 1} of ${TOTAL}`;
-  document.getElementById('btn-prev').disabled = currentGlobal === 0;
-  document.getElementById('btn-next').textContent = currentGlobal === TOTAL - 1 ? '✓ Finish' : 'Next →';
+  // Stat deltas
+  document.getElementById('fb-deltas').innerHTML =
+    buildDeltaChips(choice.deltas) ||
+    '<span style="font-size:12px;color:var(--smoke);font-style:italic">No immediate stat change.</span>';
  
-  // Mark open unit
-  unitOpen[lesson.unitIndex] = true;
- 
-  const unit = CURRICULUM[lesson.unitIndex];
-  let html = `
-    <div class="lesson-hero">
-      <div class="lesson-eyebrow">
-        <span style="color:var(--text3)">${unit.unit} · ${unit.name}</span>
-        <span>·</span>
-        <span>${lesson.type.charAt(0).toUpperCase() + lesson.type.slice(1)}</span>
+  // Advisor quotes
+  document.getElementById('fb-advisors').innerHTML = fb.advisors.map(a=>{
+    const adv=ADVISORS[a.id];
+    return `<div class="advisor-row ${a.id}">
+      <div class="advisor-avatar">
+        <div class="advisor-glyph">${adv.glyph}</div>
+        <div class="advisor-name-short">${adv.name}</div>
       </div>
-      <h1 class="lesson-title-big">${lesson.title}</h1>
-      <p class="lesson-lead">${lesson.lead || ''}</p>
-      <div class="meta-pills">
-        ${lesson.time ? `<span class="meta-pill">⏱ ${lesson.time}</span>` : ''}
-        ${lesson.level ? `<span class="meta-pill">📊 ${lesson.level}</span>` : ''}
+      <div class="advisor-bubble">
+        <div class="advisor-title">${adv.title}</div>
+        <div class="advisor-quote">${a.quote}</div>
       </div>
     </div>`;
+  }).join('');
  
-  if (lesson.type === 'lesson') {
-    html += `<div class="lesson-body">${lesson.body || ''}</div>`;
-    if (!completedLessons.has(lesson.id)) {
-      completedLessons.add(lesson.id);
-      updateProgress();
+  // Wire continue button
+  STATE.pendingNext = nextSceneIdx;
+  const btn = document.getElementById('continue-btn');
+  btn.onclick = () => advancePending();
+ 
+  panel.classList.add('on');
+  panel.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+ 
+function hideFeedback(){
+  document.getElementById('feedback-panel').classList.remove('on');
+}
+ 
+/* ═══════════════════════════════════════════
+   ENDINGS
+═══════════════════════════════════════════ */
+function checkEnding(){
+  const s=STATE;
+  // LOSS: suspicion threshold lowered to 80
+  if(s.suspicion>=80)
+    return {bad:true, title:'The Inquisition Comes',
+      body:"The deaths accumulate past the threshold of plausibility. Cardinal Carvajal presents a pattern to the consistory: identical symptoms, identical timing, identical proximity to your table. You are accused before God and man. The French army, scenting chaos, marches south. You flee to Castel Sant'Angelo with Cesare and a chest of cantarella that will avail you nothing now.",
+      facts:'The arsenic — <em>electromagnetic, odourless, steel-grey, brittle</em> — was not the problem. The dose calibration was. Too many applications. Too conspicuous a pattern. The poisoner\'s fatal error: excess over precision.'};
+  // LOSS: authority collapsed
+  if(s.authority<40)
+    return {bad:true, title:'The Throne Crumbles',
+      body:"Without the Curia behind you, della Rovere's council finds its quorum. The charges are read aloud — simony, nepotism, corruption — and no cardinal rises to defend you. You abdicate nothing formally, but the Papal apartments empty around you like a tide going out.",
+      facts:'Authority, once lost in the Curia, cannot be bought back quickly enough. <em>Simony</em> filled the treasury but the men it purchased did not stay purchased. Rodrigo Borgia, who came so far from Valencia, ends his papacy not with poison but with silence.'};
+  // VICTORY: lethal cantarella with suspicion controlled (harder: must be under 60)
+  if((s.flags.p3||s.flags.fp)&&s.suspicion<60)
+    return {bad:false, title:'The Empty Vial',
+      body:"Della Rovere dies of what Rome calls summer fever. No physician of 1492 can detect arsenic after death — they see gastric collapse and write 'marsh fever' in their records. You reign until 1503, feared and magnificent. Lucrezia remarries south. The cantarella vial is empty.",
+      facts:'Arsenic — made by heating silver ore until its <em>sulfide becomes oxide</em>, then reducing with <em>charcoal</em> as carbon claims the oxygen — leaves no post-mortem trace legible to a Renaissance physician. Symptom mimicry held. History debates your guilt for centuries, as it debates <em>Napoleon\'s</em> and <em>Zachary Taylor\'s.</em>'};
+  // LOSS: used lethal dose but suspicion too high — caught anyway
+  if(s.flags.p3||s.flags.fp)
+    return {bad:true, title:'The Vial and the Scaffold',
+      body:"Della Rovere dies — but the death comes too late and too visibly. Carvajal's physicians examine the body and find what a Renaissance doctor should not be able to find: the grey residue of arsenic oxide in the stomach lining. The brittle, steel-grey, odourless powder that left no trace in the living has left its mark in the dead. You are undone by precision you thought you had mastered.",
+      facts:'The arsenic was <em>correctly produced</em> — silver ore heated to sulfide, converted to oxide, reduced by charcoal to pure metal. The <em>dose calibration</em> was nearly right. But cumulative exposure across multiple applications left a pattern no amount of symptom mimicry could disguise from a careful eye.'};
+  // VICTORY: dominant authority + alliances (raised thresholds)
+  if(s.authority>=85&&s.alliances>=75)
+    return {bad:false, title:'Magnificence',
+      body:"The Borgia papacy reaches its zenith. Della Rovere is isolated. The French are flattered. You commission Pinturicchio for your apartments. You are remembered as corrupt, brilliant, and alive — which is more than your enemies can say.",
+      facts:'Cantarella — sourced from <em>silver operations in Chile and the Philippines</em> — used sparingly or not at all. The same substance that colours pigments <em>green</em>, kills <em>pests</em>, fattens <em>livestock</em>, and treats <em>leukaemia</em> — kept in reserve, never quite needed.'};
+  // VICTORY: strong family + authority (raised thresholds)
+  if(s.family>=85&&s.authority>=68)
+    return {bad:false, title:'The Borgia Dynasty',
+      body:"Cesare secures the Romagna. Lucrezia marries into Aragon. The family survives and extends. You traded authority for blood-loyalty and found the exchange sound. When della Rovere becomes Julius II in 1503, he inherits your shadow.",
+      facts:'<em>Simony</em> — the buying and selling of Church offices — funded everything. Three cardinals purchased. Two benefices traded for votes. The cantarella sat in its box, <em>brittle and patient</em>, while the dynasty was built by gold and marriage.'};
+  // VICTORY: web of alliances, suspicion controlled (raised + added suspicion gate)
+  if(s.alliances>=85&&s.suspicion<45)
+    return {bad:false, title:"The Spider's Web",
+      body:"Every great house is bound to you by gold, marriage, or fear. Della Rovere is isolated, his coalition dismantled one cardinal at a time. You are not loved. You are necessary, which outlasts love.",
+      facts:'<em>Curial rivalries</em> did the work the cantarella never needed to do. <em>Steel-grey, odourless</em> arsenic rests in its lead box — the same substance found one day in <em>Napoleon\'s hair</em> and <em>Zachary Taylor\'s remains</em>. Patient. Unused.'};
+  // LOSS: survived but did not prevail — no longer a soft win
+  return {bad:true, title:'A Papacy Squandered',
+    body:"You have survived — but survival is not victory. Della Rovere remains in Rome, the French hover at the Alps, the Curia has grown cold. You hold the Throne of Peter in name, but its power seeps away like water through old stone. History will not remember this papacy with fear or admiration. It will barely remember it at all.",
+    facts:'The cantarella — <em>brittle, electromagnetic, steel-grey, odourless, tasteless</em>, produced from charcoal-reduced arsenic oxide of heated silver ore, mined in <em>China, Chile, Mexico, Belgium, Namibia</em> and <em>the Philippines</em> — sits unused. A weapon held in reserve for a battle that was never quite won.'};
+}
+ 
+function showEnding(){
+  document.getElementById('main-game').style.display='none';
+  const end=checkEnding();
+  const doseUsed=4-STATE.cantarella;
+  const el=document.getElementById('ending-screen');
+  el.innerHTML=`<div class="end-card ${end.bad?'bad':''}">
+    <div class="end-sigil">${end.bad?'✝':'☩'}</div>
+    <div class="end-verdict ${end.bad?'loss':'win'}">
+      <span class="verd-icon">${end.bad?'✗':'✓'}</span>
+      ${end.bad?'Defeat — The Papacy Falls':'Victory — Rome is Yours'}
+    </div>
+    <div class="end-title">${end.title}</div>
+    <p class="end-body">${end.body}</p>
+    <div class="end-facts">
+      <div class="end-facts-title">Historical &amp; Chemical Postscript</div>
+      <p>${end.facts}</p>
+    </div>
+    <div class="end-stats">
+      <div class="es"><span class="es-v">${STATE.authority}</span><span class="es-l">Authority</span></div>
+      <div class="es"><span class="es-v">${STATE.suspicion}</span><span class="es-l">Suspicion</span></div>
+      <div class="es"><span class="es-v">${STATE.alliances}</span><span class="es-l">Alliances</span></div>
+      <div class="es"><span class="es-v">${doseUsed}</span><span class="es-l">Doses Used</span></div>
+    </div>
+    <button class="restart-btn" onclick="restartGame()">Begin Again</button>
+  </div>`;
+  el.classList.add('on');
+  el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+ 
+/* ═══════════════════════════════════════════
+   SCENE RENDER
+═══════════════════════════════════════════ */
+function renderScene(idx){
+  hideFeedback();
+  const scene=SCENES[idx];
+  document.getElementById('scene-date').textContent=scene.date;
+  const textEl=document.getElementById('scene-text');
+  textEl.innerHTML=scene.text;
+  textEl.classList.remove('scene-in');
+  void textEl.offsetWidth;
+  textEl.classList.add('scene-in');
+ 
+  const avail=scene.choices.filter(c=>!c.isPoison||STATE.cantarella>0);
+  document.getElementById('choices-list').innerHTML=avail.map((c,i)=>{
+    const ip=c.isPoison;
+    const noteHtml=c.note?`<span class="dose-note${ip?' warn':''}">${c.note}</span>`:'';
+    return `<button class="choice-btn ${ip?'poison-btn':''}" id="cb-${i}" onclick="makeChoice(${idx},${i})">
+      <span class="ch-tag">${c.label}</span>${c.text}${noteHtml}
+    </button>`;
+  }).join('');
+ 
+  document.getElementById('choices-section').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+ 
+/* ═══════════════════════════════════════════
+   CHOICE HANDLER
+═══════════════════════════════════════════ */
+function makeChoice(sceneIdx, choiceIdx){
+  const scene=SCENES[sceneIdx];
+  const avail=scene.choices.filter(c=>!c.isPoison||STATE.cantarella>0);
+  const choice=avail[choiceIdx];
+ 
+  // Dim all buttons, highlight chosen
+  avail.forEach((_,i)=>{
+    const btn=document.getElementById('cb-'+i);
+    if(!btn) return;
+    btn.disabled=true;
+    if(i===choiceIdx){
+      btn.classList.add('chosen');
+      if(choice.isPoison) btn.classList.add('poison-chosen');
     }
-  } else if (lesson.type === 'quiz') {
-    html += renderQuiz(lesson);
-  } else if (lesson.type === 'exercise') {
-    html += renderExercise(lesson);
-  }
- 
-  content.innerHTML = html;
-  content.scrollTop = 0;
- 
-  if (lesson.type === 'exercise' && lesson.isAiExercise) {
-    initAiExercise(lesson);
-  }
-  if (lesson.type === 'quiz') {
-    initQuiz(lesson);
-  }
-}
- 
-function nextLesson() {
-  if (currentGlobal < TOTAL - 1) loadLesson(currentGlobal + 1);
-  else { alert('🎉 Curriculum complete! Head to the Arena to put your skills to work.'); goto('home'); }
-}
-function prevLesson() { if (currentGlobal > 0) loadLesson(currentGlobal - 1); }
- 
-// ══════════════════════════════════════════════════════════
-//  QUIZ RENDERER
-// ══════════════════════════════════════════════════════════
-function renderQuiz(lesson) {
-  const qs = lesson.quiz || [];
-  let html = `<div class="lesson-body">`;
-  qs.forEach((q, qi) => {
-    html += `
-    <div class="quiz-section" id="quiz-${lesson.id}-${qi}">
-      <div class="quiz-header">
-        <span class="quiz-badge">Question ${qi + 1} of ${qs.length}</span>
-      </div>
-      <div class="quiz-q">${q.q}</div>
-      <div class="quiz-opts" id="opts-${lesson.id}-${qi}">
-        ${q.opts.map((opt, oi) => `<button class="quiz-opt" data-qi="${qi}" data-oi="${oi}" data-ans="${q.ans}" data-lid="${lesson.id}" data-exp="${encodeURIComponent(q.exp || '')}" onclick="answerQuiz(this)">${opt}</button>`).join('')}
-      </div>
-      <div id="qfb-${lesson.id}-${qi}"></div>
-    </div>`;
   });
-  html += `</div>`;
-  return html;
+ 
+  // Apply stats
+  if(choice.doseAdd) STATE.doseLevel=Math.min(100,STATE.doseLevel+choice.doseAdd);
+  const prevStats={};
+  STATS_META.forEach(s=>prevStats[s.key]=STATE[s.key]);
+  applyDeltas(choice.deltas);
+  flashStats(choice.deltas);
+  addLog(choice.log);
+ 
+  STATE.turn++;
+  const next=sceneIdx+1;
+  const isEnd=(next>=SCENES.length||STATE.suspicion>=90);
+ 
+  // Show feedback, then advance on Continue
+  STATE.pendingNext = isEnd ? -1 : next;
+  showFeedback(choice, isEnd ? -1 : next);
 }
  
-function initQuiz(lesson) {}
- 
-function answerQuiz(btn) {
-  const qi = +btn.dataset.qi;
-  const oi = +btn.dataset.oi;
-  const ans = +btn.dataset.ans;
-  const lid = btn.dataset.lid;
-  const exp = decodeURIComponent(btn.dataset.exp || '');
-  const optsContainer = document.getElementById(`opts-${lid}-${qi}`);
-  if (!optsContainer) return;
-  const opts = optsContainer.querySelectorAll('.quiz-opt');
-  opts.forEach(o => o.disabled = true);
-  opts[ans].classList.add('correct');
-  if (oi !== ans) opts[oi].classList.add('wrong');
-  const fb = document.getElementById(`qfb-${lid}-${qi}`);
-  const correct = oi === ans;
-  fb.innerHTML = `<div class="quiz-feedback ${correct ? 'success' : 'fail'}">${correct ? '✓ Correct! ' : '✗ Not quite. '}${exp}</div>`;
-  if (correct) {
-    completedLessons.add(lid + '-q' + qi);
-    // Mark quiz lesson as done when all questions answered
-    const lesson = ALL_LESSONS.find(l => l.id === lid);
-    if (lesson) {
-      const allAnswered = lesson.quiz.every((_, i) => document.getElementById(`qfb-${lid}-${i}`)?.innerHTML);
-      if (allAnswered) { completedLessons.add(lid); updateProgress(); buildSidebar(); }
-    }
-  }
-}
- 
-// ══════════════════════════════════════════════════════════
-//  AI EXERCISE RENDERER
-// ══════════════════════════════════════════════════════════
-function renderExercise(lesson) {
-  const type = lesson.exerciseType;
-  let inner = '';
- 
-  if (type === 'fallacy-drill') {
-    inner = `
-      <div class="exercise-box">
-        <div class="exercise-header">
-          <div class="exercise-icon" style="background:var(--red-dim);color:var(--red)">🎯</div>
-          <div><div class="exercise-title">Fallacy Drill</div><div class="exercise-subtitle">Identify the fallacy in each statement, then get AI coaching</div></div>
-        </div>
-        <div id="drill-container">
-          ${(lesson.scenarios || []).map((s, i) => `
-            <div style="margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)">
-              <div class="ai-label">Statement ${i + 1}</div>
-              <div class="ai-prompt-box">${s.statement}</div>
-              <div style="font-size:0.78rem;color:var(--text3);margin-bottom:8px">Hint: ${s.hint}</div>
-              <textarea id="fallacy-ans-${i}" rows="2" placeholder="Name the fallacy and explain why…"></textarea>
-              <button class="btn btn-ghost btn-sm" style="margin-top:8px" onclick="submitFallacy(${i}, ${JSON.stringify(s.statement).replace(/"/g,'&quot;')})">Get Feedback ↗</button>
-              <div id="fallacy-fb-${i}" class="ai-response-box" style="display:none"></div>
-            </div>`).join('')}
-        </div>
-      </div>`;
-  } else if (type === 'rebuttal-sparring') {
-    inner = `
-      <div class="exercise-box">
-        <div class="exercise-header">
-          <div class="exercise-icon" style="background:var(--purple-dim);color:var(--purple)">🥊</div>
-          <div><div class="exercise-title">Rebuttal Sparring</div><div class="exercise-subtitle">Respond to AI arguments with structured rebuttals</div></div>
-        </div>
-        <div class="form-row">
-          <label>Topic</label>
-          <input type="text" id="rebuttal-topic" placeholder="e.g. Social media regulation, Nuclear energy…" value="Universal Basic Income">
-        </div>
-        <button class="btn btn-primary btn-sm" onclick="startRebuttalSpar()">Get AI Argument ↗</button>
-        <div id="rebuttal-area" style="margin-top:1rem;display:none">
-          <div class="ai-label">AI Argument (argue against this)</div>
-          <div class="ai-prompt-box" id="rebuttal-prompt"></div>
-          <div class="form-row" style="margin-top:0.8rem">
-            <label>Your Rebuttal (use PEEL or Concede-Pivot)</label>
-            <textarea id="rebuttal-input" rows="4" placeholder="Point: My opponent claims...&#10;Explain: This is flawed because...&#10;Evidence: ...&#10;Link: This matters because..."></textarea>
-          </div>
-          <button class="btn btn-primary btn-sm" onclick="submitRebuttal()">Submit for Coaching ↗</button>
-          <div id="rebuttal-fb" class="ai-response-box" style="display:none;margin-top:0.8rem"></div>
-        </div>
-      </div>`;
-  } else if (type === 'cross-ex-practice') {
-    inner = `
-      <div class="exercise-box">
-        <div class="exercise-header">
-          <div class="exercise-icon" style="background:var(--blue-dim);color:var(--blue)">❓</div>
-          <div><div class="exercise-title">Cross-Examination Challenge</div><div class="exercise-subtitle">Cross-examine the AI using the Funnel Technique</div></div>
-        </div>
-        <div class="form-row">
-          <label>AI Position to Cross-Examine</label>
-          <select id="crossex-topic">
-            <option>The death penalty reduces serious crime</option>
-            <option>Economic growth is more important than environmental protection</option>
-            <option>Social media companies should be held liable for user content</option>
-            <option>Voting should be compulsory in democracies</option>
-          </select>
-        </div>
-        <button class="btn btn-primary btn-sm" onclick="startCrossEx()">Begin Cross-Examination ↗</button>
-        <div id="crossex-chat" style="margin-top:1rem;display:none">
-          <div id="crossex-log" style="max-height:320px;overflow-y:auto;padding:0.5rem 0;display:flex;flex-direction:column;gap:8px"></div>
-          <div style="display:flex;gap:8px;margin-top:0.8rem">
-            <input type="text" id="crossex-input" placeholder="Ask your next question…" onkeydown="if(event.key==='Enter')submitCrossEx()">
-            <button class="btn btn-primary btn-sm" onclick="submitCrossEx()">Ask</button>
-          </div>
-          <button class="btn btn-ghost btn-sm" style="margin-top:8px;width:100%" onclick="endCrossEx()">End & Get Evaluation</button>
-        </div>
-      </div>`;
-  } else if (type === 'rhetoric-workshop') {
-    inner = `
-      <div class="exercise-box">
-        <div class="exercise-header">
-          <div class="exercise-icon" style="background:var(--gold-dim);color:var(--gold)">✍️</div>
-          <div><div class="exercise-title">Rhetoric Workshop</div><div class="exercise-subtitle">Write a closing argument and get expert coaching</div></div>
-        </div>
-        <div class="form-row">
-          <label>Your Motion</label>
-          <input type="text" id="rh-motion" placeholder="e.g. This house believes AI should be regulated by governments">
-        </div>
-        <div class="form-row">
-          <label>Your Stance</label>
-          <div class="vs-toggle" style="max-width:280px">
-            <button class="vs-btn active" onclick="this.parentElement.querySelectorAll('.vs-btn').forEach(b=>b.classList.remove('active'));this.classList.add('active');window.rhStance='FOR'">For</button>
-            <button class="vs-btn" onclick="this.parentElement.querySelectorAll('.vs-btn').forEach(b=>b.classList.remove('active'));this.classList.add('active');window.rhStance='AGAINST'">Against</button>
-          </div>
-        </div>
-        <div class="form-row">
-          <label>Your 2-Minute Closing Argument</label>
-          <textarea id="rh-speech" rows="8" placeholder="Write your closing argument here. Try to use tricolon, anaphora, antithesis, and rhetorical questions. Structure it: key clashes won → weighing → closing image."></textarea>
-        </div>
-        <button class="btn btn-primary btn-sm" onclick="submitRhetoric()">Analyse My Rhetoric ↗</button>
-        <div id="rh-fb" class="ai-response-box" style="display:none;margin-top:0.8rem"></div>
-      </div>`;
-  } else if (type === 'full-argument-coaching') {
-    inner = `
-      <div class="exercise-box">
-        <div class="exercise-header">
-          <div class="exercise-icon" style="background:var(--green-dim);color:var(--green)">🏆</div>
-          <div><div class="exercise-title">Full Argument Construction</div><div class="exercise-subtitle">Build a complete opening statement with AI coaching</div></div>
-        </div>
-        <div class="form-row">
-          <label>Debate Motion</label>
-          <input type="text" id="fa-motion" placeholder="e.g. This house would ban fossil fuel advertising">
-        </div>
-        <div class="form-row">
-          <label>Your Opening Statement (include: definitions, framing, 3 SEEC arguments, closing)</label>
-          <textarea id="fa-speech" rows="10" placeholder="This house believes...&#10;&#10;We define [key term] as...&#10;&#10;Our first argument: [SEEC]&#10;Our second argument: [SEEC]&#10;Our third argument: [SEEC]&#10;&#10;For these reasons, we are proud to propose the motion."></textarea>
-        </div>
-        <button class="btn btn-primary btn-sm" onclick="submitFullArgument()">Get Detailed Coaching ↗</button>
-        <div id="fa-fb" class="ai-response-box" style="display:none;margin-top:0.8rem"></div>
-      </div>`;
-  }
- 
-  return `<div class="lesson-body">${inner}</div>`;
-}
- 
-function initAiExercise(lesson) {
-  window.rhStance = 'FOR';
-  window.crossExHistory = [];
-  window.crossExPosition = '';
-}
- 
-// ══════════════════════════════════════════════════════════
-//  AI EXERCISE HANDLERS
-// ══════════════════════════════════════════════════════════
-async function callClaude(messages, system, maxTokens = 1000) {
-  const body = { model: 'claude-sonnet-4-20250514', max_tokens: maxTokens, messages };
-  if (system) body.system = system;
-  const r = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body)
-  });
-  const d = await r.json();
-  return d.content?.map(c => c.text || '').join('') || '';
-}
- 
-function showLoading(id) {
-  const el = document.getElementById(id);
-  el.style.display = '';
-  el.innerHTML = `<div class="loading-state" style="padding:1rem"><div class="spinner"></div></div>`;
-}
- 
-function setResponse(id, html) {
-  const el = document.getElementById(id);
-  el.style.display = '';
-  el.innerHTML = html;
-}
- 
-async function submitFallacy(i, statement) {
-  const ans = document.getElementById(`fallacy-ans-${i}`)?.value.trim();
-  if (!ans) { alert('Please write your answer first.'); return; }
-  showLoading(`fallacy-fb-${i}`);
-  const reply = await callClaude([{ role: 'user', content: `Debate exercise: A student was asked to identify the logical fallacy in this statement: "${statement}"\n\nThe student responded: "${ans}"\n\nIn 3-4 sentences, tell the student (1) whether they correctly identified the fallacy (or what the actual fallacy is), (2) why it's that fallacy specifically, and (3) one practical tip for catching this fallacy in live debate. Be encouraging but precise.` }]);
-  setResponse(`fallacy-fb-${i}`, `<div class="ai-label">AI Coach</div>${reply.replace(/\n/g,'<br>')}`);
-  completedLessons.add('exercise-fallacy-' + i); updateProgress();
-}
- 
-async function startRebuttalSpar() {
-  const topic = document.getElementById('rebuttal-topic')?.value || 'Universal Basic Income';
-  const area = document.getElementById('rebuttal-area');
-  const prompt = document.getElementById('rebuttal-prompt');
-  if (!area || !prompt) return;
-  area.style.display = 'none';
-  prompt.textContent = 'Loading argument…';
-  area.style.display = '';
-  document.getElementById('rebuttal-fb').style.display = 'none';
-  const arg = await callClaude([{ role: 'user', content: `Give a concise 3-4 sentence argument FOR the following position, as if in a formal debate opening: "${topic}". Be direct, use one statistic or specific example, and make a clear logical claim. No hedging.` }]);
-  prompt.textContent = arg;
-}
- 
-async function submitRebuttal() {
-  const rebuttal = document.getElementById('rebuttal-input')?.value.trim();
-  const arg = document.getElementById('rebuttal-prompt')?.textContent || '';
-  if (!rebuttal) { alert('Please write your rebuttal first.'); return; }
-  showLoading('rebuttal-fb');
-  const reply = await callClaude([{ role: 'user', content: `Debate coaching task.\n\nOriginal argument: "${arg}"\n\nStudent's rebuttal: "${rebuttal}"\n\nEvaluate this rebuttal across four dimensions and give concrete feedback:\n1. PEEL Structure (did they use Point, Explain, Evidence, Link?)\n2. Precision (did they attack a specific claim or wave vaguely?)\n3. Counter-evidence (was evidence offered, or just assertion?)\n4. One thing to improve\n\nAlso rate the rebuttal 1-10. Be specific and helpful.` }]);
-  setResponse('rebuttal-fb', `<div class="ai-label">Coach Feedback</div>${reply.replace(/\n/g,'<br>')}`);
-  completedLessons.add('exercise-rebuttal'); updateProgress();
-}
- 
-async function startCrossEx() {
-  const pos = document.getElementById('crossex-topic')?.value;
-  window.crossExPosition = pos;
-  window.crossExHistory = [];
-  const chat = document.getElementById('crossex-chat');
-  const log = document.getElementById('crossex-log');
-  if (!chat || !log) return;
-  chat.style.display = '';
-  log.innerHTML = `<div class="system-msg">Cross-examination started. The AI holds this position: "${pos}". Ask closed, focused questions.</div>`;
-}
- 
-async function submitCrossEx() {
-  const input = document.getElementById('crossex-input');
-  const q = input?.value.trim();
-  if (!q) return;
-  input.value = '';
-  const log = document.getElementById('crossex-log');
-  const qDiv = document.createElement('div');
-  qDiv.style.cssText = 'background:var(--gold-dim);border:1px solid rgba(200,169,110,0.2);border-radius:10px;padding:8px 12px;font-size:0.84rem;align-self:flex-end;max-width:80%';
-  qDiv.textContent = 'Q: ' + q;
-  log.appendChild(qDiv);
-  log.scrollTop = log.scrollHeight;
-  window.crossExHistory.push({ role: 'user', content: q });
-  const system = `You are being cross-examined in a formal debate. Your position: "${window.crossExPosition}". Answer concisely and defensively — give minimal information, don't volunteer weaknesses. If cornered, acknowledge the point but add nuance. Answer in 1-3 sentences max.`;
-  const reply = await callClaude(window.crossExHistory, system, 300);
-  window.crossExHistory.push({ role: 'assistant', content: reply });
-  const aDiv = document.createElement('div');
-  aDiv.style.cssText = 'background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:8px 12px;font-size:0.84rem;max-width:80%';
-  aDiv.textContent = 'A: ' + reply;
-  log.appendChild(aDiv);
-  log.scrollTop = log.scrollHeight;
-}
- 
-async function endCrossEx() {
-  if (window.crossExHistory.length < 2) { alert('Ask at least one question first!'); return; }
-  const log = document.getElementById('crossex-log');
-  const evalDiv = document.createElement('div');
-  evalDiv.style.cssText = 'text-align:center;color:var(--text3);font-size:0.75rem;padding:4px 0';
-  evalDiv.textContent = 'Generating evaluation…';
-  log.appendChild(evalDiv);
-  const transcript = window.crossExHistory.map((m, i) => (i % 2 === 0 ? 'Q: ' : 'A: ') + m.content).join('\n');
-  const eval_ = await callClaude([{ role: 'user', content: `Evaluate this cross-examination transcript. The questioner was trying to expose weaknesses in this position: "${window.crossExPosition}".\n\nTranscript:\n${transcript}\n\nProvide:\n1. Overall effectiveness (1-10)\n2. Did they use the Funnel Technique? How well?\n3. Did they maintain control and avoid open questions?\n4. What was their best question?\n5. What question they should have asked but didn't\nBe specific and constructive.` }]);
-  evalDiv.style.cssText = 'background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1rem;font-size:0.83rem;color:var(--text2);line-height:1.6;margin-top:8px';
-  evalDiv.innerHTML = `<div class="ai-label" style="margin-bottom:6px">Cross-Ex Evaluation</div>${eval_.replace(/\n/g,'<br>')}`;
-  log.scrollTop = log.scrollHeight;
-  completedLessons.add('exercise-crossex'); updateProgress();
-}
- 
-async function submitRhetoric() {
-  const motion = document.getElementById('rh-motion')?.value.trim() || 'unspecified motion';
-  const speech = document.getElementById('rh-speech')?.value.trim();
-  if (!speech) { alert('Please write your argument first.'); return; }
-  showLoading('rh-fb');
-  const reply = await callClaude([{ role: 'user', content: `Analyse this debate closing argument for rhetorical quality.\n\nMotion: "${motion}" | Stance: ${window.rhStance || 'FOR'}\n\nSpeech:\n"${speech}"\n\nEvaluate:\n1. Rhetorical devices used (name them: anaphora, tricolon, antithesis, metaphor, etc.) with specific quotes\n2. Crystallisation quality — did they identify the key clash points?\n3. Emotional resonance — did it land a strong final image?\n4. Delivery notes — where should they pause, vary tone, slow down?\n5. Overall rhetorical score: X/10\n6. One rewrite suggestion — improve a specific sentence using a rhetorical device\n\nBe specific, quote the speech, and give actionable feedback.` }]);
-  setResponse('rh-fb', `<div class="ai-label">Rhetoric Analysis</div>${reply.replace(/\n/g,'<br>')}`);
-  completedLessons.add('exercise-rhetoric'); updateProgress();
-}
- 
-async function submitFullArgument() {
-  const motion = document.getElementById('fa-motion')?.value.trim();
-  const speech = document.getElementById('fa-speech')?.value.trim();
-  if (!motion || !speech) { alert('Please fill in both fields.'); return; }
-  showLoading('fa-fb');
-  const reply = await callClaude([{ role: 'user', content: `You are a senior competitive debate coach. Evaluate this opening statement comprehensively.\n\nMotion: "${motion}"\nSpeech:\n"${speech}"\n\nProvide detailed coaching on:\n1. DEFINITIONS — Are key terms defined? Are definitions principled and strategic?\n2. FRAMING — Is there a clear evaluative framework? Does it favour this side?\n3. ARGUMENT 1 — SEEC breakdown: Statement, Explanation, Evidence quality, Conclusion linkback. Score /10\n4. ARGUMENT 2 — Same breakdown. Score /10\n5. ARGUMENT 3 — Same breakdown. Score /10\n6. BURDEN OF PROOF — Has the burden been met or is more needed?\n7. RHETORIC — Any strong rhetorical devices? Missing opportunities?\n8. OVERALL SCORE: X/10\n9. THREE concrete improvements in order of priority\n\nBe rigorous, specific, and give line-level examples where possible.` }], null, 1500);
-  setResponse('fa-fb', `<div class="ai-label">Full Coaching Report</div>${reply.replace(/\n/g,'<br>')}`);
-  completedLessons.add('exercise-fullarg'); updateProgress();
-}
- 
-// ══════════════════════════════════════════════════════════
-//  ARENA
-// ══════════════════════════════════════════════════════════
-function setOpponent(type, el) {
-  opponentType = type;
-  document.querySelectorAll('.vs-btn').forEach(b => b.classList.remove('active'));
-  el.classList.add('active');
-  document.getElementById('difficulty-row').style.display = type === 'ai' ? '' : 'none';
-  document.getElementById('player2-row').style.display = type === 'human' ? '' : 'none';
-}
-function setDiff(d, el) {
-  aiDifficulty = d;
-  document.querySelectorAll('.diff-btn').forEach(b => b.classList.remove('active'));
-  el.classList.add('active');
-}
-function setStance(s, el) {
-  userStance = s;
-  document.querySelectorAll('#arena-setup-panel .vs-btn').forEach(b => b.classList.remove('active'));
-  el.classList.add('active');
-}
-function setMotion(el) { document.getElementById('motion-input').value = el.textContent; }
- 
-async function startDebate() {
-  const motion = document.getElementById('motion-input').value.trim();
-  if (!motion) { alert('Please enter a debate motion.'); return; }
-  debateMotion = motion; chatHistory = []; debateRound = 0;
-  const oppStance = userStance === 'FOR' ? 'AGAINST' : 'FOR';
-  const p2name = document.getElementById('p2-name').value.trim() || 'Player 2';
-  document.getElementById('arena-setup-panel').style.display = 'none';
-  document.getElementById('battle-screen').classList.add('active');
-  document.getElementById('battle-motion-text').textContent = `"${motion}"`;
-  document.getElementById('user-stance-label').textContent = userStance;
-  document.getElementById('opp-stance-label').textContent = oppStance;
-  document.getElementById('arena-bar-sub').textContent = `Round 1 · ${opponentType === 'ai' ? aiDifficulty + ' AI' : 'Two Players'}`;
-  document.getElementById('opp-name').textContent = opponentType === 'ai' ? `AI (${aiDifficulty})` : p2name;
-  document.getElementById('opp-avatar').textContent = opponentType === 'ai' ? '🤖' : '👥';
-  document.querySelector('.compose-area').style.display = '';
-  document.getElementById('chat-area').innerHTML = '';
-  p2Turn = false; updateTurnIndicator();
-  addSystemMsg(`Motion: "${motion}" · You are arguing ${userStance} · Make your opening argument.`);
-}
- 
-function addSystemMsg(txt) {
-  const ca = document.getElementById('chat-area');
-  const d = document.createElement('div'); d.className = 'system-msg'; d.textContent = txt;
-  ca.appendChild(d); ca.scrollTop = ca.scrollHeight;
-}
- 
-function addMsg(text, role, name) {
-  const ca = document.getElementById('chat-area');
-  const d = document.createElement('div');
-  d.className = `msg ${role === 'user' ? 'user' : 'ai'}`;
-  d.innerHTML = `<div class="msg-bubble">${text.replace(/\n/g,'<br>')}</div><div class="msg-meta">${name || (role === 'user' ? 'You' : document.getElementById('opp-name').textContent)}</div>`;
-  ca.appendChild(d); ca.scrollTop = ca.scrollHeight;
-}
- 
-function showTyping() {
-  const ca = document.getElementById('chat-area');
-  const d = document.createElement('div'); d.className = 'msg ai'; d.id = 'typing-bubble';
-  d.innerHTML = `<div class="msg-bubble"><div class="typing-dots"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div></div>`;
-  ca.appendChild(d); ca.scrollTop = ca.scrollHeight;
-}
-function removeTyping() { const b = document.getElementById('typing-bubble'); if (b) b.remove(); }
- 
-function updateTurnIndicator() {
-  const txt = document.getElementById('turn-text');
-  const sb = document.getElementById('send-btn');
-  const inp = document.getElementById('compose-input');
-  if (opponentType === 'human') {
-    txt.textContent = p2Turn ? `${document.getElementById('opp-name').textContent}'s turn` : 'Your turn (Player 1)';
-    sb.disabled = false; inp.disabled = false;
+function advancePending(){
+  hideFeedback();
+  const next=STATE.pendingNext;
+  if(next===-1){
+    setTimeout(showEnding,200);
   } else {
-    txt.textContent = isTyping ? 'AI is composing…' : 'Your turn';
-    sb.disabled = isTyping; inp.disabled = isTyping;
+    setTimeout(()=>renderScene(next),200);
   }
 }
  
-function handleKey(e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendArg(); } }
- 
-async function sendArg() {
-  const inp = document.getElementById('compose-input');
-  const text = inp.value.trim();
-  if (!text || isTyping) return;
-  inp.value = ''; debateRound++;
-  if (opponentType === 'human') {
-    addMsg(text, p2Turn ? 'ai' : 'user', p2Turn ? document.getElementById('opp-name').textContent : 'Player 1');
-    p2Turn = !p2Turn; updateTurnIndicator(); return;
-  }
-  addMsg(text, 'user'); chatHistory.push({ role: 'user', content: text });
-  isTyping = true; updateTurnIndicator(); showTyping();
-  const diffs = {
-    Novice: 'You are a novice debater. Keep responses to 2-3 sentences. Occasionally use weak evidence or slightly fallacious reasoning. Be earnest but limited.',
-    Intermediate: 'You are an intermediate debater. Respond with 3-5 sentences using clear logic, occasional statistics, and direct rebuttals. Push back on weak points.',
-    Expert: 'You are an expert competitive debater. Use 4-6 sentences. Deploy rigorous logic, cite specific evidence, name any logical fallacies in your opponent\'s argument, and make incisive rebuttals. Be sophisticated and precise.'
-  };
-  const system = `${diffs[aiDifficulty]}\nMotion: "${debateMotion}"\nYour position: ${userStance === 'FOR' ? 'AGAINST' : 'FOR'} the motion.\nRespond only with your debate argument. Stay in character.`;
-  try {
-    const reply = await callClaude(chatHistory, system);
-    removeTyping(); chatHistory.push({ role: 'assistant', content: reply });
-    addMsg(reply, 'ai'); document.getElementById('arena-bar-sub').textContent = `Round ${debateRound}`;
-  } catch(e) { removeTyping(); addMsg('(Connection error)', 'ai'); }
-  isTyping = false; updateTurnIndicator();
+/* ═══════════════════════════════════════════
+   RESTART
+═══════════════════════════════════════════ */
+function restartGame(){
+  Object.assign(STATE,{authority:70,family:60,suspicion:20,alliances:50,
+    cantarella:4,doseLevel:0,turn:0,log:[],flags:{},pendingNext:-1});
+  document.getElementById('ending-screen').classList.remove('on');
+  document.getElementById('ending-screen').innerHTML='';
+  document.getElementById('main-game').style.display='';
+  document.getElementById('log-list').innerHTML='';
+  hideFeedback();
+  renderStats();
+  renderScene(0);
+  window.scrollTo({top:0,behavior:'smooth'});
 }
  
-async function endDebate() {
-  if (!confirm('End and get scorecard?')) return;
-  if (chatHistory.length < 2) { alert('Have at least one exchange first!'); return; }
-  isTyping = true; updateTurnIndicator();
-  addSystemMsg('Generating scorecard…'); showTyping();
-  const prompt = `You are a debate judge. Analyse this transcript.\nMotion: "${debateMotion}"\nUser stance: ${userStance}\nTranscript:\n${chatHistory.map((m,i)=>`${i%2===0?'Debater':'AI'}: ${m.content}`).join('\n\n')}\n\nReturn ONLY raw JSON:\n{"overall_score":<1-10>,"logic_score":<1-10>,"rhetoric_score":<1-10>,"evidence_score":<1-10>,"winner":"User"or"AI"or"Draw","user_strengths":["s1","s2"],"user_weaknesses":["w1","w2"],"best_argument":"desc","summary":"2-3 sentences"}`;
-  try {
-    let raw = await callClaude([{ role: 'user', content: prompt }]);
-    raw = raw.replace(/```json|```/g,'').trim();
-    const fb = JSON.parse(raw);
-    removeTyping(); showScorecard(fb);
-  } catch(e) { removeTyping(); addSystemMsg('Could not generate scorecard.'); }
-  isTyping = false; updateTurnIndicator();
-  document.querySelector('.compose-area').style.display = 'none';
-}
- 
-function showScorecard(fb) {
-  const ca = document.getElementById('chat-area');
-  const wc = fb.winner==='User'?'var(--green)':fb.winner==='Draw'?'var(--gold)':'var(--red)';
-  const d = document.createElement('div');
-  d.style.cssText = 'background:var(--bg2);border:1px solid var(--border2);border-radius:14px;padding:1.3rem;margin-top:8px';
-  d.innerHTML = `<div style="font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text3);margin-bottom:8px;font-family:'DM Mono',monospace">Debate Scorecard</div>
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-    <div style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700">Round Complete</div>
-    <div style="background:${wc}22;color:${wc};border:1px solid ${wc}44;font-size:0.76rem;padding:3px 12px;border-radius:20px">${fb.winner==='User'?'🏆 You won':fb.winner==='Draw'?'🤝 Draw':'🤖 AI won'}</div>
-  </div>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px">
-    ${[['Logic',fb.logic_score],['Rhetoric',fb.rhetoric_score],['Evidence',fb.evidence_score]].map(([l,v])=>`<div style="background:var(--bg3);border-radius:8px;padding:10px;text-align:center"><div style="font-size:0.68rem;color:var(--text3);margin-bottom:3px">${l}</div><div style="font-family:'DM Mono',monospace;font-size:1.2rem;color:var(--gold)">${v}<span style="font-size:0.65rem;color:var(--text3)">/10</span></div></div>`).join('')}
-  </div>
-  <p style="font-size:0.84rem;color:var(--text2);margin-bottom:10px;line-height:1.6">${fb.summary||''}</p>
-  ${fb.best_argument?`<div style="background:var(--gold-dim);border-left:3px solid var(--gold);padding:8px 12px;border-radius:0 8px 8px 0;font-size:0.8rem;color:var(--text2);margin-bottom:8px"><strong style="color:var(--gold)">Best argument:</strong> ${fb.best_argument}</div>`:''}
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
-    <div style="background:var(--green-dim);border-radius:8px;padding:10px"><div style="font-size:0.65rem;color:var(--green);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:5px">Strengths</div>${(fb.user_strengths||[]).map(s=>`<div style="font-size:0.78rem;color:var(--text2);margin-bottom:3px">✓ ${s}</div>`).join('')}</div>
-    <div style="background:var(--red-dim);border-radius:8px;padding:10px"><div style="font-size:0.65rem;color:var(--red);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:5px">Improve</div>${(fb.user_weaknesses||[]).map(s=>`<div style="font-size:0.78rem;color:var(--text2);margin-bottom:3px">↗ ${s}</div>`).join('')}</div>
-  </div>`;
-  ca.appendChild(d); ca.scrollTop = ca.scrollHeight;
-}
- 
-// ══════════════════════════════════════════════════════════
-//  BREAKDOWN
-// ══════════════════════════════════════════════════════════
-async function analyzeBreakdown() {
-  const motion = document.getElementById('bd-motion').value.trim();
-  if (!motion) { alert('Please enter a debate motion.'); return; }
-  document.getElementById('bd-placeholder').style.display = 'none';
-  document.getElementById('bd-angles-area').style.display = 'none';
-  const results = document.getElementById('bd-results');
-  results.style.display = 'block';
-  results.innerHTML = `<div class="loading-state"><div class="spinner"></div><p style="font-size:0.85rem">Analysing "${motion}"…</p></div>`;
-  const prompt = `Analyse this debate motion: "${motion}"\n\nRespond ONLY in raw JSON (no markdown, no backticks):\n{"motion_summary":"one sentence","ethical_angles":["a1","a2","a3"],"economic_angles":["a1","a2","a3"],"political_angles":["a1","a2","a3"],"pro_arguments":["a1","a2","a3","a4"],"con_arguments":["a1","a2","a3","a4"],"steelman_pro":"2 sentences","steelman_con":"2 sentences","key_statistics":[{"label":"l","value":"v","source":"s"},{"label":"l","value":"v","source":"s"},{"label":"l","value":"v","source":"s"}],"fallacies_to_watch":[{"name":"n","description":"d"},{"name":"n","description":"d"},{"name":"n","description":"d"}],"argument_strengths":{"ethical":<1-10>,"economic":<1-10>,"political":<1-10>,"empirical":<1-10>},"complexity":<1-10>,"controversy":<1-10>}`;
-  try {
-    let raw = await callClaude([{ role: 'user', content: prompt }]);
-    raw = raw.replace(/```json|```/g,'').trim();
-    const bd = JSON.parse(raw);
-    ['ethical','economic','political'].forEach(t => {
-      const el = document.getElementById(`angle-${t}`);
-      if (el) el.innerHTML = (bd[`${t}_angles`]||[]).map(a=>`<li>${a}</li>`).join('');
-    });
-    document.getElementById('bd-angles-area').style.display = '';
-    renderBD(bd, motion);
-  } catch(e) {
-    results.innerHTML = `<div class="loading-state"><p style="color:var(--red)">Failed to analyse. Please check your connection.</p></div>`;
-  }
-}
- 
-function renderBD(bd, motion) {
-  const results = document.getElementById('bd-results');
-  const str = bd.argument_strengths || {};
-  results.innerHTML = `
-  <div class="bd-section"><div class="bd-section-title">Overview</div>
-    <div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r2);padding:1.1rem">
-      <div style="font-family:'Playfair Display',serif;font-size:1rem;font-style:italic;margin-bottom:0.5rem">"${motion}"</div>
-      <p style="font-size:0.85rem;color:var(--text2)">${bd.motion_summary||''}</p>
-      <div style="display:flex;gap:1rem;margin-top:0.8rem">
-        <div class="stat-row" style="flex:1;border:none;padding:0"><span class="stat-label">Complexity</span><span class="stat-val">${bd.complexity||'—'}/10</span></div>
-        <div class="stat-row" style="flex:1;border:none;padding:0"><span class="stat-label">Controversy</span><span class="stat-val">${bd.controversy||'—'}/10</span></div>
-      </div>
-    </div>
-  </div>
-  <div class="bd-section"><div class="bd-section-title">For vs Against</div>
-    <div class="grid-2">
-      <div class="pro-con-card pro"><div class="pro-con-label">For the Motion</div><ul class="pro-con-list">${(bd.pro_arguments||[]).map(a=>`<li>✓ ${a}</li>`).join('')}</ul></div>
-      <div class="pro-con-card con"><div class="pro-con-label">Against the Motion</div><ul class="pro-con-list">${(bd.con_arguments||[]).map(a=>`<li>✗ ${a}</li>`).join('')}</ul></div>
-    </div>
-  </div>
-  <div class="bd-section"><div class="bd-section-title">Steelman Arguments</div>
-    <div style="background:var(--bg3);border:1px solid var(--border);border-left:3px solid var(--green);border-radius:0 var(--r2) var(--r2) 0;padding:1rem;margin-bottom:8px">
-      <div style="font-size:0.65rem;color:var(--green);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:5px">Strongest case FOR</div>
-      <p style="font-size:0.85rem;color:var(--text2)">${bd.steelman_pro||''}</p>
-    </div>
-    <div style="background:var(--bg3);border:1px solid var(--border);border-left:3px solid var(--red);border-radius:0 var(--r2) var(--r2) 0;padding:1rem">
-      <div style="font-size:0.65rem;color:var(--red);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:5px">Strongest case AGAINST</div>
-      <p style="font-size:0.85rem;color:var(--text2)">${bd.steelman_con||''}</p>
-    </div>
-  </div>
-  <div class="bd-section"><div class="bd-section-title">Key Statistics</div>
-    ${(bd.key_statistics||[]).map(s=>`<div class="stat-row"><span class="stat-label">${s.label} <span style="font-size:0.7rem;color:var(--text3)">(${s.source})</span></span><span class="stat-val">${s.value}</span></div>`).join('')}
-  </div>
-  <div class="bd-section"><div class="bd-section-title">Fallacies to Watch</div>
-    ${(bd.fallacies_to_watch||[]).map(f=>`<div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:10px 13px;margin-bottom:7px"><div style="font-size:0.85rem;font-weight:500;color:var(--red);margin-bottom:2px">${f.name}</div><div style="font-size:0.8rem;color:var(--text2)">${f.description}</div></div>`).join('')}
-  </div>
-  <div class="bd-section"><div class="bd-section-title">Argument Strength by Dimension</div>
-    <div class="strength-bar-wrap">
-      ${Object.entries(str).map(([k,v])=>`<div class="strength-row"><div class="strength-label-row"><span>${k.charAt(0).toUpperCase()+k.slice(1)}</span><span>${v}/10</span></div><div class="strength-bar"><div class="strength-fill" style="width:${v*10}%"></div></div></div>`).join('')}
-    </div>
-  </div>`;
-}
- 
-// ══════════════════════════════════════════════════════════
-//  INIT
-// ══════════════════════════════════════════════════════════
-CURRICULUM.forEach((_, i) => { unitOpen[i] = i === 0; });
+/* ── INIT ── */
+renderStats();
+renderScene(0);
 </script>
 </body>
 </html>
